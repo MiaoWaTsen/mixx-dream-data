@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "updated": "2026-10-23",
+  "comebacks": [
+    {
+      "id": "strange-muse",
+      "title": "Strange Muse",
+      "kind": "EP",
+      "titleTrack": "Birthday Wish",
+      "teaserStart": "2026-09-21",
+      "release": "2026-10-19",
+      "promoEnd": "2026-11-09",
+      "promoEndEstimated": true,
+      "source": "https://www.kfriday.net/posts/k-pop/1463"
+    },
+    {
+      "id": "jp-debut-2026",
+      "title": "Japanese debut album",
+      "kind": "album",
+      "titleTrack": null,
+      "teaserStart": null,
+      "release": "2026-12-09",
+      "promoEnd": "2026-12-23",
+      "promoEndEstimated": true,
+      "source": "https://en.wikipedia.org/wiki/Nmixx"
+    }
+  ]
+}
