@@ -1,7 +1,7 @@
 {
-  "version": "1.4.2",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.2/bundle-1.4.2.zip",
+  "version": "1.4.3",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.3/bundle-1.4.3.zip",
   "minNative": 10400,
-  "notes": "音遊：灰色音道、長按音符、歌曲結尾不再有多餘音符",
+  "notes": "設定新增好友碼、立即更新按鈕",
   "released": "2026-10-24"
 }
