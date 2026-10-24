@@ -1,7 +1,7 @@
 {
-  "version": "1.4.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.1/bundle-1.4.1.zip",
+  "version": "1.4.2",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.2/bundle-1.4.2.zip",
   "minNative": 10400,
-  "notes": "新增背景音樂 Ocean，設定裡可調整歌單",
+  "notes": "音遊：灰色音道、長按音符、歌曲結尾不再有多餘音符",
   "released": "2026-10-24"
 }
