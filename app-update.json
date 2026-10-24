@@ -1,7 +1,8 @@
 {
-  "version": "1.4.7",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.7/bundle-1.4.7.zip",
-  "minNative": 10400,
-  "notes": "競技結果改彈窗、對手換成真實團體、瞇牌可上下推",
+  "version": "1.4.9",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.9/bundle-1.4.9.zip",
+  "checksum": "ca45e14069ce430fffa9bb60ddd7cb9addaee8a1155a3b38efe18d5b73d47321",
+  "minNative": 10408,
+  "notes": "修正自動更新下載（加上檢查碼）— 測試用",
   "released": "2026-10-24"
 }
