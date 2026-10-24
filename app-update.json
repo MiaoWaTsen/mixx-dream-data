@@ -1,7 +1,7 @@
 {
-  "version": "1.4.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.0/bundle-1.4.0.zip",
+  "version": "1.4.1",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.1/bundle-1.4.1.zip",
   "minNative": 10400,
-  "notes": "自動更新上線",
+  "notes": "新增背景音樂 Ocean，設定裡可調整歌單",
   "released": "2026-10-24"
 }
