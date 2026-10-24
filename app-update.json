@@ -1,7 +1,7 @@
 {
-  "version": "1.4.5",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.5/bundle-1.4.5.zip",
+  "version": "1.4.6",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.6/bundle-1.4.6.zip",
   "minNative": 10400,
-  "notes": "抽卡修正、更新機制修正（測試自動更新用）",
+  "notes": "卡片管理一排六張＋背面直接餵食、演出／周邊／直播／練習過場動畫",
   "released": "2026-10-24"
 }
