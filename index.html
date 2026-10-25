@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>MIXX-DREAM | NMIXX Universe</title>
+    <meta name="theme-color" content="#0B0D17">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="./pic/icon-180.png">
+
+    <!-- Emergency Bypass Script (In case logic hangs) -->
+    <script>
+        (function () {
+            window.isBooted = false;
+            setTimeout(function () {
+                if (!window.isBooted) {
+                    const btn = document.createElement('div');
+                    btn.id = 'emergency-reset-ui';
+                    btn.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999999;background:rgba(255,255,255,0.1);padding:15px;border-radius:15px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);text-align:center;color:white;font-size:0.8rem;';
+                    btn.innerHTML = `
+                        <p style="margin:0 0 10px 0;">載入過久？嘗試重新載入 (不會刪除存檔)</p>
+                        <button onclick="sessionStorage.clear(); navigator.serviceWorker.getRegistrations().then(rs=>{for(let r of rs)r.unregister();}); location.href=location.pathname+'?v='+Date.now();" style="background:#DC143C;color:white;border:none;padding:8px 15px;border-radius:5px;font-weight:bold;cursor:pointer;">清除快取並重啟</button>
+                    `;
+                    document.body.appendChild(btn);
+                }
+            }, 8000); // 8秒後如果沒進去，顯示求救按鈕
+        })();
+    </script>
+
+  <script type="module" crossorigin src="./assets/index-Rlte2WPZ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DrlchAnP.css">
+<link rel="manifest" href="./manifest.webmanifest"></head>
+
+<body>
+    <!-- PWA Install Required Overlay -->
+    <div id="pwa-install-overlay">
+        <div class="install-card">
+            <img src="./pic/icon-192.png" class="install-icon" alt="MIXX-DREAM Icon">
+            <h2 class="install-title">NSWER 專屬空間</h2>
+            <p class="install-desc">為了提供最夢幻的 3D 視覺與流暢體驗，<br>請將本程式「安裝至主畫面」後開啟。</p>
+
+            <div id="ios-instructions" style="display: none;">
+                <div class="install-steps">
+                    <div class="install-step">
+                        <div class="step-num">1</div> 點擊瀏覽器底部的「分享」按鈕 <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/IOS_Share_Icon.svg/1200px-IOS_Share_Icon.svg.png"
+                            width="15">
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">2</div> 向下滑動並選擇「加入主畫面」
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">3</div> 從桌面打開 MIXX-DREAM App
+                    </div>
+                </div>
+            </div>
+
+            <div id="android-instructions" style="display: none;">
+                <div class="install-steps">
+                    <div class="install-step">
+                        <div class="step-num">1</div> 點擊瀏覽器右上角的「三點」選單
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">2</div> 點擊「安裝應用程式」或「加到主畫面」
+                    </div>
+                    <div class="install-step">
+                        <div class="step-num">3</div> 從桌面打開 MIXX-DREAM App
+                    </div>
+                </div>
+                <button class="cyber-button" id="android-install-btn" style="width: 100%;">立刻安裝</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loader">
+        <div class="n-logo">NMIXX</div>
+        <div class="app-version" style="position: absolute; bottom: 16px; right: 20px; font-size: 0.75rem; opacity: 0.5;"></div>
+        <div style="margin-top: 20px; letter-spacing: 5px;">LOADING THE DREAM...</div>
+    </div>
+
+    <!-- iPhone/web: the game is landscape-only and Safari can't lock the orientation, so ask to rotate -->
+    <div id="rotate-hint"><div class="rotate-phone">📱</div><p>請把手機轉成橫向來玩 MIXX-DREAM</p><small>（記得關掉「直向鎖定」）</small></div>
+
+    <div id="login-screen">
+        <div class="glass-panel" style="width: 85%; max-width: 400px; text-align: center;">
+            <h2 style="letter-spacing: 5px; margin-bottom: 20px;">進入夢境</h2>
+            <button class="cyber-button" style="width: 100%; margin-top: 10px;" onclick="startGame()">開始遊戲</button>
+            <div style="margin-top: 20px; font-size: 0.7rem; opacity: 0.7;">
+                存檔保存在這支手機裡，換手機請用「設定 → 存檔碼」轉移
+            </div>
+        </div>
+    </div>
+
+    <!-- Tutorial Overlay -->
+    <div id="tutorial-overlay"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; display: none; align-items: flex-end; justify-content: center; padding-bottom: 50px;">
+        <img src="./pic/Haewon/guide.webp" alt="Haewon"
+            style="position: absolute; bottom: 0; right: 0; height: 80%; opacity: 0.8; mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
+        <div class="glass-panel dialogue-box" style="width: 90%; max-width: 600px; position: relative;">
+            <div id="tutorial-name-tag" class="character-name-tag">HAEWON</div>
+            <h3 style="color: var(--crimson); margin-top: 0;">隊長海嫄</h3>
+            <p id="tutorial-text" style="line-height: 1.6;"></p>
+            <input type="text" id="tutorial-name" class="login-input" maxlength="12" placeholder="輸入你的名字"
+                style="display: none; margin: 0 0 10px;" onkeydown="if (event.key === 'Enter') nextTutorialStep()">
+            <button class="cyber-button" style="float: right;" onclick="nextTutorialStep()">下一步</button>
+        </div>
+    </div>
+
+    <canvas id="webgl-bg"></canvas>
+    <div id="physics-container"></div>
+
+    <div id="ui-layer">
+        <!-- New Top Bar -->
+        <div id="top-bar"
+            style="position: absolute; top: 0; width: 100%; padding: 10px; display: flex; justify-content: space-between; align-items: flex-start; z-index: 100; pointer-events: none; display: none;">
+            <div class="glass-panel pointer-all"
+                style="padding: 10px; display: flex; flex-direction: column; gap: 5px;">
+                <div style="font-size: 0.9rem; font-weight: bold;"><span id="display-name">NSWER</span> <span
+                        style="color:var(--gold);">LV.<span id="user-level">1</span></span></div>
+                <div class="xp-container" style="width: 150px; margin: 0;">
+                    <div id="xp-bar" class="xp-bar"></div>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; pointer-events: auto;">
+                <div class="glass-panel"
+                    style="padding: 10px; color: var(--gold); font-weight: bold; text-align: right;">
+                    <div style="font-size: 0.7rem; color: #ccc;">MIXX-FLOW</div>
+                    $<span id="balance">1000</span>
+                </div>
+                <div class="glass-panel" style="padding: 10px; color: #ff69b4; font-weight: bold; text-align: right;">
+                    <div style="font-size: 0.7rem; color: #ccc;">FANS</div>
+                    <span id="fans-count">0</span>
+                </div>
+                <button class="cyber-button" onclick="toggleTasks()" style="padding: 10px; height: 100%;">🎯</button>
+                <button class="cyber-button" onclick="toggleSettings()" style="padding: 10px; height: 100%;">⚙️</button>
+            </div>
+        </div>
+
+        <!-- Main Hub Area -->
+        <div id="hub" style="width: 100%; height: 100%; position: relative; display: none; pointer-events: none;">
+
+            <!-- Side categories: each opens a small menu with its features -->
+            <div class="side-bubbles"
+                style="position: absolute; left: 20px; top: 120px; display:flex; flex-direction:column; pointer-events: auto; z-index: 20;">
+                <img class="side-bubble side-img" src="./assets/game-BVcyvvWc.png" alt="遊戲" onclick="openHubMenu('play', this)">
+                <img class="side-bubble side-img" src="./assets/grow-BI4YchXY.png" alt="養成" onclick="openHubMenu('grow', this)">
+                <img class="side-bubble side-img" src="./assets/demo-DBIM_Kb6.png" alt="展示" onclick="openHubMenu('show', this)">
+            </div>
+
+            <!-- Comeback event banner (shown only while NMIXX has a comeback running or coming) -->
+            <div id="comeback-banner" class="comeback-banner" onclick="openComeback()" style="display: none;"></div>
+
+            <!-- Center Display (Today's member) -->
+            <div id="hub-center-display"
+                style="position: absolute; bottom: 80px; width: 100%; height: 60%; display: flex; justify-content: center; align-items: flex-end; pointer-events: none; gap: -50px;">
+                <!-- Dynamically populated rendered models based on activeGroup -->
+            </div>
+        </div>
+
+        <!-- New Bottom Nav Bar -->
+        <div id="bottom-nav" class="glass-panel pointer-all"
+            style="position: absolute; bottom: 0; width: 100%; display: flex; justify-content: space-around; padding: 15px 5px; border-bottom: none; border-radius: 20px 20px 0 0; z-index: 100; display: none;">
+            <button class="nav-button active" style="font-size: 0.8rem;" onclick="closeAllOverlays()">🏠<br>主頁</button>
+            <button class="nav-button" style="font-size: 0.8rem;" onclick="openHubMenu('stage', this)">🎤<br>舞台</button>
+            <button class="nav-button" style="font-size: 0.8rem;" onclick="openHubMenu('team', this)">👥<br>隊伍</button>
+            <button class="nav-button" style="font-size: 0.8rem;" onclick="openShop()">🛒<br>商店</button>
+        </div>
+    </div>
+
+    <!-- Category menu opened from the hub's side bubbles and bottom nav -->
+    <div id="hub-menu-backdrop" onclick="closeHubMenu()"></div>
+    <div id="hub-menu" class="glass-panel"></div>
+
+    <!-- Pack Quantity Modal -->
+    <div id="pack-qty-modal" class="grid-overlay" style="z-index: 3400;">
+        <div class="glass-panel"
+            style="width: 90%; max-width: 400px; text-align: center; display: flex; flex-direction: column; gap: 15px; padding: 25px;">
+            <h2 id="pack-qty-title" style="margin-top: 0; margin-bottom: 5px;">開啟一般卡包</h2>
+            <p style="opacity: 0.8; font-size: 0.9rem;">請選擇開啟數量</p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin: 10px 0;">
+                <button class="cyber-button" style="padding: 10px 20px;" onclick="changePackOpenQty(-1)">-</button>
+                <span id="pack-qty-display" style="font-weight: bold; font-size: 1.5rem; min-width: 40px;">1</span>
+                <button class="cyber-button" style="padding: 10px 20px;" onclick="changePackOpenQty(1)">+</button>
+            </div>
+            <button class="cyber-button" style="width: 100%; margin-top: 10px; background: var(--xp-color);"
+                onclick="confirmOpenPacks()">確認開啟</button>
+            <button class="cyber-button"
+                style="width: 100%; margin-top: 5px; background: none; border: 1px solid white;"
+                onclick="document.getElementById('pack-qty-modal').style.display='none'">取消</button>
+        </div>
+    </div>
+
+    <!-- Management Overlay -->
+    <div id="management-overlay" class="grid-overlay">
+        <div class="mg-head">
+            <h2>卡片管理室</h2>
+            <div id="management-stats"></div>
+            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        </div>
+        <div id="management-grid" class="card-grid"
+            style="grid-template-columns: repeat(6, minmax(0, 1fr)); width: 94%; max-width: 1200px;">
+            <!-- dynamically loaded -->
+        </div>
+    </div>
+
+    <!-- Backpack Overlay -->
+    <div id="backpack-overlay" class="grid-overlay">
+        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
+            <h2 style="letter-spacing: 5px;">背包</h2>
+            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        </div>
+        <p style="opacity: 0.7;">持有特定的成員卡包，開啟時必定中該成員！</p>
+        <div id="backpack-grid" class="pack-selection"
+            style="grid-template-columns: repeat(3, 1fr); max-width: 800px; width: 90%;">
+            <!-- dynamically loaded -->
+        </div>
+    </div>
+
+    <!-- Game Overlays -->
+    <div id="game-overlay"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--deep-blue); z-index: 500; display: none; flex-direction: column; align-items: center; justify-content: center;">
+        <div id="game-canvas-container" style="width: 100%; height: 80%;"></div>
+        <div id="game-ui" style="position: absolute; top: 20px; width: 100%; text-align: center; pointer-events: none;">
+            <div id="game-title" style="font-size: 1.5rem; letter-spacing: 5px;">MODE: UNKNOWN</div>
+            <div id="game-score" style="font-size: 2rem; color: var(--accent-cyan);">SCORE: 0</div>
+        </div>
+        <button class="cyber-button" onclick="closeGame()" style="margin-top: 20px;">結束遊戲</button>
+    </div>
+
+    <!-- Mood Journal Modal -->
+    <div id="journal-overlay" class="glass-panel pointer-all"
+        style="position: fixed; display: none; z-index: 200; width: 80%; max-width: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <h2 style="margin-top: 0;">心情日記</h2>
+        <textarea id="journal-input" placeholder="寫下你的心情..."
+            style="width: 100%; height: 150px; background: transparent; color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 1rem;"></textarea>
+        <button class="cyber-button" style="width: 100%; margin-top: 1rem;" onclick="submitJournal()">發送給成員</button>
+        <div id="ai-response"
+            style="margin-top: 1rem; font-size: 0.9rem; font-style: italic; color: var(--accent-cyan);"></div>
+        <button onclick="toggleJournal()"
+            style="background: none; border: none; color: white; margin-top: 10px; cursor: pointer; text-decoration: underline;">關閉</button>
+    </div>
+
+    <!-- Collection Overlay -->
+    <div id="collection-overlay" class="grid-overlay">
+        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
+            <h2 style="letter-spacing: 5px;">成員圖鑑</h2>
+            <button class="cyber-button" onclick="toggleCollection()">關閉</button>
+        </div>
+        <div id="collection-stats" style="color: var(--accent-cyan); margin: 10px 0;">已收集: 0 / 18</div>
+        <div id="card-grid" class="card-grid"></div>
+    </div>
+
+    <!-- Exhibition Room Overlay -->
+    <div id="exhibition-overlay" class="grid-overlay">
+        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 900px; align-items: center;">
+            <h2 style="letter-spacing: 5px;">展覽室</h2>
+            <div>
+                <button class="cyber-button" onclick="toggleExhibition()">關閉</button>
+            </div>
+        </div>
+        <p style="opacity: 0.7;">點擊格子選擇要展示的成員卡 (上限 10 張)</p>
+        <div id="exhibition-grid" class="exhibition-grid"></div>
+    </div>
+
+    <!-- Selection Modal for Exhibition & Lineup -->
+    <div id="selection-modal" class="glass-panel">
+        <div class="selection-head">
+            <h3>選擇要展示的卡</h3>
+            <div class="selection-actions">
+                <button id="selection-clear" class="cyber-button"></button>
+                <button class="cyber-button selection-close" onclick="closeSelection()">取消</button>
+            </div>
+        </div>
+        <!-- One sideways-scrolling row of cards, so the picker never scrolls vertically -->
+        <div id="inventory-grid" class="selection-row"></div>
+    </div>
+
+    <!-- Zoom Overlay -->
+    <div id="zoom-overlay" onclick="closeZoom()">
+        <div id="zoom-card-container"></div>
+    </div>
+
+    <!-- Community Overlay -->
+    <!-- Gift Overlay -->
+    <div id="gift-overlay" class="grid-overlay">
+        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
+            <h2 style="letter-spacing: 5px;">禮物</h2>
+            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        </div>
+        <div class="gift-columns" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; max-width: 800px; margin-top: 10px;">
+            <div class="glass-panel" style="padding: 16px;">
+                <h3 style="margin-top: 0;">🎁 送禮物</h3>
+                <select id="gift-kind" class="login-input" style="background: rgba(0,0,0,0.4);" onchange="updateGiftForm()"></select>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <input id="gift-qty" type="number" class="login-input" style="flex: 1;" inputmode="numeric">
+                    <span id="gift-owned" style="font-size: 0.75rem; opacity: 0.7; white-space: nowrap;"></span>
+                </div>
+                <textarea id="gift-msg" class="login-input" rows="2" maxlength="100" style="resize: none;" placeholder="寫一段話給對方…（最多 100 字）"></textarea>
+                <button class="cyber-button" style="width: 100%; background: linear-gradient(45deg, #ff69b4, var(--crimson));" onclick="sendGift()">產生禮物碼並傳送</button>
+                <textarea id="gift-out" class="login-input" rows="2" readonly style="resize: none; font-family: monospace; font-size: 0.65rem;" placeholder="送出後禮物碼會顯示在這裡"></textarea>
+            </div>
+            <div class="glass-panel" style="padding: 16px;">
+                <h3 style="margin-top: 0;">💌 收禮物</h3>
+                <textarea id="gift-in" class="login-input" rows="4" style="resize: none; font-size: 0.75rem;" placeholder="把對方傳來的整段訊息貼在這裡"></textarea>
+                <button class="cyber-button" style="width: 100%;" onclick="redeemGift()">拆開禮物</button>
+                <div id="gift-result" style="display: none; margin-top: 12px; padding: 12px; border-radius: 10px; background: rgba(0,0,0,0.4);"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bond Overlay -->
+    <div id="bond-overlay" class="grid-overlay">
+        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
+            <h2 style="letter-spacing: 5px;">成員羈絆</h2>
+            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        </div>
+        <p style="opacity: 0.7; margin: 4px 0 10px;">一起上台、訓練、餵點心、打招呼、送禮都會增加羈絆。Lv.30 會得到該成員的 SIGNATURE 卡！</p>
+        <div id="bond-grid" class="bond-grid"></div>
+    </div>
+
+    <!-- Comeback Event Overlay -->
+    <div id="comeback-overlay" class="grid-overlay">
+        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
+            <h2 style="letter-spacing: 5px;">回歸企劃</h2>
+            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        </div>
+        <div id="comeback-body" style="width: 100%; max-width: 800px;"></div>
+    </div>
+
+    <div id="community-overlay" class="grid-overlay">
+        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
+            <h2 style="letter-spacing: 5px;">成員社群</h2>
+            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        </div>
+        <div
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 90%; max-width: 800px; margin-top: 30px;">
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <h3>直播活動</h3>
+                <p>與粉絲互動吧！</p>
+                <div style="font-size: 0.9rem; color: var(--accent-cyan); margin: 10px 0;">今日剩餘次數: <span
+                        id="live-count-display">3</span> / 3</div>
+                <button class="cyber-button" onclick="handleLiveStream()">開始直播 (-0~10 體力)</button>
+            </div>
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <h3>周邊販售</h3>
+                <p>每週一次的限定收益</p>
+                <div style="font-size: 0.9rem; color: var(--gold); margin: 10px 0;">本週狀態: <span
+                        id="merch-status-display">可販售</span></div>
+                <button class="cyber-button" onclick="handleMerchSale()">開啟攤位</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Training Overlay -->
+    <div id="training-overlay" class="grid-overlay">
+        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
+            <h2 style="letter-spacing: 5px;">練習室</h2>
+            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        </div>
+        <p style="opacity: 0.7;">提升編隊成員的專屬 XP，觸發「特別升級」獲得隨機屬性！</p>
+        <div id="training-stats" style="margin: 20px 0; color: var(--gold); font-size: 1.1rem;">今日練習次數: <span
+                id="train-count-display">0</span> / 2</div>
+        <div class="glass-panel" style="padding: 30px; width: 90%; max-width: 600px; text-align: center;">
+            <button class="cyber-button" style="width: 100%; font-size: 1.5rem; padding: 20px;"
+                onclick="handleTraining()">開始集體練習 (-5~20 體力)</button>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: #ccc;">每次練習編隊成員可獲得 10~120 點 XP</p>
+        </div>
+    </div>
+
+        <!-- Shop Overlay (Replaces Gacha) -->
+    <div id="shop-overlay" class="grid-overlay">
+        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
+            <h2 style="letter-spacing: 5px;">夢境商店</h2>
+            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; width: 90%; max-width: 800px; margin-top: 30px;">
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <img src="./pic/Gacha/dream_pack.webp" style="width: 120px; margin-bottom: 10px;">
+                <h4>一般卡包</h4>
+                <p style="font-size: 0.8rem; height: 3em;">包含一張隨機成員卡片</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('pack', -1)">-</button>
+                    <span id="shop-qty-pack" style="font-weight: bold; font-size: 1.2rem; min-width: 30px;">1</span>
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('pack', 1)">+</button>
+                </div>
+                <button id="shop-btn-pack" class="cyber-button" onclick="buyItem('pack')" style="width: 100%;">$800</button>
+            </div>
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <div style="height: 120px; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; margin-bottom: 10px;">🍫</div>
+                <h4>能量點心</h4>
+                <p style="font-size: 0.8rem; height: 3em;">回復一張卡片 30 點體力（體力每小時也會自然 +10）</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('snack', -1)">-</button>
+                    <span id="shop-qty-snack" style="font-weight: bold; font-size: 1.2rem; min-width: 30px;">1</span>
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('snack', 1)">+</button>
+                </div>
+                <button id="shop-btn-snack" class="cyber-button" onclick="buyItem('snack')" style="width: 100%;">$50</button>
+            </div>
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <img src="./pic/Lily/lily_bg.webp" onerror="this.src='./pic/Gacha/dream_pack.webp'" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;">
+                <h4>Lily 專屬包</h4>
+                <p style="font-size: 0.8rem; height: 3em;">包含一張Lily的成員卡片</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Lily', -1)">-</button>
+                    <span id="shop-qty-Lily" style="font-weight: bold; font-size: 1.2rem; min-width: 30px;">1</span>
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Lily', 1)">+</button>
+                </div>
+                <button id="shop-btn-Lily" class="cyber-button" onclick="buyItem('Lily')" style="width: 100%;">$1200</button>
+            </div>
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <img src="./pic/Haewon/haewon_bg.webp" onerror="this.src='./pic/Gacha/dream_pack.webp'" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;">
+                <h4>Haewon 專屬包</h4>
+                <p style="font-size: 0.8rem; height: 3em;">包含一張Haewon的成員卡片</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Haewon', -1)">-</button>
+                    <span id="shop-qty-Haewon" style="font-weight: bold; font-size: 1.2rem; min-width: 30px;">1</span>
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Haewon', 1)">+</button>
+                </div>
+                <button id="shop-btn-Haewon" class="cyber-button" onclick="buyItem('Haewon')" style="width: 100%;">$1200</button>
+            </div>
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <img src="./pic/Sullyoon/sullyoon_bg.webp" onerror="this.src='./pic/Gacha/dream_pack.webp'" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;">
+                <h4>Sullyoon 專屬包</h4>
+                <p style="font-size: 0.8rem; height: 3em;">包含一張Sullyoon的成員卡片</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Sullyoon', -1)">-</button>
+                    <span id="shop-qty-Sullyoon" style="font-weight: bold; font-size: 1.2rem; min-width: 30px;">1</span>
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Sullyoon', 1)">+</button>
+                </div>
+                <button id="shop-btn-Sullyoon" class="cyber-button" onclick="buyItem('Sullyoon')" style="width: 100%;">$1200</button>
+            </div>
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <img src="./pic/Bae/bae_bg.webp" onerror="this.src='./pic/Gacha/dream_pack.webp'" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;">
+                <h4>Bae 專屬包</h4>
+                <p style="font-size: 0.8rem; height: 3em;">包含一張Bae的成員卡片</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Bae', -1)">-</button>
+                    <span id="shop-qty-Bae" style="font-weight: bold; font-size: 1.2rem; min-width: 30px;">1</span>
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Bae', 1)">+</button>
+                </div>
+                <button id="shop-btn-Bae" class="cyber-button" onclick="buyItem('Bae')" style="width: 100%;">$1200</button>
+            </div>
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <img src="./pic/Jiwoo/jiwoo_bg.webp" onerror="this.src='./pic/Gacha/dream_pack.webp'" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;">
+                <h4>Jiwoo 專屬包</h4>
+                <p style="font-size: 0.8rem; height: 3em;">包含一張Jiwoo的成員卡片</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Jiwoo', -1)">-</button>
+                    <span id="shop-qty-Jiwoo" style="font-weight: bold; font-size: 1.2rem; min-width: 30px;">1</span>
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Jiwoo', 1)">+</button>
+                </div>
+                <button id="shop-btn-Jiwoo" class="cyber-button" onclick="buyItem('Jiwoo')" style="width: 100%;">$1200</button>
+            </div>
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <img src="./pic/Kyujin/kyujin_bg.webp" onerror="this.src='./pic/Gacha/dream_pack.webp'" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;">
+                <h4>Kyujin 專屬包</h4>
+                <p style="font-size: 0.8rem; height: 3em;">包含一張Kyujin的成員卡片</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Kyujin', -1)">-</button>
+                    <span id="shop-qty-Kyujin" style="font-weight: bold; font-size: 1.2rem; min-width: 30px;">1</span>
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('Kyujin', 1)">+</button>
+                </div>
+                <button id="shop-btn-Kyujin" class="cyber-button" onclick="buyItem('Kyujin')" style="width: 100%;">$1200</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="gacha-reveal-overlay"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--deep-blue); z-index: 1000; display: none; flex-direction: column; align-items: center; justify-content: center;">
+        <div id="swipe-container"
+            style="width: 100%; height: 100%; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <!-- Gacha Swipe Scene -->
+            <div id="pack-opening-scene" class="pack-opening-scene">
+                <div id="pack-wrapper" class="pack-wrapper">
+                    <div class="pack-part pack-top"></div>
+                    <div class="pack-part pack-bottom"></div>
+                    <div id="tear-line" class="pack-tear-line"></div>
+                </div>
+                <p id="swipe-hint"
+                    style="position: absolute; width: 100%; text-align: center; bottom: -50px; animation: bounce 2s infinite;">
+                    往上或往旁邊滑一下，撕開卡包</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Step 3: Peeking Area -->
+    <div id="peeking-area">
+        <div class="peeking-card-wrap" id="peek-wrap">
+            <div class="card-back-sleeve">NMIXX</div>
+            <div id="peek-card-inner" class="reveal-card"></div>
+        </div>
+        <p class="peek-hint">手指往上或往下推，慢慢揭開卡片（瞇牌中…）</p>
+    </div>
+
+    <!-- Step 3 Alternate: Multi Reveal Area (For 10-pulls etc.) -->
+    <div id="multi-reveal-area"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; display: none; flex-direction: column; align-items: center; justify-content: flex-start; background: rgba(0,0,0,0.9); overflow-y: auto; padding-top: 30px;">
+        <h2 style="color: var(--gold); letter-spacing: 5px; margin-top: 20px; margin-bottom: 30px;">獲得卡片</h2>
+        <div id="multi-reveal-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; width: 90%; max-width: 800px; justify-items: center; padding-bottom: 50px;">
+            <!-- Cards will be injected here via JS -->
+        </div>
+        <button class="cyber-button" style="margin-bottom: 50px; display: none;" id="multi-reveal-close-btn"
+            onclick="exitGacha()">確認完成</button>
+    </div>
+
+    <!-- Game Intro Overlay -->
+    <div id="game-intro-overlay"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3500; display: none; align-items: flex-end; justify-content: center; padding-bottom: 50px;">
+        <img id="game-intro-img" src="./pic/Haewon/guide.webp" alt="Buddy"
+            style="position: absolute; bottom: 0; right: 0; height: 80%; opacity: 0.8; mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
+        <div class="glass-panel dialogue-box" style="width: 90%; max-width: 600px; position: relative;">
+            <div id="game-intro-name-tag" class="character-name-tag">HAEWON</div>
+            <h3 id="game-intro-title" style="color: var(--crimson); margin-top: 0;">遊戲說明</h3>
+            <p id="game-intro-text" style="line-height: 1.6;">準備好了嗎？</p>
+            <button class="cyber-button" style="float: right;" onclick="startGameAfterIntro()">開始遊戲</button>
+        </div>
+    </div>
+
+    <!-- Task Overlay -->
+    <div id="task-overlay" class="grid-overlay">
+        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 600px; align-items: center;">
+            <h2 style="letter-spacing: 5px;">每日任務</h2>
+            <button class="cyber-button" onclick="toggleTasks()">關閉</button>
+        </div>
+        <p style="opacity: 0.7; margin-bottom: 2rem;">任務將於每日凌晨重置</p>
+        <div id="task-list" style="width: 100%; max-width: 600px;">
+            <!-- Tasks dynamic here -->
+        </div>
+    </div>
+
+    <!-- Bias Selection Overlay -->
+    <div id="bias-selection-overlay" class="grid-overlay" style="z-index: 3200;">
+        <h2 style="letter-spacing: 5px; margin-bottom: 4px;">選擇你的主擔 (Bias)</h2>
+        <p style="opacity: 0.75; margin: 0 0 14px;">可以選一到兩位，之後也能在設定裡更改</p>
+        <div class="pack-selection" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="pack-item" data-member="Lily" onclick="toggleBiasPick('Lily')">
+                <img src="./pic/Lily/choose_lily.webp" alt="Lily">
+                <p>Lily</p>
+            </div>
+            <div class="pack-item" data-member="Haewon" onclick="toggleBiasPick('Haewon')">
+                <img src="./pic/Haewon/choose_haewon.webp" alt="Haewon">
+                <p>Haewon</p>
+            </div>
+            <div class="pack-item" data-member="Sullyoon" onclick="toggleBiasPick('Sullyoon')">
+                <img src="./pic/Sullyoon/choose_sullyoon.webp" alt="Sullyoon">
+                <p>Sullyoon</p>
+            </div>
+            <div class="pack-item" data-member="Bae" onclick="toggleBiasPick('Bae')">
+                <img src="./pic/Bae/choose_bae.webp" alt="Bae">
+                <p>Bae</p>
+            </div>
+            <div class="pack-item" data-member="Jiwoo" onclick="toggleBiasPick('Jiwoo')">
+                <img src="./pic/Jiwoo/choose_jiwoo.webp" alt="Jiwoo">
+                <p>Jiwoo</p>
+            </div>
+            <div class="pack-item" data-member="Kyujin" onclick="toggleBiasPick('Kyujin')">
+                <img src="./pic/Kyujin/choose_kyujin.webp" alt="Kyujin">
+                <p>Kyujin</p>
+            </div>
+        </div>
+        <button id="bias-confirm" class="cyber-button" style="margin-top: 14px; min-width: 200px;" onclick="confirmBias()" disabled>就決定是她了！</button>
+    </div>
+
+    <!-- Settings Overlay -->
+    <div id="settings-overlay" class="grid-overlay" style="z-index: 3300;">
+        <div class="glass-panel" style="width: 90%; max-width: 400px; text-align: center;">
+            <h2 style="margin-top: 0;">個人設定</h2>
+            <p style="text-align: left; margin-bottom: 5px;">更新玩家名稱:</p>
+            <input type="text" id="settings-name" class="login-input" placeholder="輸入名稱">
+            <div class="friend-code-row">
+                <span>我的好友碼</span>
+                <strong id="settings-friend-code"></strong>
+                <button class="cyber-button" onclick="copyFriendCode()">複製</button>
+            </div>
+            <p style="text-align: left; margin-top: 15px; margin-bottom: 5px;">本命（最多兩位）:</p>
+            <div style="display: flex; gap: 10px;">
+                <select id="settings-bias" class="login-input" style="background: rgba(0,0,0,0.4); flex: 1;"></select>
+                <select id="settings-bias2" class="login-input" style="background: rgba(0,0,0,0.4); flex: 1;"></select>
+            </div>
+            <button class="cyber-button" style="width: 100%; margin-top: 20px;" onclick="saveSettings()">儲存設定</button>
+            <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;"></div>
+            <p style="text-align: left; margin-bottom: 5px;">🎵 背景音樂（勾選要播的歌，改了馬上生效）:</p>
+            <div id="settings-bgm"></div>
+            <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;"></div>
+            <p style="text-align: left; margin-bottom: 5px;">存檔備份:</p>
+            <textarea id="save-code" class="login-input" rows="3" style="resize: none; font-family: monospace; font-size: 0.7rem;"
+                placeholder="按「匯出」後存檔碼會出現在這裡；要還原時把存檔碼貼上再按「匯入」"></textarea>
+            <div style="display: flex; gap: 10px; margin: 10px 0 20px;">
+                <button class="cyber-button" style="flex: 1;" onclick="exportSave()">匯出存檔</button>
+                <button class="cyber-button" style="flex: 1;" onclick="importSave()">匯入存檔</button>
+            </div>
+            <!-- Shown only in `npm run dev` (see src/main.js) -->
+            <button id="dev-cash-btn" class="cyber-button"
+                style="display: none; width: 100%; margin-bottom: 10px; background: var(--accent-cyan); color: #000;"
+                onclick="state.balance += 10000; saveState(); updateUI(); showNotification('開發者：已獲得 10000 $MIXX-FLOW！', 'success');">開發者：+10000
+                $MIXX-FLOW</button>
+            <button class="cyber-button" style="width: 100%; background: #666;" onclick="performLogout()">清除存檔，重新開始</button>
+            <div class="app-version" style="margin-top: 10px; font-size: 0.75rem; opacity: 0.5;"></div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 0.75rem;">
+                <span id="update-status" style="flex: 1; opacity: 0.7; text-align: left;"></span>
+                <button class="cyber-button" style="padding: 4px 10px; font-size: 0.75rem;" onclick="checkForUpdate()">檢查更新</button>
+            </div>
+            <button id="apply-update-btn" class="cyber-button" style="display: none; width: 100%; margin-top: 8px;" onclick="applyUpdateNow()"></button>
+            <button class="cyber-button"
+                style="width: 100%; margin-top: 10px; background: none; border: 1px solid white;"
+                onclick="toggleSettings()">關閉</button>
+        </div>
+    </div>
+
+    <!-- V2 System Overlays -->
+    <!-- Lineup Overlay -->
+    <!-- Laid out to fit one landscape screen without scrolling -->
+    <div id="lineup-overlay" class="grid-overlay">
+        <div class="lineup-head">
+            <h2>團體編隊</h2>
+            <div class="lineup-summary">
+                <div id="lineup-charm-display">總魅力: 0.0</div>
+                <div id="lineup-synergy-msg"></div>
+            </div>
+            <button class="cyber-button" onclick="closeLineup()">關閉</button>
+        </div>
+
+        <div class="lineup-row">
+            <div class="lineup-slot" id="slot-0" onclick="openLineupSelection(0)"></div>
+            <div class="lineup-slot" id="slot-1" onclick="openLineupSelection(1)"></div>
+            <div class="lineup-slot" id="slot-2" onclick="openLineupSelection(2)"></div>
+            <div class="lineup-slot" id="slot-3" onclick="openLineupSelection(3)"></div>
+            <div class="lineup-slot" id="slot-4" onclick="openLineupSelection(4)"></div>
+            <div class="lineup-slot" id="slot-5" onclick="openLineupSelection(5)"></div>
+        </div>
+        <div class="lineup-actions">
+            <button class="cyber-button" style="width: 200px; background: linear-gradient(45deg, #FF69B4, var(--crimson));"
+                onclick="saveLineup()">保存並顯示於主頁</button>
+            <button class="cyber-button" style="width: 200px;" onclick="saveLineup(); shareLineup()">📤 分享陣容碼</button>
+        </div>
+    </div>
+
+    <!-- Performance Overlay -->
+    <div id="performance-overlay" class="grid-overlay">
+        <div class="glass-panel" style="width: 90%; max-width: 500px; text-align: center;">
+            <h2 style="letter-spacing: 5px;">舞台演出</h2>
+            <p>讓編好的團體站上舞台，<br>消耗 <strong style="color:var(--gold);">$500</strong> MIXX-FLOW 來舉辦演出！</p>
+            <p style="color: var(--gold); margin: 15px 0;">今日剩餘演出次數: <span id="perf-count">3</span>/1</p>
+            <button class="cyber-button"
+                style="width: 100%; margin-top: 10px; background: var(--lavender); color: black;"
+                onclick="startPerformance()">🎤 開始演出</button>
+            <div id="perf-result" style="margin-top: 20px; font-size: 1.1rem; display: none; line-height: 1.5;"></div>
+            <button class="cyber-button"
+                style="width: 100%; margin-top: 15px; background: none; border: 1px solid white;"
+                onclick="closeOverlay('performance-overlay')">關閉</button>
+        </div>
+    </div>
+
+    <!-- Arena Overlay -->
+    <div id="arena-overlay" class="grid-overlay">
+        <div class="glass-panel" style="width: 90%; max-width: 500px; text-align: center;">
+            <h2 style="letter-spacing: 5px;">同台競技</h2>
+            <p>和其他團體同台較量舞台魅力！<br>團員目前的狀態與穩定度將決定你們的表現。</p>
+            <div style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 5px; margin: 15px 0;">
+                <div><span id="arena-stage-title" style="opacity: 0.7;">Stage 1</span>　對手：<strong id="arena-rival" style="font-size: 1.1rem;"></strong></div>
+                <div style="font-size: 0.85rem; margin-top: 4px;">對手基礎魅力值：<span id="arena-target">400</span></div>
+                <div style="font-size: 0.8rem; margin-top: 5px; opacity: 0.8;">
+                    注意：對手魅力值結算時將有 ±5% 起伏，若穩定度過低將機率觸發「失常(所有屬性-20)」！</div>
+            </div>
+
+            <div style="font-size: 0.8rem; color: var(--gold); margin-bottom: 10px;">勝利獎勵：$200 + 關卡×$50，每 5 關加送主推成員專屬包</div>
+            <button class="cyber-button" style="width: 100%; background: linear-gradient(45deg, #8A2BE2, #4169E1);"
+                onclick="startArena()">⚔️ 發起挑戰</button>
+            <div style="margin-top: 15px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15);">
+                <div style="font-weight: bold; margin-bottom: 6px;">👫 好友對戰</div>
+                <textarea id="friend-code" class="login-input" rows="2" style="resize: none; font-size: 0.75rem;" placeholder="貼上好友傳來的陣容碼訊息"></textarea>
+                <button class="cyber-button" style="width: 100%; background: linear-gradient(45deg, #ff69b4, #8A2BE2);" onclick="startFriendBattle()">挑戰好友陣容</button>
+                <div style="font-size: 0.7rem; opacity: 0.6; margin-top: 4px;">每天前 3 場勝利各得 $300；到「編隊」可以分享你的陣容碼</div>
+            </div>
+            <div id="arena-result"
+                style="margin-top: 20px; font-size: 0.9rem; display: none; text-align: left; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 5px; border-left: 3px solid var(--gold);">
+            </div>
+            <button class="cyber-button"
+                style="width: 100%; margin-top: 15px; background: none; border: 1px solid white;"
+                onclick="closeOverlay('arena-overlay')">關閉</button>
+        </div>
+    </div>
+
+    <!-- Battle result popup (arena + friend battles) -->
+    <div id="battle-result-modal" onclick="if (event.target === this) closeBattleResult()">
+        <div class="br-box glass-panel"></div>
+    </div>
+
+    <!-- Songs Overlay -->
+    <div id="songs-overlay" class="grid-overlay">
+        <div
+            style="display: flex; justify-content: space-between; width: 100%; max-width: 600px; align-items: center; margin-bottom: 20px;">
+            <h2 style="letter-spacing: 5px;">播放清單</h2>
+            <button class="cyber-button" onclick="closeOverlay('songs-overlay')">關閉</button>
+        </div>
+        <div style="width: 100%; max-width: 600px; text-align:left; margin-bottom: 6px;"><strong>🎧 節奏遊戲</strong>
+            <span id="rhythm-bonus" style="font-size: 0.8rem; color: var(--gold); margin-left: 8px;"></span></div>
+        <div id="rhythm-list" style="width: 100%; max-width: 600px; display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;"></div>
+        <div style="width: 100%; max-width: 600px; text-align:left; opacity:0.8; margin-bottom:10px;">每首 $1,500 MIXX-FLOW，解鎖後可以玩節奏遊戲，也能當背景音樂！
+        </div>
+        <div id="songs-list" style="width: 100%; max-width: 600px; display: flex; flex-direction: column; gap: 10px;">
+            <!-- Rendered by JS -->
+        </div>
+    </div>
+
+    <!-- Rhythm game -->
+    <div id="rhythm-overlay" style="display: none;">
+        <canvas id="rhythm-canvas"></canvas>
+        <div class="rhythm-hud">
+            <div id="rhythm-title"></div>
+            <div id="rhythm-score">0</div>
+            <button class="cyber-button" onclick="pauseRhythm()">⏸</button>
+        </div>
+        <div class="rhythm-progress"><div id="rhythm-progress"></div></div>
+        <div id="rhythm-countdown" class="rhythm-center" style="display: none;"></div>
+        <div id="rhythm-pause" class="rhythm-center" style="display: none;">
+            <div class="glass-panel" style="text-align: center; display: flex; flex-direction: column; gap: 10px; min-width: 220px;">
+                <h3 style="margin: 0;">暫停</h3>
+                <button class="cyber-button" onclick="resumeRhythm()">繼續</button>
+                <button class="cyber-button" style="background: #666;" onclick="quitRhythm()">離開（不計分）</button>
+            </div>
+        </div>
+        <div id="rhythm-result" class="rhythm-center" style="display: none;"></div>
+    </div>
+
+    <div class="ssr-flash"></div>
+
+    <script>
+        const APP_VERSION = '1.2.0-hotfix'; // Added to track updates
+        // --- Global Error Boundary ---
+        window.onerror = function (msg, url, line, col, error) {
+            const errorOverlay = document.createElement('div');
+            errorOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(220,20,60,0.9);z-index:99999;color:white;padding:30px;font-family:monospace;overflow:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;';
+            errorOverlay.innerHTML = `
+                <h1 style="font-size:2rem;margin-bottom:20px;">⚠️ 夢境維度連線中斷</h1>
+                <p style="margin-bottom:5px; opacity:0.7;">版本: ${APP_VERSION}</p>
+                <p style="margin-bottom:10px;">錯誤訊息: ${msg}</p>
+                <p style="margin-bottom:20px;">行號: ${line}:${col}</p>
+                
+                <div style="display:flex; flex-direction:column; gap:10px; align-items:center;">
+                    <button onclick="localStorage.clear(); location.reload();" style="background:white;color:crimson;border:none;padding:12px 24px;border-radius:10px;font-weight:bold;cursor:pointer;width:250px;">清除快取並重試 (Reload)</button>
+                    
+                    <button onclick="forceFullReset()" style="background:rgba(255,255,255,0.2);color:white;border:1px solid white;padding:12px 24px;border-radius:10px;font-weight:bold;cursor:pointer;width:250px;">強制解除安裝並重置 (Force Update)</button>
+                </div>
+                
+                <p style="font-size:0.8rem;margin-top:20px;opacity:0.8;">如果持續報錯，請刪除桌面捷徑並重新加至主螢幕</p>
+            `;
+            document.body.appendChild(errorOverlay);
+
+            // Force fully clear SW and caches
+            window.forceFullReset = function () {
+                if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                        for (let registration of registrations) {
+                            registration.unregister();
+                        }
+                        caches.keys().then(function (names) {
+                            for (let name of names) caches.delete(name);
+                            localStorage.clear();
+                            sessionStorage.clear();
+                            showNotification('重置完成，即將刷新頁面。請重新從瀏覽器開啟或加至桌面。', 'success');
+                            location.reload(true);
+                        });
+                    });
+                } else {
+                    localStorage.clear();
+                    location.reload(true);
+                }
+            };
+            // Also try to hide loader so user sees the message
+            const loader = document.getElementById('loader');
+            if (loader) loader.style.display = 'none';
+        };
+
+        // --- Safety Tools ---
+        function safeJSONParse(str, fallback) {
+            try {
+                if (!str || str === "undefined" || str === "null") return fallback;
+                return JSON.parse(str);
+            } catch (e) {
+                console.warn("JSON Parse Error, using fallback:", e);
+                return fallback;
+            }
+        }
+
+
+        function showNotification(msg, type = 'info') {
+            let container = document.getElementById('notification-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'notification-container';
+                container.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; align-items: center; pointer-events: none;';
+                document.body.appendChild(container);
+            }
+
+            // Toasts never block touches, and only the newest three stay on screen
+            while (container.children.length >= 3) container.firstChild.remove();
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel';
+            toast.style.cssText = 'padding: 12px 24px; border-radius: 12px; font-weight: bold; font-size: 0.95rem; color: #fff; pointer-events: none; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); opacity: 0; transform: translateY(-20px); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); transition: all 0.4s ease; min-width: 250px; justify-content: center;';
+
+            if (type === 'error') {
+                toast.style.borderLeft = '4px solid var(--crimson)';
+                toast.style.boxShadow = '0 0 15px rgba(220, 20, 60, 0.2)';
+                toast.innerHTML = `<span style="color: var(--crimson);">⚠️</span> ${msg}`;
+            } else if (type === 'warning') {
+                toast.style.borderLeft = '4px solid var(--gold)';
+                toast.style.boxShadow = '0 0 15px rgba(255, 215, 0, 0.2)';
+                toast.innerHTML = `<span style="color: var(--gold);">⚠️</span> ${msg}`;
+            } else if (type === 'success') {
+                toast.style.borderLeft = '4px solid var(--xp-color)';
+                toast.style.boxShadow = '0 0 15px rgba(57, 255, 20, 0.2)';
+                toast.innerHTML = `<span style="color: var(--xp-color);">✨</span> ${msg}`;
+            } else {
+                toast.style.borderLeft = '4px solid var(--accent-cyan)';
+                toast.style.boxShadow = '0 0 15px rgba(0, 255, 255, 0.2)';
+                toast.innerHTML = `<span style="color: var(--accent-cyan);">ℹ️</span> ${msg}`;
+            }
+
+            container.appendChild(toast);
+
+            // Trigger animation
+            setTimeout(() => {
+                toast.style.opacity = '1';
+                toast.style.transform = 'translateY(0)';
+            }, 10);
+
+            // Auto remove
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    toast.remove();
+                }, 400);
+            }, 3000);
+        }
+        window.showNotification = showNotification;
+
+        function updateUI() {
+            if (typeof state === 'undefined' || !state) return;
+            document.getElementById('balance').innerText = state.balance;
+            const title = window.getPlayerTitle ? window.getPlayerTitle() : '';
+            document.getElementById('display-name').innerText = title ? `${state.playerName}「${title}」` : state.playerName;
+            document.getElementById('user-level').innerText = state.level;
+            document.getElementById('fans-count').innerText = state.fans.toLocaleString();
+
+            // Check for activity resets
+            checkResets();
+
+            // Activity Display Updates
+            const comm = document.getElementById('community-overlay');
+            if (comm && comm.style.display === 'flex') {
+                document.getElementById('live-count-display').innerText = 3 - (state.dailyStats.liveCount || 0);
+                const merch = document.getElementById('merch-status-display');
+                if (merch) {
+                    merch.innerText = state.weeklyStats.merchDone ? '本週已售完' : '可販售';
+                    merch.style.color = state.weeklyStats.merchDone ? '#ff4444' : '#ffd700';
+                }
+            }
+
+            const train = document.getElementById('training-overlay');
+            if (train && train.style.display === 'flex') {
+                document.getElementById('train-count-display').innerText = state.dailyStats.trainCount || 0;
+            }
+
+            if (window.renderComebackBanner) renderComebackBanner();
+
+            // XP Bar Progress
+            const xpMax = state.level * 100;
+            const progress = Math.min(100, (state.xp / xpMax) * 100);
+            document.getElementById('xp-bar').style.width = `${progress}%`;
+
+            saveState();
+        }
+
+        function checkResets() {
+            if (typeof state === 'undefined' || !state) return;
+            checkDailyReset();
+            if (window.applyStaminaRegen) window.applyStaminaRegen();
+            const now = new Date();
+            const todayStr = now.toDateString();
+
+            // Daily Reset
+            if (state.dailyStats.lastReset !== todayStr) {
+                state.dailyStats.lastReset = todayStr;
+                state.dailyStats.perfDone = false;
+                state.dailyStats.friendWins = 0;
+                state.dailyStats.liveCount = 0;
+                state.dailyStats.trainCount = 0;
+            }
+
+            // Weekly Reset (Monday)
+            const monday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7));
+            const weekKey = `W-${monday.toDateString()}`;
+
+            if (state.weeklyStats.lastReset !== weekKey) {
+                state.weeklyStats.lastReset = weekKey;
+                state.weeklyStats.merchDone = false;
+            }
+        }
+
+        function checkDailyReset() {
+            if (typeof state === 'undefined' || !state) return;
+            const today = new Date().toLocaleDateString();
+            if (state.lastLoginDate !== today) {
+                state.lastLoginDate = today;
+                state.tasks.forEach(t => {
+                    t.current = 0;
+                    t.claimed = false;
+                });
+                state.dailyPerformances = 0; // 重置每日演出次數
+            }
+        }
+
+        function toggleTasks() {
+            const overlay = document.getElementById('task-overlay');
+            const isVisible = overlay.style.display === 'flex';
+            if (!isVisible) {
+                renderTasks();
+                overlay.style.display = 'flex';
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function renderTasks() {
+            const list = document.getElementById('task-list');
+            list.innerHTML = '';
+            state.tasks.forEach(task => {
+                const item = document.createElement('div');
+                item.className = `task-item ${task.claimed ? 'task-claimed' : ''}`;
+                const isComplete = task.current >= task.target;
+
+                item.innerHTML = `
+                    <div class="task-info">
+                        <h4>${task.title} ${isComplete ? '✅' : ''}</h4>
+                        <p>${task.desc} (${task.current}/${task.target})</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="task-reward">$${task.reward}</div>
+                        <button class="cyber-button" style="padding:5px 15px; margin-top:5px; font-size:0.7rem;" 
+                            ${(!isComplete || task.claimed) ? 'disabled' : ''} 
+                            onclick="claimTaskReward('${task.id}')">
+                            ${task.claimed ? '已領取' : '領取獎勵'}
+                        </button>
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function claimTaskReward(taskId) {
+            const task = state.tasks.find(t => t.id === taskId);
+            if (task && task.current >= task.target && !task.claimed) {
+                task.claimed = true;
+                state.balance += task.reward;
+                addXp(100); // 任務獎勵 XP
+                renderTasks();
+                updateUI();
+            }
+        }
+
+    </script>
+
+    <!-- Multi-Engine Core -->
+
+    <script>
+        // Compatibility globals that will be populated by main.js
+        let scene, camera, renderer, crystal;
+        let engine, runner, bodies = [];
+
+        async function init() {
+            // CRITICAL: Safety Fallback at the very top
+            const fallbackTimer = setTimeout(() => {
+                const loader = document.getElementById('loader');
+                if (loader && loader.style.display !== 'none') {
+                    console.log("Loading fallback triggered - forcing display");
+                    removeLoader();
+                }
+            }, 6000); // 延長至 6 秒確保資源加載
+
+            try {
+                // Initialize subsystems
+                if (typeof window.initThree === 'function') {
+                    const res = window.initThree();
+                    scene = res.scene;
+                    camera = res.camera;
+                    renderer = res.renderer;
+                }
+                if (typeof window.initMatter === 'function') {
+                    const res = window.initMatter();
+                    engine = res.engine;
+                }
+
+                checkDailyReset();
+                updateUI();
+
+                // Normal transition logic
+                setTimeout(() => {
+                    clearTimeout(fallbackTimer);
+                    window.isBooted = true; // Signal for emergency script
+                    const emergencyUI = document.getElementById('emergency-reset-ui');
+                    if (emergencyUI) emergencyUI.remove();
+                    removeLoader();
+                }, 2000);
+
+                if (typeof animate === 'function') animate();
+            } catch (e) {
+                console.error("Initialization error:", e);
+                // Even on error, we must try to let the user in
+                removeLoader();
+            }
+        }
+
+        // Accounts are local to this device, so once someone has signed in we skip the login screen
+        const isSignedIn = () => !!localStorage.getItem('mixx_dream_signed_in') || state.tutorialCompleted;
+        let isNewPlayer = false; // started the tutorial this session, so no "what's new" notice
+        function enterAfterLogin() {
+            isNewPlayer = !state.tutorialCompleted;
+            if (!state.tutorialCompleted) startTutorial();
+            else enterHub();
+        }
+
+        function removeLoader() {
+            if (isSignedIn()) {
+                const done = () => { document.getElementById('loader').style.display = 'none'; enterAfterLogin(); };
+                if (typeof gsap !== 'undefined') gsap.to("#loader", { opacity: 0, duration: 0.6, onComplete: done });
+                else done();
+                return;
+            }
+            if (typeof gsap !== 'undefined') {
+                gsap.to("#loader", {
+                    opacity: 0, duration: 1, onComplete: () => {
+                        document.getElementById('loader').style.display = 'none';
+                        document.getElementById('login-screen').style.display = 'flex';
+                        gsap.from("#login-screen .glass-panel", { y: 100, opacity: 0, duration: 1.2, ease: "power4.out" });
+                    }
+                });
+            } else {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('login-screen').style.display = 'flex';
+            }
+        }
+
+        // First-launch title screen; there are no accounts, the save lives on this device
+        function startGame() {
+            localStorage.setItem('mixx_dream_signed_in', '1');
+
+            gsap.to("#login-screen", {
+                opacity: 0, duration: 0.8, onComplete: () => {
+                    document.getElementById('login-screen').style.display = 'none';
+                    enterAfterLogin();
+                }
+            });
+        }
+
+        // --- Tutorial Logic (Haewon introduces the game, asks the player's name and bias) ---
+        let tutorialStep = 0;
+        const biasText = () => [state.bias, state.bias2].filter(Boolean).join(' 和 ');
+        const tutorialDialogs = [
+            { text: () => "跑起來！歡迎來到 MIXX-DREAM！我是 NMIXX 的隊長海嫄，接下來由我帶你認識這裡～" },
+            { text: () => "在開始之前……我該怎麼稱呼你呢？", input: 'name' },
+            { text: () => `${state.playerName}！很好聽的名字～那麼，NMIXX 裡面誰是你的主擔呢？`, input: 'bias' },
+            { text: () => [state.bias, state.bias2].includes('Haewon') ? '咦，是我嗎？！好害羞……謝謝你 💕 我會更努力的！' : `原來是 ${biasText()} 啊！${state.bias2 ? '我會偷偷告訴她們的，她們' : '我會偷偷告訴她的，她'}一定超開心 😆` },
+            { text: () => "在這裡，你可以玩遊戲賺取 $MIXX-FLOW，再用它抽珍貴的成員閃卡。和成員們一起練習、上台，感情也會越來越好喔！" },
+            { text: () => "左邊是「遊戲、養成、展示」，下面是「舞台、隊伍、商店」。NMIXX 真的回歸的時候，這裡也會有回歸活動！" },
+            { text: () => "為了慶祝你的加入，我送你 5000 $MIXX-FLOW 當開局獎勵，快去試試手氣吧！" }
+        ];
+
+        function startTutorial() {
+            tutorialStep = 0;
+            showTutorialStep();
+            document.getElementById('tutorial-overlay').style.display = 'flex';
+            gsap.from("#tutorial-overlay .glass-panel", { y: 200, opacity: 0, duration: 1 });
+        }
+
+        function showTutorialStep() {
+            const step = tutorialDialogs[tutorialStep];
+            document.getElementById('tutorial-text').innerText = step.text();
+            const nameInput = document.getElementById('tutorial-name');
+            nameInput.style.display = step.input === 'name' ? 'block' : 'none';
+            if (step.input === 'name') { nameInput.value = ''; setTimeout(() => nameInput.focus(), 300); }
+        }
+
+        function nextTutorialStep() {
+            // Ignore extra taps while the last step fades out, otherwise enterHub() runs twice
+            if (tutorialStep >= tutorialDialogs.length) return;
+            const step = tutorialDialogs[tutorialStep];
+            if (step.input === 'name') {
+                const name = document.getElementById('tutorial-name').value.trim();
+                if (!name) return showNotification('先告訴海嫄你的名字吧～', 'error');
+                state.playerName = name;
+                saveState();
+            }
+            if (step.input === 'bias') return openBiasSelection();
+            advanceTutorial();
+        }
+
+        function advanceTutorial() {
+            tutorialStep++;
+            if (tutorialStep < tutorialDialogs.length) {
+                gsap.to("#tutorial-text", {
+                    opacity: 0, duration: 0.2, onComplete: () => {
+                        showTutorialStep();
+                        gsap.to("#tutorial-text", { opacity: 1, duration: 0.2 });
+                    }
+                });
+            } else {
+                state.tutorialCompleted = true;
+                if (state.balance === 5500 || state.balance < 5000) { state.balance = 5000; }
+                saveState();
+                updateUI();
+                gsap.to("#tutorial-overlay", {
+                    opacity: 0, duration: 1, onComplete: () => {
+                        document.getElementById('tutorial-overlay').style.display = 'none';
+                        enterHub();
+                    }
+                });
+            }
+        }
+
+        let biasPicks = [];
+        function openBiasSelection() {
+            biasPicks = [];
+            renderBiasPicks();
+            document.getElementById('bias-selection-overlay').style.display = 'flex';
+        }
+
+        function toggleBiasPick(member) {
+            if (biasPicks.includes(member)) biasPicks = biasPicks.filter(m => m !== member);
+            else biasPicks = [...biasPicks, member].slice(-2); // a third pick replaces the oldest
+            renderBiasPicks();
+        }
+
+        function renderBiasPicks() {
+            document.querySelectorAll('#bias-selection-overlay .pack-item').forEach(el => {
+                const i = biasPicks.indexOf(el.dataset.member);
+                el.classList.toggle('picked', i >= 0);
+                el.dataset.order = i >= 0 ? i + 1 : '';
+            });
+            const btn = document.getElementById('bias-confirm');
+            btn.disabled = !biasPicks.length;
+            btn.innerText = biasPicks.length > 1 ? '就決定是她們了！' : '就決定是她了！';
+        }
+
+        function confirmBias() {
+            if (!biasPicks.length) return;
+            state.bias = biasPicks[0];
+            state.bias2 = biasPicks[1] || '';
+            saveState();
+            document.getElementById('bias-selection-overlay').style.display = 'none';
+            if (state.tutorialCompleted) enterHub();
+            else advanceTutorial();
+        }
+
+        function applyHubBackground() {
+            const canvasBg = document.getElementById('webgl-bg');
+            document.body.style.backgroundImage = 'url("./pic/Group/start.webp")';
+            document.body.style.backgroundSize = 'cover';
+            document.body.style.backgroundPosition = 'center';
+            if (canvasBg) {
+                canvasBg.style.opacity = '0.2';
+            }
+        }
+
+        function enterHub() {
+            document.getElementById('hub').style.display = 'block';
+            document.getElementById('top-bar').style.display = 'flex';
+            document.getElementById('bottom-nav').style.display = 'flex';
+
+            if (!state.bias) {
+                // If somehow reached hub without bias, force it
+                openBiasSelection();
+            } else {
+                updateUI(); // Ensure balance is synced
+                applyHubBackground(); // Apply BG
+                startBgm();
+
+                // fromTo (not from) so a repeated call can't freeze the bars at a half-animated position
+                gsap.fromTo("#hub", { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.5, ease: "elastic.out(1, 0.3)", overwrite: true });
+                gsap.fromTo("#top-bar", { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, overwrite: true });
+                gsap.fromTo("#bottom-nav", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, overwrite: true });
+
+                renderHubCenter(); // Render active group or bias
+                // Once the hub has settled, tell returning players what this update changed
+                setTimeout(() => showWhatsNew({ isNewPlayer }), 1200);
+            }
+        }
+
+        // --- Render Hub Models ---
+        function renderHubCenter() {
+            // Today's member stands in the hub; the comeback banner sits above when an event runs
+            renderTodayMember();
+            renderComebackBanner();
+        }
+
+        // Engines are now managed by src/engines/ modules (See main.js)
+
+        // --- Game Logic (Modes A & B) ---
+        let currentGameMode = null;
+        let gameActive = false;
+        let score = 0;
+
+        function openGame(mode) {
+            currentGameMode = mode;
+            gameActive = false; // Stay false until intro is closed
+            score = 0;
+
+            // Clear container
+            const container = document.getElementById('game-canvas-container');
+            container.innerHTML = '';
+
+            // Show Intro First with Bias
+            const intros = {
+                'Lily': {
+                    'mixx-flow': "Hey NSWER! Ready to vibe? 這些能量球就像我們的節奏一樣在掉落！快點擊它們，讓我們一起維持 MIXX-FLOW！",
+                    'memory-flash': "Vocal check! 喔不，是 Memory check! 考驗你對我們的了解程度，要在模糊的照片中找到我跟成員們哦！"
+                },
+                'Haewon': {
+                    'mixx-flow': "跑起來！NSWER！這不是演習，能量球正在大量掉落！身為隊長我會幫你加油，快把它們通通收進口袋！",
+                    'memory-flash': "各位 NSWER 請注意，這裡有許多模糊的珍貴影像。展現你靈敏的觀察力，正確辨認出我們吧！"
+                },
+                'Sullyoon': {
+                    'mixx-flow': "NSWER... 那些發光的能量球好漂亮，像星光一樣。你可以幫我把它們都收集起來嗎？拜託你了。",
+                    'memory-flash': "即使照片變模糊了，你還是能一眼認出我的對吧？希望你能順利通過這場記憶挑戰。"
+                },
+                'Bae': {
+                    'mixx-flow': "呀吼！能量球派對開始啦！點擊它們的速度要快，像我一樣充滿活力就對了！GO GO GO!",
+                    'memory-flash': "猜猜我是誰？這裡有許多我們的生活照，雖然有點模糊，但聰明的 NSWER 一定沒問題的！"
+                },
+                'Jiwoo': {
+                    'mixx-flow': "Yo NSWER! 看到那些節奏感十足的能量球了嗎？跟著 Beat 點擊它們，讓我們賺翻吧！",
+                    'memory-flash': "考驗你的動態視力與記憶力！要在短時間內認出成員們，這對你來說應該是小菜一碟吧？"
+                },
+                'Kyujin': {
+                    'mixx-flow': "這是忙內的力量！能量球快要掉下去了，快點擊它們！我們要在這場冒險中收集更多獎勵！",
+                    'memory-flash': "NSWER，這是一場關於細心的挑戰。即使照片不清楚，也要憑著愛心找出正確答案哦！"
+                }
+            };
+
+            const memberIntros = intros[state.bias] || intros['Haewon'];
+            const introText = memberIntros[mode];
+
+            document.getElementById('game-intro-text').innerText = introText;
+
+            const gameName = mode === 'mixx-flow' ? "MIXX-FLOW 說明" : "記憶閃爍 說明";
+            document.getElementById('game-intro-title').innerText = gameName;
+            document.getElementById('game-intro-name-tag').innerText = state.bias.toUpperCase();
+
+            // Update intro image to bias
+            const introImg = document.getElementById('game-intro-img');
+            const biasLow = state.bias.toLowerCase();
+            introImg.src = `./pic/${state.bias}/choose_${biasLow}.webp`;
+
+            document.getElementById('game-intro-overlay').style.display = 'flex';
+        }
+
+        function startGameAfterIntro() {
+            document.getElementById('game-intro-overlay').style.display = 'none';
+            document.getElementById('game-overlay').style.display = 'flex';
+            document.getElementById('hub').style.display = 'none';
+            document.getElementById('game-title').innerText = currentGameMode === 'mixx-flow' ? 'MODE: MIXX-FLOW' : 'MODE: MEMORY FLASH';
+            document.getElementById('game-score').innerText = `SCORE: 0`;
+
+            gameActive = true;
+            if (currentGameMode === 'mixx-flow') setupMixxFlow();
+            else setupMemoryFlash();
+        }
+
+        function closeGame() {
+            gameActive = false;
+            document.getElementById('game-overlay').style.display = 'none';
+            document.getElementById('hub').style.display = 'block';
+            state.balance += score;
+            if (score > 0) {
+                updateTaskProgress('minigame', 1);
+                addHeat(HEAT.minigame);
+            }
+            updateUI();
+
+            if (memoryTimer) {
+                clearInterval(memoryTimer);
+                memoryTimer = null;
+            }
+
+            // Cleanup Matter
+            if (flowSpawnTimer) {
+                clearInterval(flowSpawnTimer);
+                flowSpawnTimer = null;
+            }
+            if (engine) {
+                Matter.Composite.allBodies(engine.world)
+                    .filter(b => b.isGameItem)
+                    .forEach(b => Matter.Composite.remove(engine.world, b));
+            }
+            document.getElementById('game-canvas-container').onclick = null;
+            if (gameRender) {
+                Matter.Render.stop(gameRender);
+                gameRender.canvas.remove();
+                gameRender = null;
+            }
+        }
+
+        let gameRender = null;
+        let flowSpawnTimer = null;
+        function setupMixxFlow() {
+            const container = document.getElementById('game-canvas-container');
+            const { Render, World, Bodies, Composite } = Matter;
+
+            // Create a specific renderer for the game
+            gameRender = Render.create({
+                element: container,
+                engine: engine,
+                options: {
+                    width: container.clientWidth,
+                    height: container.clientHeight,
+                    wireframes: false,
+                    background: 'transparent'
+                }
+            });
+            Render.run(gameRender);
+
+            if (flowSpawnTimer) clearInterval(flowSpawnTimer);
+            const timer = flowSpawnTimer = setInterval(() => {
+                if (!gameActive || currentGameMode !== 'mixx-flow') return clearInterval(timer);
+
+                const x = Math.random() * container.clientWidth;
+                const ball = Bodies.circle(x, -50, 25, {
+                    restitution: 0.6,
+                    render: {
+                        fillStyle: ['#00FFFF', '#FFD700', '#E6E6FA', '#DC143C'][Math.floor(Math.random() * 4)],
+                        strokeStyle: '#ffffff',
+                        lineWidth: 2
+                    }
+                });
+                ball.isGameItem = true;
+                Composite.add(engine.world, ball);
+
+                // Remove if falls off
+                setTimeout(() => {
+                    if (ball.position.y > container.clientHeight + 100) {
+                        Composite.remove(engine.world, ball);
+                    }
+                }, 5000);
+            }, 600);
+
+            // Click interaction logic: improved with distance check for massive hitbox
+            const gameClickHandler = (e) => {
+                if (!gameActive || currentGameMode !== 'mixx-flow') return;
+
+                // Get mouse position relative to container
+                const rect = container.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const clickY = e.clientY - rect.top;
+
+                // Fetch all game items
+                const allBodies = Composite.allBodies(engine.world).filter(b => b.isGameItem);
+                let hitCount = 0;
+
+                allBodies.forEach(b => {
+                    if (b.collected) return;
+
+                    // Distance algorithm with generous hitbox (60px)
+                    const dx = b.position.x - clickX;
+                    const dy = b.position.y - clickY;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 60) {
+                        b.collected = true;
+                        Composite.remove(engine.world, b);
+                        score += 15;
+                        addXp(10);
+                        hitCount++;
+
+                        document.getElementById('game-score').innerText = `SCORE: ${score}`;
+
+                        // Particle pop effect
+                        const flare = document.createElement('div');
+                        flare.style.position = 'fixed';
+                        flare.style.left = `${e.clientX}px`;
+                        flare.style.top = `${e.clientY}px`;
+                        flare.style.width = '20px';
+                        flare.style.height = '20px';
+                        flare.style.background = b.render.fillStyle;
+                        flare.style.boxShadow = `0 0 20px ${b.render.fillStyle}`;
+                        flare.style.borderRadius = '50%';
+                        flare.style.pointerEvents = 'none';
+                        flare.style.zIndex = '1000';
+                        document.body.appendChild(flare);
+                        gsap.to(flare, { scale: 5, opacity: 0, duration: 0.4, onComplete: () => flare.remove() });
+
+                        // Simple sound effect via Web Audio
+                        playCollectSound();
+                    }
+                });
+            };
+            container.onclick = gameClickHandler;
+
+            // Add a small hint text
+            const hint = document.createElement('div');
+            hint.id = 'game-hint';
+            hint.innerText = "直接點擊/觸碰落下的能量球！(判定已優化)";
+            hint.style.position = 'absolute';
+            hint.style.top = '100px';
+            hint.style.width = '100%';
+            hint.style.textAlign = 'center';
+            hint.style.color = 'var(--accent-cyan)';
+            hint.style.fontSize = '0.9rem';
+            hint.style.opacity = '0.8';
+            container.appendChild(hint);
+            setTimeout(() => gsap.to(hint, { opacity: 0, duration: 1, delay: 2 }), 2000);
+        }
+
+        let audioCtx = null;
+        function playCollectSound() {
+            try {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const ctx = audioCtx;
+                if (ctx.state === 'suspended') ctx.resume();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(880, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.1);
+                gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.1);
+            } catch (e) { }
+        }
+
+        const MEMORY_FLASH_SECONDS = 30;
+        let memoryTimer = null;
+        function setupMemoryFlash() {
+            const container = document.getElementById('game-canvas-container');
+            container.innerHTML = `
+                <div class="memory-board" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; height:100%;">
+                    <div id="memory-timer" style="font-size:1.2rem; color:var(--accent-cyan);">⏱ ${MEMORY_FLASH_SECONDS}s</div>
+                    <div id="target-member" style="font-size:2rem; color:var(--gold); border-bottom:2px solid var(--crimson);">???</div>
+                    <div id="blurred-item" style="width:150px; height:200px; background:rgba(255,255,255,0.1); border-radius:15px; filter:blur(15px); display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                        <img id="blurred-img" style="width:100%; height:100%; object-fit:cover;" alt="">
+                    </div>
+                    <div id="options" style="display:grid; grid-template-columns:1fr 1fr; gap:10px;"></div>
+                </div>
+            `;
+
+            const members = ['Lily', 'Haewon', 'Sullyoon', 'Bae', 'Jiwoo', 'Kyujin'];
+            let correctCount = 0;
+            let roundCount = 0;
+            let timeLeft = MEMORY_FLASH_SECONDS;
+
+            const finish = () => {
+                clearInterval(memoryTimer);
+                memoryTimer = null;
+                gameActive = false;
+                container.innerHTML = `
+                    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%;">
+                        <div class="glass-panel" style="text-align:center; padding:30px; width:80%; max-width:320px;">
+                            <h2 style="margin-top:0;">時間到！</h2>
+                            <p>答對 <strong style="color:var(--gold);">${correctCount}</strong> / ${roundCount} 題</p>
+                            <p>獲得 <strong style="color:var(--gold);">$${score}</strong> MIXX-FLOW</p>
+                            <button class="cyber-button" style="width:100%; margin-top:10px;" onclick="closeGame()">領取並返回</button>
+                        </div>
+                    </div>
+                `;
+            };
+
+            if (memoryTimer) clearInterval(memoryTimer);
+            memoryTimer = setInterval(() => {
+                timeLeft--;
+                const timerEl = document.getElementById('memory-timer');
+                if (timerEl) timerEl.innerText = `⏱ ${timeLeft}s`;
+                if (timeLeft <= 0) finish();
+            }, 1000);
+
+            const nextRound = () => {
+                if (!gameActive) return;
+                const correct = members[Math.floor(Math.random() * members.length)];
+                const target = document.getElementById('target-member');
+                target.innerText = "是誰？";
+                target.style.color = 'var(--gold)';
+                document.getElementById('blurred-item').style.filter = 'blur(15px)';
+                const base = CARDS_DB.find(db => db.name === correct);
+                document.getElementById('blurred-img').src = getCardImagePath(base, RARITIES[Math.floor(Math.random() * RARITIES.length)]);
+
+                // Show options
+                const optionsDiv = document.getElementById('options');
+                optionsDiv.innerHTML = '';
+                optionsDiv.style.pointerEvents = '';
+                const pool = [...members].sort(() => 0.5 - Math.random());
+                pool.forEach(m => {
+                    const btn = document.createElement('button');
+                    btn.className = 'cyber-button';
+                    btn.style.padding = '10px';
+                    btn.innerText = m;
+                    btn.onclick = () => {
+                        optionsDiv.style.pointerEvents = 'none';
+                        roundCount++;
+                        if (m === correct) {
+                            correctCount++;
+                            score += 50;
+                            addXp(10);
+                            document.getElementById('game-score').innerText = `SCORE: ${score}`;
+                            target.innerText = `答對！是 ${correct}`;
+                        } else {
+                            target.innerText = `答錯！是 ${correct}`;
+                            target.style.color = 'var(--crimson)';
+                        }
+                        // Reveal the photo briefly before the next round
+                        document.getElementById('blurred-item').style.filter = 'blur(0px)';
+                        setTimeout(nextRound, 700);
+                    };
+                    optionsDiv.appendChild(btn);
+                });
+            };
+            nextRound();
+        }
+
+        // --- Collection & Exhibition ---
+        function openZoom(card) {
+            const zoomOverlay = document.getElementById('zoom-overlay');
+            const container = document.getElementById('zoom-card-container');
+            container.innerHTML = '';
+            container.appendChild(createCardElement(card));
+            zoomOverlay.style.display = 'flex';
+            gsap.from("#zoom-card-container", { scale: 0.5, opacity: 0, duration: 0.5, ease: "back.out(1.7)" });
+        }
+
+        function closeZoom() {
+            gsap.to("#zoom-card-container", {
+                scale: 0.5, opacity: 0, duration: 0.3, onComplete: () => {
+                    document.getElementById('zoom-overlay').style.display = 'none';
+                }
+            });
+        }
+
+        let currentSlotIndex = null;
+        function toggleExhibition() {
+            const overlay = document.getElementById('exhibition-overlay');
+            const isVisible = overlay.style.display === 'flex';
+            if (!isVisible) {
+                overlay.style.display = 'flex';
+                renderExhibition();
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function renderExhibition() {
+            const grid = document.getElementById('exhibition-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            state.exhibition.forEach((uid, index) => {
+                const slot = document.createElement('div');
+                slot.className = 'exhibition-slot';
+
+                if (uid) {
+                    const cardData = state.inventory.find(c => c.uid === uid);
+                    if (cardData) {
+                        const cardEl = createCardElement(cardData, true);
+                        cardEl.style.height = '100%';
+                        cardEl.style.border = 'none';
+                        slot.appendChild(cardEl);
+                        slot.classList.add('slot-active');
+                    } else {
+                        state.exhibition[index] = null;
+                        slot.innerHTML = '<span style="font-size: 2rem; opacity: 0.3;">+</span>';
+                    }
+                } else {
+                    slot.innerHTML = '<span style="font-size: 2rem; opacity: 0.3;">+</span>';
+                }
+
+                slot.onclick = () => openSelection(index);
+                grid.appendChild(slot);
+            });
+        }
+
+        function addStaminaOverlay(el, cardData) {
+            el.style.position = 'relative';
+            const stam = cardData.stamina !== undefined ? cardData.stamina : 100;
+            
+            const badge = document.createElement('div');
+            badge.style.cssText = 'position:absolute; bottom:5px; right:5px; background:rgba(0,0,0,0.75); color:#ffaa44; font-size:0.7rem; padding:2px 4px; border-radius:3px; font-family:monospace; z-index:10;';
+            badge.innerText = `ST:${stam}`;
+            el.appendChild(badge);
+
+            if (stam < 40) {
+                el.style.opacity = '0.6';
+                const warn = document.createElement('div');
+                warn.style.cssText = 'position:absolute; top:5px; left:5px; color:var(--crimson); font-size:0.8rem; font-weight:bold; background:rgba(0,0,0,0.85); padding:2px; border-radius:50%; width:18px; height:18px; display:flex; align-items:center; justify-content:center; z-index:10;';
+                warn.innerText = '⚠️';
+                warn.title = '體力不足 40';
+                el.appendChild(warn);
+            }
+        }
+
+        function openSelection(index) {
+            currentSlotIndex = index;
+            const modal = document.getElementById('selection-modal');
+            if (!modal) return;
+            modal.style.display = 'flex';
+            modal.querySelector('h3').innerText = '選擇要展示的卡';
+
+            const grid = document.getElementById('inventory-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            const slotMemberMap = {
+                0: 'Lily',
+                1: 'Haewon',
+                2: 'Sullyoon',
+                3: 'Bae',
+                4: 'Jiwoo',
+                5: 'Kyujin'
+            };
+            const targetMember = slotMemberMap[index];
+
+            if (state.inventory.length === 0) {
+                grid.innerHTML = '<p class="selection-empty">目前還沒有任何卡片，快去商店購買卡包吧！</p>';
+            } else {
+                let hasCardsForMember = false;
+                state.inventory.forEach(cardData => {
+                    const dbCard = CARDS_DB.find(db => db.id === cardData.baseId);
+                    if (!dbCard || dbCard.name !== targetMember) return;
+                    
+                    hasCardsForMember = true;
+
+                    const isPlaced = state.exhibition.some((uid, idx) => uid === cardData.uid && idx !== index);
+                    if (isPlaced) return;
+
+                    const cardEl = createCardElement(cardData, true);
+                    addStaminaOverlay(cardEl, cardData);
+                    cardEl.onclick = (e) => {
+                        e.stopPropagation();
+                        selectCardForExhibition(cardData.uid);
+                    };
+                    grid.appendChild(cardEl);
+                });
+
+                if (!hasCardsForMember) {
+                    grid.innerHTML = `<p class="selection-empty">目前沒有 ${targetMember} 的卡片，快去商店抽取吧！</p>`;
+                }
+            }
+            setSelectionClear('取消展示此卡', () => selectCardForExhibition(null));
+        }
+
+        // The picker's top-right button that empties the slot
+        function setSelectionClear(label, action) {
+            const btn = document.getElementById('selection-clear');
+            btn.innerText = label;
+            btn.onclick = action;
+        }
+
+        // Card score shown in the top-right corner: average of the card's five stats, bonuses included
+        function cardRating(card) {
+            const s = effectiveStats(card);
+            return Math.round((s.dance + s.vocal + s.visual + s.power + s.stability) / 5);
+        }
+        function showRating(el, card) {
+            const tag = el.querySelector('.card-lv');
+            if (!tag) return;
+            tag.classList.add('card-score');
+            tag.innerHTML = `<small>評分</small>${cardRating(card)}`;
+        }
+
+        function selectCardForExhibition(cardId) {
+            state.exhibition[currentSlotIndex] = cardId;
+            saveState();
+            renderExhibition();
+            closeSelection();
+        }
+
+        function closeSelection() {
+            document.getElementById('selection-modal').style.display = 'none';
+        }
+
+        // --- Mood Journal ---
+        function toggleJournal() {
+            const j = document.getElementById('journal-overlay');
+            j.style.display = (j.style.display === 'none' || j.style.display === '') ? 'block' : 'none';
+        }
+
+        async function submitJournal() {
+            const input = document.getElementById('journal-input').value;
+            const resDiv = document.getElementById('ai-response');
+            resDiv.innerText = "成員正在閱讀中...";
+
+            // Emotion keyword filter
+            let tone = "興奮/應援模式";
+            if (input.includes("累") || input.includes("難過")) tone = "安慰模式";
+
+            setTimeout(() => {
+                resDiv.innerText = `[${tone}] ${state.bias}： NSWER，聽了你的分享，我覺得... (無論如何，我們都會在你身邊！)`;
+                addXp(100);
+                updateTaskProgress('journal', 1);
+            }, 1500);
+        }
+
+        // --- Settings & Personality ---
+        function toggleSettings() {
+            const overlay = document.getElementById('settings-overlay');
+            const isVisible = overlay.style.display === 'flex';
+            if (!isVisible) {
+                document.getElementById('settings-name').value = state.playerName;
+                const members = CARDS_DB.map(c => c.name);
+                const b1 = document.getElementById('settings-bias'), b2 = document.getElementById('settings-bias2');
+                b1.innerHTML = members.map(m => `<option value="${m}">${m}</option>`).join('');
+                b2.innerHTML = '<option value="">（不選第二位）</option>' + members.map(m => `<option value="${m}">${m}</option>`).join('');
+                b1.value = state.bias;
+                b2.value = state.bias2 || '';
+                renderBgmSettings();
+                renderFriendCode();
+                renderUpdateStatus();
+                overlay.style.display = 'flex';
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function saveSettings() {
+            const newName = document.getElementById('settings-name').value;
+
+            if (newName.trim()) {
+                state.playerName = newName.trim();
+            }
+
+            state.bias = document.getElementById('settings-bias').value || state.bias;
+            const bias2 = document.getElementById('settings-bias2').value;
+            state.bias2 = bias2 !== state.bias ? bias2 : '';
+            applyHubBackground();
+            updateUI();
+            toggleSettings();
+        }
+
+        async function performLogout() {
+            if (await showConfirm("卡片、背包與餘額都會消失，無法復原。\n建議先匯出存檔碼。", { title: '清除這支手機上的存檔？', okText: '清除', danger: true })) {
+                // Also drop the native backup, otherwise the app would restore the save on reload
+                Promise.resolve(window.clearNativeSave && window.clearNativeSave()).finally(() => {
+                    localStorage.clear();
+                    window.location.reload();
+                });
+            }
+        }
+
+        // --- V2 Systems Logic ---
+
+        // ================= Hub category menus =================
+        const HUB_MENUS = {
+            // A fourth entry is an image that replaces the icon + label
+            play: [['🎵', '節奏遊戲', 'openSongs()', './pic/btn/game/rhythm_game.png'], ['🎮', 'MIXX-FLOW', "openGame('mixx-flow')", './pic/btn/game/mixx_flow.png'], ['🧠', '記憶閃爍', "openGame('memory-flash')", './pic/btn/game/memory_shine.png']],
+            grow: [['💪', '訓練室', 'openTraining()', './pic/btn/grow/training_room.png'], ['💞', '成員羈絆', 'openBonds()', './pic/btn/grow/member_relationship.png'], ['🎁', '禮物', 'openGifts()', './pic/btn/grow/gift.png']],
+            show: [['📚', '圖鑑', 'toggleCollection()', './pic/btn/demo/illustrated_book.png'], ['🖼️', '展覽室', 'toggleExhibition()', './pic/btn/demo/exhibit_room.png'], ['📱', '社群/直播', 'openCommunity()', './pic/btn/demo/media.png'], ['📝', '心情日記', 'toggleJournal()', './pic/btn/demo/mood_diary.png']],
+            stage: [['🎤', '演出', 'openPerformance()'], ['⚔️', '競技', 'openArena()'], ['🎵', '歌曲', 'openSongs()']],
+            team: [['👥', '編隊', 'openLineup()'], ['🎒', '背包', 'openBackpack()'], ['🗃️', '卡片管理', 'openManagement()']]
+        };
+        function openHubMenu(group, anchor) {
+            const menu = document.getElementById('hub-menu');
+            if (menu.dataset.group === group && menu.style.display === 'flex') return closeHubMenu();
+            menu.dataset.group = group;
+            menu.innerHTML = HUB_MENUS[group].map(([icon, label, action, img]) => img
+                ? `<img class="hub-menu-img" src="${img}" alt="${label}" onclick="closeHubMenu(); ${action.replace(/"/g, '&quot;')}">`
+                : `<button class="hub-menu-item" onclick="closeHubMenu(); ${action.replace(/"/g, '&quot;')}"><span>${icon}</span>${label}</button>`).join('');
+            // The hub's elastic entrance moves the buttons around; finish it so the menu lines up with its button
+            if (window.gsap) gsap.getTweensOf('#hub').forEach(t => t.progress(1));
+            menu.style.display = 'flex';
+            document.getElementById('hub-menu-backdrop').style.display = 'block';
+            // Side bubbles open to the right; bottom nav opens upwards
+            const r = anchor.getBoundingClientRect(), m = menu.getBoundingClientRect();
+            if (anchor.classList.contains('nav-button')) {
+                menu.style.left = Math.max(8, Math.min(innerWidth - m.width - 8, r.left + r.width / 2 - m.width / 2)) + 'px';
+                menu.style.top = (r.top - m.height - 10) + 'px';
+            } else {
+                menu.style.left = (r.right + 10) + 'px';
+                menu.style.top = Math.max(8, Math.min(innerHeight - m.height - 8, r.top + r.height / 2 - m.height / 2)) + 'px';
+            }
+            if (window.gsap) gsap.fromTo(menu, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.18 });
+        }
+        function closeHubMenu() {
+            document.getElementById('hub-menu').style.display = 'none';
+            document.getElementById('hub-menu-backdrop').style.display = 'none';
+        }
+
+        function closeAllOverlays() {
+            closeHubMenu();
+            const overlays = ['lineup-overlay', 'performance-overlay', 'arena-overlay', 'songs-overlay', 'settings-overlay', 'journal-overlay', 'collection-overlay', 'exhibition-overlay', 'gacha-reveal-overlay', 'selection-modal', 'backpack-overlay', 'management-overlay', 'shop-overlay', 'community-overlay', 'training-overlay', 'task-overlay', 'pack-qty-modal', 'gift-overlay', 'bond-overlay', 'comeback-overlay', 'battle-result-modal'];
+            overlays.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+            document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.nav-button')[0].classList.add('active'); // active home
+        }
+        function closeOverlay(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // ================= Lineup =================
+        function openLineup() {
+            closeAllOverlays();
+            document.getElementById('lineup-overlay').style.display = 'flex';
+            document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.nav-button')[2].classList.add('active');
+            renderLineup();
+        }
+
+        function closeLineup() {
+            document.getElementById('lineup-overlay').style.display = 'none';
+            document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.nav-button')[0].classList.add('active');
+        }
+
+        function renderLineup() {
+            let activeCards = [];
+            let uniqueMembers = new Set();
+            let allFilled = true;
+
+            for (let i = 0; i < 6; i++) {
+                const slotDiv = document.getElementById('slot-' + i);
+                slotDiv.innerHTML = '';
+
+                const uid = state.activeGroup[i];
+                if (uid) {
+                    const cardData = state.inventory.find(c => c.uid === uid);
+                    if (cardData) {
+                        activeCards.push(cardData);
+                        const dbCard = CARDS_DB.find(db => db.id === cardData.baseId);
+                        if (dbCard) uniqueMembers.add(dbCard.name);
+                        const el = createCardElement(cardData, true);
+                        showRating(el, cardData);
+                        slotDiv.appendChild(el);
+                    } else {
+                        state.activeGroup[i] = null;
+                        allFilled = false;
+                        slotDiv.innerText = '+';
+                    }
+                } else {
+                    allFilled = false;
+                    slotDiv.innerText = '+';
+                }
+            }
+
+            // Synergy Check
+            const hasSynergy = allFilled && uniqueMembers.size === 6;
+            let totalStatsSum = 0;
+            activeCards.forEach(c => {
+                const b = hasSynergy ? 3 : 0;
+                totalStatsSum += (c.stats.dance + b) + (c.stats.vocal + b) + (c.stats.visual + b) + (c.stats.power + b) + (c.stats.stability + b);
+            });
+
+            const avgCharm = allFilled ? (totalStatsSum / 30).toFixed(1) : "0.0";
+
+            let synergyMsg = "";
+            if (hasSynergy) {
+                synergyMsg = "✨ 觸發「六色幻夢」陣容加成！所有能力值額外 +3 ✨";
+            } else if (allFilled) {
+                synergyMsg = "未觸發組隊隱藏加成 (需 6 名不同成員)";
+            } else {
+                synergyMsg = "請放滿 6 張成員卡片";
+            }
+
+            document.getElementById('lineup-charm-display').innerText = `總魅力: ${avgCharm}`;
+            document.getElementById('lineup-synergy-msg').innerText = synergyMsg;
+            return avgCharm;
+        }
+
+        let currentSelectionSlot = -1;
+        function openLineupSelection(slotIndex) {
+            currentSelectionSlot = slotIndex;
+            document.querySelector('#selection-modal h3').innerText = '選擇要上陣的卡';
+            const grid = document.getElementById('inventory-grid');
+            grid.innerHTML = '';
+
+            const slotMemberMap = {
+                0: 'Lily',
+                1: 'Haewon',
+                2: 'Sullyoon',
+                3: 'Bae',
+                4: 'Jiwoo',
+                5: 'Kyujin'
+            };
+            const targetMember = slotMemberMap[slotIndex];
+            
+            let hasCardsForMember = false;
+
+            state.inventory.forEach(cardData => {
+                const dbCard = CARDS_DB.find(db => db.id === cardData.baseId);
+                if (!dbCard || dbCard.name !== targetMember) return;
+                
+                hasCardsForMember = true;
+                
+                const el = createCardElement(cardData, true);
+                showRating(el, cardData);
+                addStaminaOverlay(el, cardData);
+                if (state.activeGroup[slotIndex] === cardData.uid) el.classList.add('selection-current');
+                el.onclick = () => {
+                    const existingIndex = state.activeGroup.indexOf(cardData.uid);
+                    if (existingIndex !== -1 && existingIndex !== slotIndex) {
+                        state.activeGroup[existingIndex] = null;
+                    }
+                    state.activeGroup[slotIndex] = cardData.uid;
+                    document.getElementById('selection-modal').style.display = 'none';
+                    renderLineup();
+                };
+                grid.appendChild(el);
+            });
+            
+            if (!hasCardsForMember) {
+                grid.innerHTML = `<p class="selection-empty">目前沒有 ${targetMember} 的卡片，快去商店抽取吧！</p>`;
+            }
+
+            setSelectionClear('取消上陣此卡', () => {
+                state.activeGroup[slotIndex] = null;
+                document.getElementById('selection-modal').style.display = 'none';
+                renderLineup();
+            });
+
+            document.getElementById('selection-modal').style.display = 'flex';
+        }
+
+        function saveLineup() {
+            saveState();
+            closeLineup();
+            renderHubCenter();
+        }
+
+        // ================= Performance =================
+        function openPerformance() {
+            closeAllOverlays();
+            document.getElementById('performance-overlay').style.display = 'flex';
+            document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.nav-button')[1].classList.add('active');
+
+            checkResets();
+            document.getElementById('perf-count').innerText = state.dailyStats.perfDone ? 0 : 1;
+            document.getElementById('perf-result').style.display = 'none';
+        }
+
+        function getActiveCards() {
+            return state.activeGroup.map(uid => state.inventory.find(c => c.uid === uid)).filter(c => c);
+        }
+
+        // Lineup strength drives rewards: tier is 0 at starter-card level (~70 charm) and 1 at top-tier (~115)
+        function getLineupPower(cards) {
+            const names = new Set(cards.map(c => CARDS_DB.find(db => db.id === c.baseId)?.name).filter(Boolean));
+            const hasSynergy = cards.length === 6 && names.size === 6;
+            const bonus = hasSynergy ? 3 : 0;
+            const statCount = cards.length * 5 || 1;
+            const total = cards.reduce((sum, c) => sum + Object.values(effectiveStats(c)).reduce((a, b) => a + b, 0) + bonus * 5, 0);
+            const charm = total / statCount;
+            const tier = Math.min(1, Math.max(0, (charm - 70) / 45));
+            return { charm, hasSynergy, tier, mult: hasSynergy ? 1.1 : 1 };
+        }
+
+        function randomRange(min, max) {
+            return min + Math.random() * (max - min);
+        }
+
+        function startPerformance() {
+            if (state.dailyStats.perfDone) return showNotification("今天的演出次數已經用完囉！請明天再來。", 'error');
+            if (state.balance < 500) return showNotification("餘額不足！需要 500 $MIXX-FLOW 舉辦演出。", 'error');
+
+            const activeCards = getActiveCards();
+            if (activeCards.length < 6) return showNotification("請先到「編隊」排滿 6 張成員卡才能舉辦演出！", 'warning');
+
+            // Stamina Check
+            const lowStamina = activeCards.some(c => c.stamina < 40);
+            if (lowStamina) return showNotification(`編隊中有團員體力低於 40，無法進行演出！請餵食點心，或等待自然回復（每小時 +10，下一點約 ${minutesToNextPoint()} 分鐘後）。`, 'error');
+
+            state.balance -= 500;
+            state.dailyStats.perfDone = true;
+            updateTaskProgress('performance', 1);
+            addHeat(HEAT.performance);
+            addBondForCards(activeCards, BOND_POINTS.stage);
+
+            // Rewards scale with lineup charm (starter ~$520 / 6k fans, top tier ~$1500 / 30k fans)
+            const power = getLineupPower(activeCards);
+            const songBonus = getSongBonus(); // % from today's best rhythm-game run
+            const flowEarned = Math.round((400 + 1100 * power.tier) * power.mult * (1 + songBonus / 100) * randomRange(0.85, 1.15));
+            const fansEarned = Math.round((3000 + 27000 * power.tier) * power.mult * randomRange(0.7, 1.3));
+
+            state.balance += flowEarned;
+            state.fans += fansEarned;
+            addXp(200);
+
+            // Penalty
+            activeCards.forEach(card => {
+                const drop = Math.floor(Math.random() * 36) + 5; // 5~40
+                card.stamina = Math.max(0, card.stamina - drop);
+            });
+
+            updateUI();
+
+            const resDiv = document.getElementById('perf-result');
+            resDiv.style.display = 'block';
+            resDiv.innerHTML = `演出順利落幕！全場沸騰！<br><small>陣容平均魅力 ${power.charm.toFixed(1)}${power.hasSynergy ? ' · 六色幻夢 +10%' : ''}${songBonus ? ` · 曲目加成 +${songBonus}%` : ''}</small><br><br>獲得了 <strong style="color:var(--gold);">$${flowEarned}</strong> MIXX-FLOW<br>吸收了 <strong style="color:#ff69b4;">${fansEarned}</strong> 名新粉絲！<br><small>團員體力平均下降了約 20 點</small>`;
+            gsap.from("#perf-result", { y: 20, opacity: 0, duration: 0.5 });
+            playCutscene('performance', { cards: activeCards, rewards: [
+                { icon: '💰', label: 'MIXX-FLOW', value: flowEarned, prefix: '+$' },
+                { icon: '💖', label: '新粉絲', value: fansEarned },
+                { icon: '⭐', label: '經驗值', value: 200 }
+            ] });
+
+            if (document.getElementById('performance-overlay').style.display === 'flex') {
+                document.getElementById('perf-count').innerText = 0;
+            }
+        }
+
+        // ================= Arena =================
+        function openArena() {
+            closeAllOverlays();
+            document.getElementById('arena-overlay').style.display = 'flex';
+            document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.nav-button')[1].classList.add('active');
+            document.getElementById('arena-result').style.display = 'none';
+            renderArenaStage();
+        }
+
+        // Rival's base charm: each stage is +18 (was +25) so the climb is gentler
+        const arenaTarget = stage => 385 + stage * 18;
+
+        function renderArenaStage() {
+            const rival = rivalFor(state.arenaStage);
+            document.getElementById('arena-stage-title').innerText = `Stage ${state.arenaStage}`;
+            const el = document.getElementById('arena-rival');
+            el.innerText = rival.name + (rival.rematch ? `（第 ${rival.round} 輪）` : '');
+            el.style.color = rival.color;
+            document.getElementById('arena-target').innerText = arenaTarget(state.arenaStage);
+        }
+
+        function startArena() {
+            const activeCards = getActiveCards();
+            if (activeCards.length < 6) return showNotification("請先到「編隊」排滿 6 張成員卡才能參加競技！", 'warning');
+
+            // Stamina Check
+            if (activeCards.some(c => c.stamina < 40)) return showNotification("有團員體力不足（低於 40），無法參賽！體力每小時會自然回復 10 點。", 'error');
+
+            // Deduct 10 stamina from each card
+            activeCards.forEach(c => {
+                c.stamina = Math.max(0, (c.stamina !== undefined ? c.stamina : 100) - 10);
+            });
+
+            const roll = rollStagePerformance(activeCards, { boosted: true });
+            addBondForCards(activeCards, BOND_POINTS.stage);
+            const finalCharm = roll.total;
+            const rival = rivalFor(state.arenaStage);
+
+            // Base target charm from stage, with ±5% fluctuation on the day
+            const baseTarget = arenaTarget(state.arenaStage);
+            const fluctuation = (Math.random() * 0.1) - 0.05;
+            const targetCharm = Math.floor(baseTarget * (1 + fluctuation));
+
+            const arenaWon = finalCharm >= targetCharm;
+            addHeat(HEAT.arena + (arenaWon ? HEAT.arenaWin : 0));
+            const rewards = [];
+            let headline;
+            if (arenaWon) {
+                const clearedStage = state.arenaStage;
+                state.arenaStage += 1;
+                headline = `🎉 擊敗 ${rival.name}！晉升至 Stage ${state.arenaStage}，下一戰：${rivalFor(state.arenaStage).name}`;
+                // Rewards grow with the stage; every 5th stage also drops a pack of the player's bias
+                const flowReward = 200 + clearedStage * 50;
+                state.balance += flowReward;
+                rewards.push(`💰 獲得 <strong style="color:var(--gold);">$${flowReward}</strong> MIXX-FLOW`);
+                if (clearedStage % 5 === 0) {
+                    // Alternates between the two biases when a second one is set
+                    const biases = getBiases();
+                    const packMember = biases[(clearedStage / 5) % biases.length];
+                    state.backpack[packMember] = (state.backpack[packMember] || 0) + 1;
+                    rewards.push(`🎁 里程碑獎勵：${packMember} 專屬包 x1（已放入背包）`);
+                }
+                addXp(100);
+                updateUI();
+            } else {
+                headline = `💥 ${rival.name} 這次略勝一籌……強化陣容、補滿體力再挑戰吧！`;
+            }
+
+            saveState();
+            showBattleResult({
+                me: 'NMIXX', them: rival.name, themColor: rival.color,
+                myScore: finalCharm, theirScore: targetCharm,
+                outcome: arenaWon ? 'win' : 'lose', headline, rewards,
+                details: roll.log + `<br>對手基礎魅力 ${baseTarget}，當日狀態 ${(fluctuation * 100).toFixed(1)}%`
+            });
+            renderArenaStage();
+        }
+
+        // ================= Songs =================
+        function openSongs() {
+            closeAllOverlays();
+            document.getElementById('songs-overlay').style.display = 'flex';
+            document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.nav-button')[1].classList.add('active');
+
+            renderRhythmList();
+            const list = document.getElementById('songs-list');
+            list.innerHTML = '';
+
+            // Only songs that have audio: unlocking makes them playable in the rhythm game and as background music
+            SONGS.forEach(song => {
+                if (isSongUnlocked(song, state.unlockedSongs)) return; // already listed under 節奏遊戲
+                const canAfford = state.balance >= song.cost;
+                const el = document.createElement('div');
+                el.className = 'song-item';
+                el.style.borderLeftColor = canAfford ? '#ff69b4' : 'var(--crimson)';
+                el.innerHTML = `
+                    <div>
+                        <div style="font-size:1.1rem; font-weight:bold;">🎧 ${song.title}</div>
+                        <div style="font-size:0.8rem; color:#ccc;">$${song.cost.toLocaleString()} MIXX-FLOW　·　解鎖後可玩節奏遊戲、當背景音樂</div>
+                    </div>
+                    <button class="cyber-button" style="padding: 5px 15px; opacity:${canAfford ? 1 : 0.5};" onclick="unlockSong('${song.id}')">解鎖</button>`;
+                list.appendChild(el);
+            });
+            if (!list.children.length) list.innerHTML = '<div style="opacity: 0.6; text-align: center;">所有歌曲都解鎖了 🎉</div>';
+        }
+
+        function unlockSong(id) {
+            const song = SONGS.find(s => s.id === id);
+            if (!song || isSongUnlocked(song, state.unlockedSongs)) return;
+            if (state.balance < song.cost) return showNotification(`解鎖 ${song.title} 需要 $${song.cost.toLocaleString()} MIXX-FLOW，快去演出賺錢吧！`, 'error');
+            state.balance -= song.cost;
+            state.unlockedSongs.push(id);
+            addXp(200);
+            saveState();
+            updateUI();
+            openSongs();
+            renderBgmSettings();
+            showNotification(`解鎖成功！${song.title} 可以玩節奏遊戲，也能在設定加入背景音樂了！`, 'success');
+        }
+
+        // ================= V3 Gameplay Handlers =================
+
+        function openCommunity() {
+            closeAllOverlays();
+            document.getElementById('community-overlay').style.display = 'flex';
+            updateUI();
+        }
+
+        function handleLiveStream() {
+            if (state.dailyStats.liveCount >= 3) return showNotification("今天的直播次數已經用完囉！", 'error');
+            const activeCards = getActiveCards();
+            if (activeCards.length < 6) return showNotification("編隊未完成！請先排滿 6 張成員卡。", 'warning');
+
+            if (activeCards.some(c => c.stamina < 40)) return showNotification("有團員體力太低（低於 40），無法直播！體力每小時會自然回復 10 點。", 'error');
+
+            const power = getLineupPower(activeCards);
+            const fansEarned = Math.round((100 + 1900 * power.tier) * power.mult * randomRange(0.7, 1.3));
+            state.fans += fansEarned;
+            state.dailyStats.liveCount += 1;
+
+            activeCards.forEach(c => {
+                c.stamina = Math.max(0, c.stamina - Math.floor(Math.random() * 11));
+            });
+
+            updateUI();
+            playCutscene('live', { cards: activeCards, rewards: [
+                { icon: '💖', label: '新粉絲', value: fansEarned },
+                { icon: '📺', label: '今日剩餘直播', value: 3 - state.dailyStats.liveCount, prefix: '' }
+            ] });
+        }
+
+        function handleMerchSale() {
+            if (state.weeklyStats.merchDone) return showNotification("本週的周邊已經賣光光了！下週一再來販售吧。", 'info');
+            const profit = Math.floor(Math.random() * 8001) + 12000; // 12000 to 20000
+            state.balance += profit;
+            state.weeklyStats.merchDone = true;
+            updateUI();
+            playCutscene('merch', { rewards: [{ icon: '💰', label: 'MIXX-FLOW', value: profit, prefix: '+$' }] });
+        }
+
+        function openTraining() {
+            closeAllOverlays();
+            document.getElementById('training-overlay').style.display = 'flex';
+            updateUI();
+        }
+
+        function handleTraining() {
+            if (state.dailyStats.trainCount >= 2) return showNotification("團員已經精疲力竭了，明天再訓練吧！", 'error');
+            const activeCards = getActiveCards();
+            if (activeCards.length < 6) return showNotification("請先完成編隊（需排滿 6 張成員卡）。", 'warning');
+
+            state.dailyStats.trainCount += 1;
+            updateTaskProgress('training', 1);
+            addHeat(HEAT.training);
+            addBondForCards(activeCards, BOND_POINTS.training);
+            const xpGained = Math.floor(Math.random() * 111) + 10;
+
+            activeCards.forEach(c => {
+                c.spXp = (c.spXp || 0) + xpGained;
+                c.stamina = Math.max(0, c.stamina - (Math.floor(Math.random() * 16) + 5));
+
+                // Check Special Upgrade
+                if (c.spXp >= 500 && (c.spLv || 0) < 5) {
+                    c.spXp -= 500;
+                    c.spLv = (c.spLv || 0) + 1;
+                    applySpecialUpgrade(c);
+                }
+            });
+
+            updateUI();
+            playCutscene('training', { cards: activeCards, rewards: [
+                { icon: '📈', label: '每位成員專屬經驗', value: xpGained },
+                { icon: '💦', label: '今日剩餘練習', value: 2 - state.dailyStats.trainCount, prefix: '' }
+            ] });
+        }
+
+        function applySpecialUpgrade(card) {
+            const stats = ['dance', 'vocal', 'visual', 'power', 'stability'];
+            const dbCard = CARDS_DB.find(db => db.id === card.baseId);
+            const name = dbCard ? dbCard.name : '成員';
+
+            for (let i = 0; i < 3; i++) {
+                const target = stats[Math.floor(Math.random() * stats.length)];
+                card.stats[target] += 1;
+            }
+            showNotification(`✨ 特別升級！${name} 的一張卡片突破極限！屬性隨機 +3 (目前級別: ${card.spLv}/5)`, 'success');
+        }
+
+        let _sysLaunched = false;
+        function systemLaunch() {
+            if (_sysLaunched) return;
+            _sysLaunched = true;
+            console.log("System Launching...");
+            init();
+        }
+        window.addEventListener('MIXX_READY', systemLaunch);
+
+        // Final fallback if event never fires
+        setTimeout(() => {
+            if (!_sysLaunched) {
+                console.warn("Ready event timed out, forcing launch...");
+                systemLaunch();
+            }
+        }, 5000);
+
+    </script>
+</body>
+
+</html>
