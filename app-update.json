@@ -1,8 +1,8 @@
 {
-  "version": "1.7.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.7.0/bundle-1.7.0.zip",
-  "checksum": "0c4082cc7a79fdf37ba1ebb3a2f819be883ff0097564242e3f36a735255f96e0",
+  "version": "1.8.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.8.0/bundle-1.8.0.zip",
+  "checksum": "4e11674a90bfc3822083c05ae113eede2a066392e4eacbbb9016ac0d3bcbd3e5",
   "minNative": 10408,
-  "notes": "新歌：High Horse、Blue Valentine、Love Is Lonely（都能玩節奏遊戲）；每首歌解鎖固定 $1,500；成員羈絆上限提高到 Lv.30，Lv.30 才會拿到簽名卡（Lv.15/20/25 各送專屬卡包）；養成和展示選單換成圖片按鈕",
+  "notes": "新歌：Love Me Like This、Break The Wall、Birthday Wish；節奏遊戲打擊特效改成跑道變色，不再擋畫面；每首歌新增📊分數表，第一次達到 C/B/A/S 評級有獎勵；困難譜面重新調整，不會再出現兩隻手按不到的音；新增海嫄新手引導（設定裡可以重看）；卡片「評分」統一改叫「魅力」，數字不會再差 1；禮物碼、陣容碼複製貼上更不容易失效；修正 iPhone 心情日記關閉鍵被擋住",
   "released": "2026-10-25"
 }
