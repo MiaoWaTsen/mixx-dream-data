@@ -29,7 +29,7 @@
         })();
     </script>
 
-  <script type="module" crossorigin src="./assets/index-Rlte2WPZ.js"></script>
+  <script type="module" crossorigin src="./assets/index-CeQAjSia.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-DrlchAnP.css">
 <link rel="manifest" href="./manifest.webmanifest"></head>
 
@@ -2230,9 +2230,12 @@
         }
         window.addEventListener('MIXX_READY', systemLaunch);
 
-        // Final fallback if event never fires
+        // Final fallback if event never fires. Only once main.js has actually run (window.state exists):
+        // on a slow phone connection the bundle can take longer than this, and launching without it
+        // crashes with "Can't find variable: state". Until then MIXX_READY still launches, and the
+        // 8-second "載入過久？" button at the top offers a reload.
         setTimeout(() => {
-            if (!_sysLaunched) {
+            if (!_sysLaunched && window.state) {
                 console.warn("Ready event timed out, forcing launch...");
                 systemLaunch();
             }
