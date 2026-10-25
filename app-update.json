@@ -1,8 +1,8 @@
 {
-  "version": "1.6.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.6.0/bundle-1.6.0.zip",
-  "checksum": "aaf55298de50c5027e3c9703c4ee005ba910bb8538f1ba70546ea57821abaf68",
+  "version": "1.6.1",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.6.1/bundle-1.6.1.zip",
+  "checksum": "1d2431bab8cb8353db75d32c420b130779e434779978c53be04054c116442aea",
   "minNative": 10408,
-  "notes": "突破可選素材卡；自訂確認視窗；遊戲選單改成圖片按鈕；回歸獎盃 600/2000/5000；競技難度曲線放緩",
+  "notes": "Ocean 節奏遊戲；節奏遊戲歌曲需在歌曲清單解鎖；難度按鈕對齊；遊戲選單圖片縮小",
   "released": "2026-10-25"
 }
