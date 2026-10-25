@@ -1,8 +1,8 @@
 {
-  "version": "1.6.2",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.6.2/bundle-1.6.2.zip",
-  "checksum": "5d27c950401353915bf307274cbbba935391e17fda946f2df1b237db6b85181b",
+  "version": "1.6.3",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.6.3/bundle-1.6.3.zip",
+  "checksum": "08d5ed938aee9d13137ba6d26186f44988a095fee2ccf6e94ff5ad6207a3b184",
   "minNative": 10408,
-  "notes": "遊戲選單偶爾跑到養成按鈕旁邊的問題修正了；之後每次更新，進大廳都會跳出這個視窗告訴你更新了什麼",
+  "notes": "剛進大廳時馬上點按鈕，選單位置會跑掉的問題修正了；選單圖片還沒載入完時位置偏掉的問題也修正了",
   "released": "2026-10-25"
 }
