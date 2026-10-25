@@ -1,8 +1,8 @@
 {
-  "version": "1.8.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.8.0/bundle-1.8.0.zip",
-  "checksum": "4e11674a90bfc3822083c05ae113eede2a066392e4eacbbb9016ac0d3bcbd3e5",
+  "version": "1.9.1",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.9.1/bundle-1.9.1.zip",
+  "checksum": "df115c8b49f7e96a97535a146f97dba2a445d54c7700808c2932a90dcfe6730f",
   "minNative": 10408,
-  "notes": "新歌：Love Me Like This、Break The Wall、Birthday Wish；節奏遊戲打擊特效改成跑道變色，不再擋畫面；每首歌新增📊分數表，第一次達到 C/B/A/S 評級有獎勵；困難譜面重新調整，不會再出現兩隻手按不到的音；新增海嫄新手引導（設定裡可以重看）；卡片「評分」統一改叫「魅力」，數字不會再差 1；禮物碼、陣容碼複製貼上更不容易失效；修正 iPhone 心情日記關閉鍵被擋住",
+  "notes": "新增成員生日活動：生日前後大廳橫幅、當天送專屬包 x3、限定卡登場、日記收到生日回信；心情日記會依心情由本命回信，還能回顧過去的日記；節奏遊戲新增 FULL COMBO / ALL PERFECT 標記與首次獎勵，每首歌每天首次遊玩有額外獎勵；成員會隨機叫你 NSWER 或你的名字；抽卡途中關掉 App 不會再遺失卡片；修正演出次數顯示",
   "released": "2026-10-25"
 }
