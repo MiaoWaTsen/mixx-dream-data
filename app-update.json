@@ -1,8 +1,8 @@
 {
-  "version": "1.4.9",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.4.9/bundle-1.4.9.zip",
-  "checksum": "ca45e14069ce430fffa9bb60ddd7cb9addaee8a1155a3b38efe18d5b73d47321",
+  "version": "1.5.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.5.0/bundle-1.5.0.zip",
+  "checksum": "932f54b0bf0ad943c656e8e568d10c12946bc028d3be39b8f7584c83c969957b",
   "minNative": 10408,
-  "notes": "修正自動更新下載（加上檢查碼）— 測試用",
-  "released": "2026-10-24"
+  "notes": "拿掉假登入；編隊畫面不用捲動、顯示卡片評分；選卡視窗按鈕移到右上角",
+  "released": "2026-10-25"
 }
