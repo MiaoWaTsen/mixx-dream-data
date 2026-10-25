@@ -1,8 +1,8 @@
 {
-  "version": "1.9.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.9.1/bundle-1.9.1.zip",
-  "checksum": "df115c8b49f7e96a97535a146f97dba2a445d54c7700808c2932a90dcfe6730f",
+  "version": "1.9.4",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.9.4/bundle-1.9.4.zip",
+  "checksum": "b48b39fe931d7322d060068a294263404842da28e6e27d80677b16301ece4802",
   "minNative": 10408,
-  "notes": "新增成員生日活動：生日前後大廳橫幅、當天送專屬包 x3、限定卡登場、日記收到生日回信；心情日記會依心情由本命回信，還能回顧過去的日記；節奏遊戲新增 FULL COMBO / ALL PERFECT 標記與首次獎勵，每首歌每天首次遊玩有額外獎勵；成員會隨機叫你 NSWER 或你的名字；抽卡途中關掉 App 不會再遺失卡片；修正演出次數顯示",
+  "notes": "新增稀有卡包（保底 RARE，商店可查看機率表）；Bae 新卡登場，圖鑑多一組可收集；Bae 生日限定卡換上專屬圖；心情日記可以選要寫給哪位成員；周邊販售顯示距離每週重置的時間；商店和背包一排顯示五項；練習室改為顯示剩餘次數；Lily、Kyujin 頭像更清晰；長按圖片不會再跳出下載",
   "released": "2026-10-25"
 }
