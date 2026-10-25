@@ -1,8 +1,8 @@
 {
-  "version": "1.5.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.5.1/bundle-1.5.1.zip",
-  "checksum": "5973bc29d364a4461af826f0eb5c7517dcf5c07509f3401dc746ed0a3d8aa97d",
+  "version": "1.6.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.6.0/bundle-1.6.0.zip",
+  "checksum": "aaf55298de50c5027e3c9703c4ee005ba910bb8538f1ba70546ea57821abaf68",
   "minNative": 10408,
-  "notes": "卡片管理室顯示評分、背面排版修正；單抽「點擊螢幕繼續」置中；瞇牌卡片縮小",
+  "notes": "突破可選素材卡；自訂確認視窗；遊戲選單改成圖片按鈕；回歸獎盃 600/2000/5000；競技難度曲線放緩",
   "released": "2026-10-25"
 }
