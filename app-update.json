@@ -1,8 +1,8 @@
 {
-  "version": "1.5.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.5.0/bundle-1.5.0.zip",
-  "checksum": "932f54b0bf0ad943c656e8e568d10c12946bc028d3be39b8f7584c83c969957b",
+  "version": "1.5.1",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.5.1/bundle-1.5.1.zip",
+  "checksum": "5973bc29d364a4461af826f0eb5c7517dcf5c07509f3401dc746ed0a3d8aa97d",
   "minNative": 10408,
-  "notes": "拿掉假登入；編隊畫面不用捲動、顯示卡片評分；選卡視窗按鈕移到右上角",
+  "notes": "卡片管理室顯示評分、背面排版修正；單抽「點擊螢幕繼續」置中；瞇牌卡片縮小",
   "released": "2026-10-25"
 }
