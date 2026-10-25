@@ -1,8 +1,8 @@
 {
-  "version": "1.6.3",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.6.3/bundle-1.6.3.zip",
-  "checksum": "08d5ed938aee9d13137ba6d26186f44988a095fee2ccf6e94ff5ad6207a3b184",
+  "version": "1.7.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.7.0/bundle-1.7.0.zip",
+  "checksum": "0c4082cc7a79fdf37ba1ebb3a2f819be883ff0097564242e3f36a735255f96e0",
   "minNative": 10408,
-  "notes": "剛進大廳時馬上點按鈕，選單位置會跑掉的問題修正了；選單圖片還沒載入完時位置偏掉的問題也修正了",
+  "notes": "新歌：High Horse、Blue Valentine、Love Is Lonely（都能玩節奏遊戲）；每首歌解鎖固定 $1,500；成員羈絆上限提高到 Lv.30，Lv.30 才會拿到簽名卡（Lv.15/20/25 各送專屬卡包）；養成和展示選單換成圖片按鈕",
   "released": "2026-10-25"
 }
