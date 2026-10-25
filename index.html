@@ -29,8 +29,8 @@
         })();
     </script>
 
-  <script type="module" crossorigin src="./assets/index-CeQAjSia.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DrlchAnP.css">
+  <script type="module" crossorigin src="./assets/index-C73n_yYt.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CyaBauwf.css">
 <link rel="manifest" href="./manifest.webmanifest"></head>
 
 <body>
@@ -230,16 +230,14 @@
     </div>
 
     <!-- Mood Journal Modal -->
-    <div id="journal-overlay" class="glass-panel pointer-all"
-        style="position: fixed; display: none; z-index: 200; width: 80%; max-width: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        <h2 style="margin-top: 0;">心情日記</h2>
-        <textarea id="journal-input" placeholder="寫下你的心情..."
-            style="width: 100%; height: 150px; background: transparent; color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 1rem;"></textarea>
-        <button class="cyber-button" style="width: 100%; margin-top: 1rem;" onclick="submitJournal()">發送給成員</button>
-        <div id="ai-response"
-            style="margin-top: 1rem; font-size: 0.9rem; font-style: italic; color: var(--accent-cyan);"></div>
-        <button onclick="toggleJournal()"
-            style="background: none; border: none; color: white; margin-top: 10px; cursor: pointer; text-decoration: underline;">關閉</button>
+    <div id="journal-overlay" class="glass-panel pointer-all">
+        <div class="journal-head">
+            <h2>心情日記</h2>
+            <button class="cyber-button" onclick="toggleJournal()">關閉</button>
+        </div>
+        <textarea id="journal-input" placeholder="寫下你的心情..."></textarea>
+        <button class="cyber-button journal-send" onclick="submitJournal()">發送給成員</button>
+        <div id="ai-response"></div>
     </div>
 
     <!-- Collection Overlay -->
@@ -597,6 +595,7 @@
                 style="display: none; width: 100%; margin-bottom: 10px; background: var(--accent-cyan); color: #000;"
                 onclick="state.balance += 10000; saveState(); updateUI(); showNotification('開發者：已獲得 10000 $MIXX-FLOW！', 'success');">開發者：+10000
                 $MIXX-FLOW</button>
+            <button class="cyber-button" style="width: 100%; margin-bottom: 10px;" onclick="restartGuide()">📖 重看新手引導</button>
             <button class="cyber-button" style="width: 100%; background: #666;" onclick="performLogout()">清除存檔，重新開始</button>
             <div class="app-version" style="margin-top: 10px; font-size: 0.75rem; opacity: 0.5;"></div>
             <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 0.75rem;">
@@ -1067,7 +1066,7 @@
             { text: () => [state.bias, state.bias2].includes('Haewon') ? '咦，是我嗎？！好害羞……謝謝你 💕 我會更努力的！' : `原來是 ${biasText()} 啊！${state.bias2 ? '我會偷偷告訴她們的，她們' : '我會偷偷告訴她的，她'}一定超開心 😆` },
             { text: () => "在這裡，你可以玩遊戲賺取 $MIXX-FLOW，再用它抽珍貴的成員閃卡。和成員們一起練習、上台，感情也會越來越好喔！" },
             { text: () => "左邊是「遊戲、養成、展示」，下面是「舞台、隊伍、商店」。NMIXX 真的回歸的時候，這裡也會有回歸活動！" },
-            { text: () => "為了慶祝你的加入，我送你 5000 $MIXX-FLOW 當開局獎勵，快去試試手氣吧！" }
+            { text: () => "為了慶祝你的加入，我送你 5000 $MIXX-FLOW 當開局獎勵！接下來我會一步一步帶你抽卡、編隊、上台，跟著發光的按鈕走就對了～" }
         ];
 
         function startTutorial() {
@@ -1187,6 +1186,8 @@
                 renderHubCenter(); // Render active group or bias
                 // Once the hub has settled, tell returning players what this update changed
                 setTimeout(() => showWhatsNew({ isNewPlayer }), 1200);
+                // Hands-on guide: buy and open a pack, fill the lineup, first performance
+                setTimeout(() => startGuide(), 1600);
             }
         }
 
@@ -1657,16 +1658,13 @@
             btn.onclick = action;
         }
 
-        // Card score shown in the top-right corner: average of the card's five stats, bonuses included
-        function cardRating(card) {
-            const s = effectiveStats(card);
-            return Math.round((s.dance + s.vocal + s.visual + s.power + s.stability) / 5);
-        }
+        // 魅力 shown in the card's top-right corner (cardCharm in src/utils/battle.js)
+        const cardRating = card => cardCharm(card);
         function showRating(el, card) {
             const tag = el.querySelector('.card-lv');
             if (!tag) return;
             tag.classList.add('card-score');
-            tag.innerHTML = `<small>評分</small>${cardRating(card)}`;
+            tag.innerHTML = `<small>魅力</small>${cardRating(card)}`;
         }
 
         function selectCardForExhibition(cardId) {
@@ -1683,7 +1681,19 @@
         // --- Mood Journal ---
         function toggleJournal() {
             const j = document.getElementById('journal-overlay');
-            j.style.display = (j.style.display === 'none' || j.style.display === '') ? 'block' : 'none';
+            const open = j.style.display === 'none' || j.style.display === '';
+            j.style.display = open ? 'block' : 'none';
+            if (!open) document.getElementById('journal-input').blur();
+        }
+        // iOS shrinks and pans the visible area when the keyboard opens; follow it so 關閉 stays on screen
+        if (window.visualViewport) {
+            const fitJournal = () => {
+                const j = document.getElementById('journal-overlay'), vv = window.visualViewport;
+                j.style.setProperty('--jv-top', `${vv.offsetTop}px`);
+                j.style.setProperty('--jv-h', `${vv.height}px`);
+            };
+            visualViewport.addEventListener('resize', fitJournal);
+            visualViewport.addEventListener('scroll', fitJournal);
         }
 
         async function submitJournal() {
@@ -1849,8 +1859,8 @@
             const hasSynergy = allFilled && uniqueMembers.size === 6;
             let totalStatsSum = 0;
             activeCards.forEach(c => {
-                const b = hasSynergy ? 3 : 0;
-                totalStatsSum += (c.stats.dance + b) + (c.stats.vocal + b) + (c.stats.visual + b) + (c.stats.power + b) + (c.stats.stability + b);
+                const b = hasSynergy ? 3 : 0, st = effectiveStats(c); // same bonuses as each card's 魅力
+                totalStatsSum += (st.dance + b) + (st.vocal + b) + (st.visual + b) + (st.power + b) + (st.stability + b);
             });
 
             const avgCharm = allFilled ? (totalStatsSum / 30).toFixed(1) : "0.0";
