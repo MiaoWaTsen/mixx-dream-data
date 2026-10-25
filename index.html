@@ -30,8 +30,8 @@
         })();
     </script>
 
-  <script type="module" crossorigin src="./assets/index-Dxlnx64x.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-kx7L2Tro.css">
+  <script type="module" crossorigin src="./assets/index-DKMoQAe5.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DFIxg02h.css">
 <link rel="manifest" href="./manifest.webmanifest"></head>
 
 <body>
@@ -215,8 +215,7 @@
             <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
         </div>
         <p style="opacity: 0.7;">持有特定的成員卡包，開啟時必定中該成員！</p>
-        <div id="backpack-grid" class="pack-selection"
-            style="grid-template-columns: repeat(3, 1fr); max-width: 800px; width: 90%;">
+        <div id="backpack-grid" class="pack-selection five-col">
             <!-- dynamically loaded -->
         </div>
     </div>
@@ -238,8 +237,9 @@
             <h2>心情日記</h2>
             <button class="cyber-button" onclick="toggleJournal()">關閉</button>
         </div>
-        <textarea id="journal-input" maxlength="300" placeholder="今天過得怎麼樣？開心、累了、想念誰……都可以寫給本命看～"></textarea>
-        <button class="cyber-button journal-send" onclick="submitJournal()">寄給本命 💌</button>
+        <div id="journal-to" class="journal-to"></div>
+        <textarea id="journal-input" maxlength="300" placeholder="今天過得怎麼樣？開心、累了、想念誰……都可以寫信告訴她～"></textarea>
+        <button id="journal-send" class="cyber-button journal-send" onclick="submitJournal()">寄出 💌</button>
         <div id="ai-response"></div>
         <button id="journal-history-btn" class="journal-history-btn" onclick="toggleJournalHistory()" style="display: none;"></button>
         <div id="journal-history" style="display: none;"></div>
@@ -351,6 +351,7 @@
                 <p>每週一次的限定收益</p>
                 <div style="font-size: 0.9rem; color: var(--gold); margin: 10px 0;">本週狀態: <span
                         id="merch-status-display">可販售</span></div>
+                <div id="merch-reset-display" style="font-size: 0.75rem; opacity: 0.7; margin: -6px 0 10px;"></div>
                 <button class="cyber-button" onclick="handleMerchSale()">開啟攤位</button>
             </div>
         </div>
@@ -363,8 +364,8 @@
             <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
         </div>
         <p style="opacity: 0.7;">提升編隊成員的專屬 XP，觸發「特別升級」獲得隨機屬性！</p>
-        <div id="training-stats" style="margin: 20px 0; color: var(--gold); font-size: 1.1rem;">今日練習次數: <span
-                id="train-count-display">0</span> / 2</div>
+        <div id="training-stats" style="margin: 20px 0; color: var(--gold); font-size: 1.1rem;">今日剩餘練習次數: <span
+                id="train-count-display">2</span> / 2</div>
         <div class="glass-panel" style="padding: 30px; width: 90%; max-width: 600px; text-align: center;">
             <button class="cyber-button" style="width: 100%; font-size: 1.5rem; padding: 20px;"
                 onclick="handleTraining()">開始集體練習 (-5~20 體力)</button>
@@ -376,9 +377,12 @@
     <div id="shop-overlay" class="grid-overlay">
         <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
             <h2 style="letter-spacing: 5px;">夢境商店</h2>
-            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+            <div style="display: flex; gap: 8px;">
+                <button class="cyber-button shop-rates-btn" onclick="openPackRates()">📊 機率表</button>
+                <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+            </div>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; width: 90%; max-width: 800px; margin-top: 30px;">
+        <div id="shop-grid" class="five-col">
             <div class="glass-panel" style="padding: 20px; text-align: center;">
                 <img src="./pic/Gacha/dream_pack.webp" style="width: 120px; margin-bottom: 10px;">
                 <h4>一般卡包</h4>
@@ -389,6 +393,17 @@
                     <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('pack', 1)">+</button>
                 </div>
                 <button id="shop-btn-pack" class="cyber-button" onclick="buyItem('pack')" style="width: 100%;">$800</button>
+            </div>
+            <div class="glass-panel" style="padding: 20px; text-align: center;">
+                <img src="./pic/Gacha/dream_pack.webp" class="rare-pack-img" style="width: 120px; margin-bottom: 10px;">
+                <h4>稀有卡包</h4>
+                <p style="font-size: 0.8rem; height: 3em;">保底 RARE 以上的隨機成員卡片</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('rare', -1)">-</button>
+                    <span id="shop-qty-rare" style="font-weight: bold; font-size: 1.2rem; min-width: 30px;">1</span>
+                    <button class="cyber-button" style="padding: 5px 15px;" onclick="changeShopQty('rare', 1)">+</button>
+                </div>
+                <button id="shop-btn-rare" class="cyber-button" onclick="buyItem('rare')" style="width: 100%;">$2200</button>
             </div>
             <div class="glass-panel" style="padding: 20px; text-align: center;">
                 <div style="height: 120px; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; margin-bottom: 10px;">🍫</div>
