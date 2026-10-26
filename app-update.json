@@ -1,8 +1,8 @@
 {
-  "version": "1.9.5",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.9.5/bundle-1.9.5.zip",
-  "checksum": "0dd8f2f4da3b1f912d76c90ef4496cbeddf2f97f1f701f8d6c5e9628733b47bc",
+  "version": "1.9.6",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.9.6/bundle-1.9.6.zip",
+  "checksum": "424184dc0dcfdbf85e86c9268c3089d173d5a58690989df72eb3415a11a9d66e",
   "minNative": 10408,
-  "notes": "卡包換上新包裝：一般、稀有和六位成員專屬包各有自己的設計；開包動畫也會顯示對應的卡包；卡包圖片壓縮，更新與載入更快",
+  "notes": "卡包換上新包裝：一般、稀有和六位成員專屬包各有自己的設計；開包動畫也會顯示對應的卡包；Bae 第二組 RARE 卡換上新圖；圖片壓縮，更新與載入更快",
   "released": "2026-10-26"
 }
