@@ -1,8 +1,8 @@
 {
-  "version": "1.10.3",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.10.3/bundle-1.10.3.zip",
-  "checksum": "b3d2ca0a0936b86c85595a64bf165ddcfc2fc5a7db899387cb6f5cab06920d68",
+  "version": "1.10.4",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.10.4/bundle-1.10.4.zip",
+  "checksum": "77daab7391bb93c1e1c94f0b96263547ad6ee72e856ce8683ce53ca614521639",
   "minNative": 10408,
-  "notes": "歌曲解鎖的粉絲門檻改為累加：第 1 首 10,000、第 2 首 30,000、第 3 首 60,000，依此類推",
+  "notes": "修正 MIXX-FLOW 的 MIXXFY 很難點到：小動物改成慢慢飄下來，手指一碰到就算數，高更新率手機也不會掉太快",
   "released": "2026-10-26"
 }
