@@ -1,8 +1,8 @@
 {
-  "version": "1.10.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.10.0/bundle-1.10.0.zip",
-  "checksum": "fb89b4fb6c96357ce17fcc7bf79ec5db89086a1bbbc73d8d6bab35f988ecf4ed",
+  "version": "1.10.1",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.10.1/bundle-1.10.1.zip",
+  "checksum": "4ebcb5804b192809b146ba1bd6ce9a9be764c74ae01b4ebf350d67dc6f653205",
   "minNative": 10408,
-  "notes": "新增舞蹈比賽（3 人小分隊）和歌唱比賽（雙人合唱），各有自己的關卡和對手，每 5 關送稀有卡包；成員專長：Kyujin、Jiwoo、Bae 擅長舞蹈，Lily、Haewon、Sullyoon 擅長歌唱，之後抽到的新卡會更偏向專長；練習室可以選擇練習方向（均衡／舞蹈／歌唱），選專長方向的成員經驗 +10%；生日限定卡改為體力上限 120，屬性比傳說卡略低",
+  "notes": "綜合競技每 5 關的里程碑獎勵也改為稀有卡包",
   "released": "2026-10-26"
 }
