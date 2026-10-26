@@ -1,8 +1,8 @@
 {
-  "version": "1.10.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.10.1/bundle-1.10.1.zip",
-  "checksum": "4ebcb5804b192809b146ba1bd6ce9a9be764c74ae01b4ebf350d67dc6f653205",
+  "version": "1.10.2",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.10.2/bundle-1.10.2.zip",
+  "checksum": "ef81d118e2bdf998b93bbd9c25433cf9b9609caa45158ba911a5cfc7f28bee49",
   "minNative": 10408,
-  "notes": "綜合競技每 5 關的里程碑獎勵也改為稀有卡包",
+  "notes": "MIXX-FLOW 小遊戲改成接住掉落的 MIXXFY 六隻小動物；歌曲解鎖除了 ,500，第 n 首還需要 n × 10,000 名粉絲；移除 Blue Valentine 和 Love Me Like This，已購買的玩家退還 ,500",
   "released": "2026-10-26"
 }
