@@ -1,8 +1,8 @@
 {
-  "version": "1.10.2",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.10.2/bundle-1.10.2.zip",
-  "checksum": "ef81d118e2bdf998b93bbd9c25433cf9b9609caa45158ba911a5cfc7f28bee49",
+  "version": "1.10.3",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.10.3/bundle-1.10.3.zip",
+  "checksum": "b3d2ca0a0936b86c85595a64bf165ddcfc2fc5a7db899387cb6f5cab06920d68",
   "minNative": 10408,
-  "notes": "MIXX-FLOW 小遊戲改成接住掉落的 MIXXFY 六隻小動物；歌曲解鎖除了 ,500，第 n 首還需要 n × 10,000 名粉絲；移除 Blue Valentine 和 Love Me Like This，已購買的玩家退還 ,500",
+  "notes": "歌曲解鎖的粉絲門檻改為累加：第 1 首 10,000、第 2 首 30,000、第 3 首 60,000，依此類推",
   "released": "2026-10-26"
 }
