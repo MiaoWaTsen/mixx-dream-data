@@ -1,8 +1,8 @@
 {
-  "version": "1.10.4",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.10.4/bundle-1.10.4.zip",
-  "checksum": "77daab7391bb93c1e1c94f0b96263547ad6ee72e856ce8683ce53ca614521639",
+  "version": "1.11.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.11.0/bundle-1.11.0.zip",
+  "checksum": "d67ffe2cbeb3816f4c97c02cdef80f330a12fad3544afd02769a9c95f8316bf7",
   "minNative": 10408,
-  "notes": "修正 MIXX-FLOW 的 MIXXFY 很難點到：小動物改成慢慢飄下來，手指一碰到就算數，高更新率手機也不會掉太快",
+  "notes": "MIXX-FLOW 大改版：每局 30 秒，結束有結算畫面和最高紀錄；連續接住有 COMBO 加成（最高 ×3），漏接或點空會中斷；本命成員的 MIXXFY 分數 ×2；新增金色 MIXXFY（+50）、時鐘（+3 秒）和炸彈（別碰！）；越到後面掉得越快越多；MIXXFY 掉落放慢，左右兩側不會掉",
   "released": "2026-10-26"
 }
