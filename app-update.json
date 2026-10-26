@@ -1,8 +1,8 @@
 {
-  "version": "1.9.4",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.9.4/bundle-1.9.4.zip",
-  "checksum": "b48b39fe931d7322d060068a294263404842da28e6e27d80677b16301ece4802",
+  "version": "1.9.5",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.9.5/bundle-1.9.5.zip",
+  "checksum": "0dd8f2f4da3b1f912d76c90ef4496cbeddf2f97f1f701f8d6c5e9628733b47bc",
   "minNative": 10408,
-  "notes": "新增稀有卡包（保底 RARE，商店可查看機率表）；Bae 新卡登場，圖鑑多一組可收集；Bae 生日限定卡換上專屬圖；心情日記可以選要寫給哪位成員；周邊販售顯示距離每週重置的時間；商店和背包一排顯示五項；練習室改為顯示剩餘次數；Lily、Kyujin 頭像更清晰；長按圖片不會再跳出下載",
-  "released": "2026-10-25"
+  "notes": "卡包換上新包裝：一般、稀有和六位成員專屬包各有自己的設計；開包動畫也會顯示對應的卡包；卡包圖片壓縮，更新與載入更快",
+  "released": "2026-10-26"
 }
