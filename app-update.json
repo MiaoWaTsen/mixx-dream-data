@@ -1,8 +1,8 @@
 {
-  "version": "1.13.2",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.13.2/bundle-1.13.2.zip",
-  "checksum": "9ccc2047901ee644dd6813eea44f49d138311081cab7841bf7fae3eccc11f457",
+  "version": "1.13.3",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.13.3/bundle-1.13.3.zip",
+  "checksum": "8ed426a6c3801e98e9384302522521e054a2494269bc7c1a73de6f79fe847859",
   "minNative": 10408,
-  "notes": "有新版本時右上角齒輪會發光並顯示 NEW；新手導覽加入記憶閃爍和節奏遊戲；記憶閃爍的照片會慢慢變清楚，比較好猜",
+  "notes": "設定新增「回報問題／許願」，會自動附上版本、裝置和錯誤紀錄；錯誤畫面不會再刪除存檔，並可以直接回報問題",
   "released": "2026-10-27"
 }
