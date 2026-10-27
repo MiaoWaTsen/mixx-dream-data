@@ -1,8 +1,8 @@
 {
-  "version": "1.13.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.13.1/bundle-1.13.1.zip",
-  "checksum": "f66ddf806f3e088e577399cc45138cb99c2723a17ab05d196f7a2769c55d36fa",
+  "version": "1.13.2",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.13.2/bundle-1.13.2.zip",
+  "checksum": "9ccc2047901ee644dd6813eea44f49d138311081cab7841bf7fae3eccc11f457",
   "minNative": 10408,
-  "notes": "開卡包的瞇牌換上新卡背：深紫燙金、菱形徽章和全息光澤",
+  "notes": "有新版本時右上角齒輪會發光並顯示 NEW；新手導覽加入記憶閃爍和節奏遊戲；記憶閃爍的照片會慢慢變清楚，比較好猜",
   "released": "2026-10-27"
 }
