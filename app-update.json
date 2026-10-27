@@ -1,8 +1,8 @@
 {
-  "version": "1.12.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.12.1/bundle-1.12.1.zip",
-  "checksum": "885b2c7aee2ef146b664aa4ca18f299ed19315494c4cd4a3a205ab3aa0f207ad",
+  "version": "1.12.2",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.12.2/bundle-1.12.2.zip",
+  "checksum": "52999a8f65da7f1eab7a9f6464f626e99e12b9d49ed29f1d1d70c27eb9c97593",
   "minNative": 10408,
-  "notes": "大廳預設改回原本的樣子，按左下角「主頁」可以切換到 MIXX 島；島上只留文字名稱；回歸橫幅不會再擋住長名字",
+  "notes": "加入音效（設定可調整開關和音量）；MIXX 島上的 MIXXFFY 頭上冒出 ⭐ 時點牠，可以增加該成員羈絆（每天 5 次）；MIXX-FLOW 收入調整為分數的 60%；左下角按鈕改成 MIXX島／大廳；小島模式回歸橫幅不再卡到金額；Lily、Kyujin 的立繪換成更清楚的照片",
   "released": "2026-10-27"
 }
