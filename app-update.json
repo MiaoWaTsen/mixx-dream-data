@@ -1,8 +1,8 @@
 {
-  "version": "1.12.3",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.12.3/bundle-1.12.3.zip",
-  "checksum": "b209d7b095cfd8db6f02963fa685cfa2daa3974c963d560c325a8c695a07d842",
+  "version": "1.13.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.13.0/bundle-1.13.0.zip",
+  "checksum": "31304b2017bb304b5548540e8f8a69dac597fa078b6da1e299a4cc66674a3f92",
   "minNative": 10408,
-  "notes": "小島模式拿掉右邊立繪，地圖變大；戴 👑 的 MIXXFFY 是今日成員，點牠打招呼；演出收入提高；MIXX-FLOW 開始前會顯示規則和最高分",
+  "notes": "商店新價格（一般 $1,000、稀有 $2,500、成員 $1,500）與每日特價；新增全隊便當；小島商店與 7 種 MIXX 島裝飾，需要小島幣（點頭上有 🪙 的 MIXXFFY 撿）；回歸獎盃擺上舞台島的獎盃台，並給小島幣；長按不再跳出複製選單、不會誤觸放大；動畫效能優化，演出更順",
   "released": "2026-10-27"
 }
