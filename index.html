@@ -30,7 +30,7 @@
         })();
     </script>
 
-  <script type="module" crossorigin src="./assets/index-Bnt9B23s.js"></script>
+  <script type="module" crossorigin src="./assets/index-C8QGD8zw.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-Bj4Vd6RY.css">
 <link rel="manifest" href="./manifest.webmanifest"></head>
 
@@ -514,7 +514,20 @@
             <p style="text-align: left; margin: 14px 0 5px;">🔔 音效（按鈕、抽卡、獎勵、動畫）:</p>
             <div id="settings-sfx"></div>
             <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;"></div>
-            <p style="text-align: left; margin-bottom: 5px;">存檔備份:</p>
+            <div id="cloud-section" style="display: none;">
+                <p style="text-align: left; margin-bottom: 5px;">雲端備份（遊戲中自動備份）:</p>
+                <div class="friend-code-row">
+                    <span>雲端還原碼</span>
+                    <strong id="cloud-code"></strong>
+                    <button class="cyber-button" onclick="copyCloudCode()">複製</button>
+                </div>
+                <div id="cloud-status" style="text-align: left; font-size: 0.75rem; opacity: 0.7; margin: 4px 0 8px;"></div>
+                <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+                    <button class="cyber-button" style="flex: 1;" onclick="backupToCloud({ force: true, silent: false })">立即備份</button>
+                    <button class="cyber-button" style="flex: 1;" onclick="restoreFromCloud()">從雲端還原</button>
+                </div>
+            </div>
+            <p style="text-align: left; margin-bottom: 5px;">存檔碼備份（手動）:</p>
             <textarea id="save-code" class="login-input" rows="3" style="resize: none; font-family: monospace; font-size: 0.7rem;"
                 placeholder="按「匯出」後存檔碼會出現在這裡；要還原時把存檔碼貼上再按「匯入」"></textarea>
             <div style="display: flex; gap: 10px; margin: 10px 0 20px;">
