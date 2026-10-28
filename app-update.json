@@ -1,8 +1,8 @@
 {
-  "version": "1.21.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.21.1/bundle-1.21.1.zip",
-  "checksum": "e822c48cd6453d3d624786bb636a6c4fd0b3c3fba6c00110882d3d6dd568de61",
+  "version": "1.22.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.22.0/bundle-1.22.0.zip",
+  "checksum": "02c2b04b4ca07db45a0ad07f74bbef73b01ce710d415d4685b93b10e57d35838",
   "minNative": 10408,
-  "notes": "介面文字精簡，說明更好讀",
+  "notes": "功能改成隨等級解鎖，升級時會介紹新功能；MIXX 島 Lv.2 開放；小遊戲改名「MIXXFFY RAIN」（貨幣仍是 MIXX-FLOW）；新手教學更精簡",
   "released": "2026-10-28"
 }
