@@ -1,8 +1,8 @@
 {
-  "version": "1.15.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.15.1/bundle-1.15.1.zip",
-  "checksum": "5ce65df78b0105503cef398ff47c6e783492a9e3949d9e6e6b30aad45a5fce69",
+  "version": "1.15.2",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.15.2/bundle-1.15.2.zip",
+  "checksum": "30615c9ddf93531acca4d86d847c0a05b9918d63d721dcdcc297c8180ab11e4f",
   "minNative": 10408,
-  "notes": "金額都加上千分位；右上角的錢和粉絲變多後會顯示成 12.3k、1.2M，點一下可以看精確數字；名字最多 12 個字",
+  "notes": "MIXX 島上今日成員的皇冠更大、腳下有金色光環；點左上角名字可以看經驗值；修正齒輪 NEW 標籤和卡片魅力框的位置",
   "released": "2026-10-28"
 }
