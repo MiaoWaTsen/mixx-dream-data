@@ -1,8 +1,8 @@
 {
-  "version": "1.20.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.20.0/bundle-1.20.0.zip",
-  "checksum": "ae3999a3c5831462c07d5bd437cff9d262aeb34c0bf56b2db0f223b7feef41f0",
+  "version": "1.21.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.21.0/bundle-1.21.0.zip",
+  "checksum": "6730bb7755063c87d425e33ea5e5aa28564c09e680a04600255a19600d6a8e3a",
   "minNative": 10408,
-  "notes": "遊戲接上真實 NMIXX 資料（每天自動更新）；🔴 NMIXX 真的在某城市演出的當天，世界巡演會開放那座城市的特別場，打贏拿真實巡演紀念章；🏆 NMIXX 拿音樂節目一位後 3 天：慶功禮物 + MIXXFFY 機率加倍；下一場：11/27 仁川！",
+  "notes": "📣 打榜應援：回歸期間累積應援票，NMIXX 真的拿一位就換稀有卡包；🏆 一位慶功改送一位紀念包（稀有卡包）；🎂 2/22 出道紀念日禮物；經濟調整：MIXX-FLOW 小遊戲收入降低（金色 +20、分數 ×25%），記憶閃爍每題 $10",
   "released": "2026-10-28"
 }
