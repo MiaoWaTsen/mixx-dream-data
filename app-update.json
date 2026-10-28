@@ -1,8 +1,8 @@
 {
-  "version": "1.16.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.16.0/bundle-1.16.0.zip",
-  "checksum": "246e462d03c03160c858826b28a5f9af2f64ee0cae3224853a6fd3c9b0a6ad03",
+  "version": "1.16.1",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.16.1/bundle-1.16.1.zip",
+  "checksum": "79e1c3ca121dcaf4959d1391931eddbb798f90b079404ae30fcf24c6f8198436",
   "minNative": 10408,
-  "notes": "新增 Lily 第二組卡片；圖鑑說明 NORMAL・RARE・DIAMOND 是真實原圖，LEGEND・SIGNATURE 是 AI 編輯（卡片左上角有標示）；新手導覽加入圖鑑介紹",
+  "notes": "MIXX 島的皇冠縮小；點今日之星的小動物會說出自己的名字；設定按鈕離螢幕邊緣遠一點",
   "released": "2026-10-28"
 }
