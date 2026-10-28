@@ -30,7 +30,7 @@
         })();
     </script>
 
-  <script type="module" crossorigin src="./assets/index-BBbvNJwT.js"></script>
+  <script type="module" crossorigin src="./assets/index-DMOmZG0Z.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-Tdfz8yeC.css">
 <link rel="manifest" href="./manifest.webmanifest"></head>
 
@@ -103,7 +103,7 @@
             <div id="tutorial-name-tag" class="character-name-tag">HAEWON</div>
             <h3 style="color: var(--crimson); margin-top: 0;">隊長海嫄</h3>
             <p id="tutorial-text" style="line-height: 1.6;"></p>
-            <input type="text" id="tutorial-name" class="login-input" maxlength="12" placeholder="輸入你的名字"
+            <input type="text" id="tutorial-name" class="login-input" maxlength="12" placeholder="輸入你的名字（最多 12 字）"
                 style="display: none; margin: 0 0 10px;" onkeydown="if (event.key === 'Enter') nextTutorialStep()">
             <button class="cyber-button" style="float: right;" onclick="nextTutorialStep()">下一步</button>
         </div>
@@ -125,13 +125,13 @@
                 </div>
             </div>
             <div style="display: flex; gap: 10px; pointer-events: auto;">
-                <div class="glass-panel"
-                    style="padding: 10px; color: var(--gold); font-weight: bold; text-align: right;">
-                    <div style="font-size: 0.7rem; color: #ccc;">MIXX-FLOW</div>
+                <div class="glass-panel pointer-all" onclick="showExactCounts()"
+                    style="padding: 10px; color: var(--gold); font-weight: bold; text-align: right; cursor: pointer;">
+                    <div style="font-size: 0.7rem; color: var(--text-dim);">MIXX-FLOW</div>
                     $<span id="balance">1000</span>
                 </div>
-                <div class="glass-panel" style="padding: 10px; color: #ff69b4; font-weight: bold; text-align: right;">
-                    <div style="font-size: 0.7rem; color: #ccc;">FANS</div>
+                <div class="glass-panel pointer-all" onclick="showExactCounts()" style="padding: 10px; color: var(--pink); font-weight: bold; text-align: right; cursor: pointer;">
+                    <div style="font-size: 0.7rem; color: var(--text-dim);">FANS</div>
                     <span id="fans-count">0</span>
                 </div>
                 <button class="cyber-button secondary icon-btn" onclick="toggleTasks()" style="height: 100%;">🎯</button>
@@ -498,7 +498,7 @@
 
             <section class="settings-section">
                 <h3 class="settings-label">玩家名稱</h3>
-                <input type="text" id="settings-name" class="login-input" placeholder="輸入名稱">
+                <input type="text" id="settings-name" class="login-input" maxlength="12" placeholder="輸入名稱（最多 12 字）">
                 <div class="friend-code-row">
                     <span>我的好友碼</span>
                     <strong id="settings-friend-code"></strong>
