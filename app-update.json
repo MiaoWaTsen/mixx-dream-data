@@ -1,8 +1,8 @@
 {
-  "version": "1.16.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.16.1/bundle-1.16.1.zip",
-  "checksum": "79e1c3ca121dcaf4959d1391931eddbb798f90b079404ae30fcf24c6f8198436",
+  "version": "1.17.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.17.0/bundle-1.17.0.zip",
+  "checksum": "3965e60f52110789ed9d5ba5d1e9f3e39c485d246a07c6f6655e09e1aeaa2ba7",
   "minNative": 10408,
-  "notes": "MIXX 島的皇冠縮小；點今日之星的小動物會說出自己的名字；設定按鈕離螢幕邊緣遠一點",
+  "notes": "開包有機率遇到 MIXXFFY（一般／成員包 2%、稀有包 5%），每隻都有隨機個性；重複遇到會升星、可以換新個性；MIXXFFY 每天有不同心情，會影響個性效果；可以選一隻當跟班：競技場應援、練習室撿東西、MIXX-FLOW 分數 ×3；到成員圖鑑按「MIXXFFY」查看與更換跟班；MIXX 島今日成員改成腳下金色光圈",
   "released": "2026-10-28"
 }
