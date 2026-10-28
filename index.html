@@ -30,8 +30,8 @@
         })();
     </script>
 
-  <script type="module" crossorigin src="./assets/index-C8QGD8zw.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Bj4Vd6RY.css">
+  <script type="module" crossorigin src="./assets/index-BBbvNJwT.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Tdfz8yeC.css">
 <link rel="manifest" href="./manifest.webmanifest"></head>
 
 <body>
@@ -86,7 +86,7 @@
 
     <div id="login-screen">
         <div class="glass-panel" style="width: 85%; max-width: 400px; text-align: center;">
-            <h2 style="letter-spacing: 5px; margin-bottom: 20px;">進入夢境</h2>
+            <h2 class="mx-title" data-en="ENTER THE DREAM" style="margin-bottom: 20px;">進入夢境</h2>
             <button class="cyber-button" style="width: 100%; margin-top: 10px;" onclick="startGame()">開始遊戲</button>
             <div style="margin-top: 20px; font-size: 0.7rem; opacity: 0.7;">
                 存檔保存在這支手機裡，換手機請用「設定 → 存檔碼」轉移
@@ -134,8 +134,8 @@
                     <div style="font-size: 0.7rem; color: #ccc;">FANS</div>
                     <span id="fans-count">0</span>
                 </div>
-                <button class="cyber-button" onclick="toggleTasks()" style="padding: 10px; height: 100%;">🎯</button>
-                <button id="settings-gear" class="cyber-button" onclick="toggleSettings()" style="padding: 10px; height: 100%;"><span class="gear-icon">⚙️</span></button>
+                <button class="cyber-button secondary icon-btn" onclick="toggleTasks()" style="height: 100%;">🎯</button>
+                <button id="settings-gear" class="cyber-button secondary icon-btn" onclick="toggleSettings()" style="height: 100%;"><span class="gear-icon">⚙️</span></button>
             </div>
         </div>
 
@@ -189,8 +189,8 @@
             </div>
             <button class="cyber-button" style="width: 100%; margin-top: 10px; background: var(--xp-color);"
                 onclick="confirmOpenPacks()">確認開啟</button>
-            <button class="cyber-button"
-                style="width: 100%; margin-top: 5px; background: none; border: 1px solid white;"
+            <button class="cyber-button secondary"
+                style="width: 100%; margin-top: 5px;"
                 onclick="document.getElementById('pack-qty-modal').style.display='none'">取消</button>
         </div>
     </div>
@@ -198,9 +198,9 @@
     <!-- Management Overlay -->
     <div id="management-overlay" class="grid-overlay">
         <div class="mg-head">
-            <h2>卡片管理室</h2>
+            <h2 class="mx-title" data-en="CARD ROOM">卡片管理室</h2>
             <div id="management-stats"></div>
-            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+            <button class="cyber-button secondary" onclick="closeAllOverlays()">關閉</button>
         </div>
         <div id="management-grid" class="card-grid"
             style="grid-template-columns: repeat(6, minmax(0, 1fr)); width: 94%; max-width: 1200px;">
@@ -210,9 +210,9 @@
 
     <!-- Backpack Overlay -->
     <div id="backpack-overlay" class="grid-overlay">
-        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
-            <h2 style="letter-spacing: 5px;">背包</h2>
-            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        <div class="overlay-head">
+            <h2 class="mx-title" data-en="BACKPACK">背包</h2>
+            <button class="cyber-button secondary" onclick="closeAllOverlays()">關閉</button>
         </div>
         <p style="opacity: 0.7;">持有特定的成員卡包，開啟時必定中該成員！</p>
         <div id="backpack-grid" class="pack-selection five-col">
@@ -234,8 +234,8 @@
     <!-- Mood Journal Modal -->
     <div id="journal-overlay" class="glass-panel pointer-all">
         <div class="journal-head">
-            <h2>心情日記</h2>
-            <button class="cyber-button" onclick="toggleJournal()">關閉</button>
+            <h2 class="mx-title" data-en="MOOD DIARY">心情日記</h2>
+            <button class="cyber-button secondary" onclick="toggleJournal()">關閉</button>
         </div>
         <div id="journal-to" class="journal-to"></div>
         <textarea id="journal-input" maxlength="300" placeholder="今天過得怎麼樣？開心、累了、想念誰……都可以寫信告訴她～"></textarea>
@@ -247,9 +247,9 @@
 
     <!-- Collection Overlay -->
     <div id="collection-overlay" class="grid-overlay">
-        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
-            <h2 style="letter-spacing: 5px;">成員圖鑑</h2>
-            <button class="cyber-button" onclick="toggleCollection()">關閉</button>
+        <div class="overlay-head">
+            <h2 class="mx-title" data-en="COLLECTION">成員圖鑑</h2>
+            <button class="cyber-button secondary" onclick="toggleCollection()">關閉</button>
         </div>
         <div id="collection-stats" style="color: var(--accent-cyan); margin: 10px 0;">已收集: 0 / 18</div>
         <div id="card-grid" class="card-grid"></div>
@@ -257,10 +257,10 @@
 
     <!-- Exhibition Room Overlay -->
     <div id="exhibition-overlay" class="grid-overlay">
-        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 900px; align-items: center;">
-            <h2 style="letter-spacing: 5px;">展覽室</h2>
+        <div class="overlay-head wide">
+            <h2 class="mx-title" data-en="EXHIBITION">展覽室</h2>
             <div>
-                <button class="cyber-button" onclick="toggleExhibition()">關閉</button>
+                <button class="cyber-button secondary" onclick="toggleExhibition()">關閉</button>
             </div>
         </div>
         <p style="opacity: 0.7;">點擊格子選擇要展示的卡片，任何成員都可以 (上限 10 張)</p>
@@ -273,7 +273,7 @@
             <h3>選擇要展示的卡</h3>
             <div class="selection-actions">
                 <button id="selection-clear" class="cyber-button"></button>
-                <button class="cyber-button selection-close" onclick="closeSelection()">取消</button>
+                <button class="cyber-button secondary selection-close" onclick="closeSelection()">取消</button>
             </div>
         </div>
         <!-- One sideways-scrolling row of cards, so the picker never scrolls vertically -->
@@ -288,9 +288,9 @@
     <!-- Community Overlay -->
     <!-- Gift Overlay -->
     <div id="gift-overlay" class="grid-overlay">
-        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
-            <h2 style="letter-spacing: 5px;">禮物</h2>
-            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        <div class="overlay-head">
+            <h2 class="mx-title" data-en="GIFTS">禮物</h2>
+            <button class="cyber-button secondary" onclick="closeAllOverlays()">關閉</button>
         </div>
         <div class="gift-columns" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; max-width: 800px; margin-top: 10px;">
             <div class="glass-panel" style="padding: 16px;">
@@ -301,7 +301,7 @@
                     <span id="gift-owned" style="font-size: 0.75rem; opacity: 0.7; white-space: nowrap;"></span>
                 </div>
                 <textarea id="gift-msg" class="login-input" rows="2" maxlength="100" style="resize: none;" placeholder="寫一段話給對方…（最多 100 字）"></textarea>
-                <button class="cyber-button" style="width: 100%; background: linear-gradient(45deg, #ff69b4, var(--crimson));" onclick="sendGift()">產生禮物碼並傳送</button>
+                <button class="cyber-button" style="width: 100%;" onclick="sendGift()">產生禮物碼並傳送</button>
                 <textarea id="gift-out" class="login-input" rows="2" readonly style="resize: none; font-family: monospace; font-size: 0.65rem;" placeholder="送出後禮物碼會顯示在這裡"></textarea>
             </div>
             <div class="glass-panel" style="padding: 16px;">
@@ -315,9 +315,9 @@
 
     <!-- Bond Overlay -->
     <div id="bond-overlay" class="grid-overlay">
-        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
-            <h2 style="letter-spacing: 5px;">成員羈絆</h2>
-            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        <div class="overlay-head">
+            <h2 class="mx-title" data-en="BONDS">成員羈絆</h2>
+            <button class="cyber-button secondary" onclick="closeAllOverlays()">關閉</button>
         </div>
         <p style="opacity: 0.7; margin: 4px 0 10px;">一起上台、訓練、餵點心、打招呼、送禮都會增加羈絆。Lv.30 會得到該成員的 SIGNATURE 卡！</p>
         <div id="bond-grid" class="bond-grid"></div>
@@ -325,17 +325,17 @@
 
     <!-- Comeback Event Overlay -->
     <div id="comeback-overlay" class="grid-overlay">
-        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
-            <h2 style="letter-spacing: 5px;">回歸企劃</h2>
-            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        <div class="overlay-head">
+            <h2 class="mx-title" data-en="COMEBACK">回歸企劃</h2>
+            <button class="cyber-button secondary" onclick="closeAllOverlays()">關閉</button>
         </div>
         <div id="comeback-body" style="width: 100%; max-width: 800px;"></div>
     </div>
 
     <div id="community-overlay" class="grid-overlay">
-        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
-            <h2 style="letter-spacing: 5px;">成員社群</h2>
-            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        <div class="overlay-head">
+            <h2 class="mx-title" data-en="COMMUNITY">成員社群</h2>
+            <button class="cyber-button secondary" onclick="closeAllOverlays()">關閉</button>
         </div>
         <div
             style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 90%; max-width: 800px; margin-top: 30px;">
@@ -359,9 +359,9 @@
 
     <!-- Training Overlay -->
     <div id="training-overlay" class="grid-overlay">
-        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
-            <h2 style="letter-spacing: 5px;">練習室</h2>
-            <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        <div class="overlay-head">
+            <h2 class="mx-title" data-en="PRACTICE ROOM">練習室</h2>
+            <button class="cyber-button secondary" onclick="closeAllOverlays()">關閉</button>
         </div>
         <p style="opacity: 0.7;">提升編隊成員的專屬 XP，觸發「特別升級」提升屬性！可以選擇練習方向。</p>
         <div id="training-stats" style="margin: 20px 0; color: var(--gold); font-size: 1.1rem;">今日剩餘練習次數: <span
@@ -382,11 +382,11 @@
 
         <!-- Shop Overlay (Replaces Gacha) -->
     <div id="shop-overlay" class="grid-overlay">
-        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 800px; align-items: center;">
-            <h2 style="letter-spacing: 5px;">夢境商店</h2>
-            <div style="display: flex; gap: 8px;">
-                <button class="cyber-button shop-rates-btn" onclick="openPackRates()">📊 機率表</button>
-                <button class="cyber-button" onclick="closeAllOverlays()">關閉</button>
+        <div class="overlay-head">
+            <h2 class="mx-title" data-en="DREAM SHOP">夢境商店</h2>
+            <div class="head-actions">
+                <button class="cyber-button secondary shop-rates-btn" onclick="openPackRates()">📊 機率表</button>
+                <button class="cyber-button secondary" onclick="closeAllOverlays()">關閉</button>
             </div>
         </div>
         <div id="shop-grid" class="five-col">
@@ -424,7 +424,7 @@
     <!-- Step 3 Alternate: Multi Reveal Area (For 10-pulls etc.) -->
     <div id="multi-reveal-area"
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; display: none; flex-direction: column; align-items: center; justify-content: flex-start; background: rgba(0,0,0,0.9); overflow-y: auto; padding-top: 30px;">
-        <h2 style="color: var(--gold); letter-spacing: 5px; margin-top: 20px; margin-bottom: 30px;">獲得卡片</h2>
+        <h2 class="mx-title" data-en="NEW CARDS" style="margin-top: 20px; margin-bottom: 30px;">獲得卡片</h2>
         <div id="multi-reveal-grid"
             style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; width: 90%; max-width: 800px; justify-items: center; padding-bottom: 50px;">
             <!-- Cards will be injected here via JS -->
@@ -440,7 +440,7 @@
             style="position: absolute; bottom: 0; right: 0; height: 80%; opacity: 0.8; mask-image: linear-gradient(to bottom, black 80%, transparent 100%);">
         <div class="glass-panel dialogue-box" style="width: 90%; max-width: 600px; position: relative;">
             <div id="game-intro-name-tag" class="character-name-tag">HAEWON</div>
-            <h3 id="game-intro-title" style="color: var(--crimson); margin-top: 0;">遊戲說明</h3>
+            <h3 id="game-intro-title" style="color: var(--champagne); margin-top: 0; letter-spacing: 0.1em;">遊戲說明</h3>
             <p id="game-intro-text" style="line-height: 1.6;">準備好了嗎？</p>
             <button id="game-intro-btn" class="cyber-button" style="float: right;" onclick="continueFromIntro()">開始遊戲</button>
         </div>
@@ -448,9 +448,9 @@
 
     <!-- Task Overlay -->
     <div id="task-overlay" class="grid-overlay">
-        <div style="display: flex; justify-content: space-between; width: 100%; max-width: 600px; align-items: center;">
-            <h2 style="letter-spacing: 5px;">每日任務</h2>
-            <button class="cyber-button" onclick="toggleTasks()">關閉</button>
+        <div class="overlay-head narrow">
+            <h2 class="mx-title" data-en="DAILY MISSIONS">每日任務</h2>
+            <button class="cyber-button secondary" onclick="toggleTasks()">關閉</button>
         </div>
         <p style="opacity: 0.7; margin-bottom: 2rem;">任務將於每日凌晨重置</p>
         <div id="task-list" style="width: 100%; max-width: 600px;">
@@ -460,7 +460,7 @@
 
     <!-- Bias Selection Overlay -->
     <div id="bias-selection-overlay" class="grid-overlay" style="z-index: 3200;">
-        <h2 style="letter-spacing: 5px; margin-bottom: 4px;">選擇你的主擔 (Bias)</h2>
+        <h2 class="mx-title" data-en="CHOOSE YOUR BIAS" style="margin-bottom: 4px;">選擇你的主擔</h2>
         <p style="opacity: 0.75; margin: 0 0 14px;">可以選一到兩位，之後也能在設定裡更改</p>
         <div class="pack-selection" style="grid-template-columns: repeat(3, 1fr);">
             <div class="pack-item" data-member="Lily" onclick="toggleBiasPick('Lily')">
@@ -493,64 +493,73 @@
 
     <!-- Settings Overlay -->
     <div id="settings-overlay" class="grid-overlay" style="z-index: 3300;">
-        <div class="glass-panel" style="width: 90%; max-width: 400px; text-align: center;">
-            <h2 style="margin-top: 0;">個人設定</h2>
-            <p style="text-align: left; margin-bottom: 5px;">更新玩家名稱:</p>
-            <input type="text" id="settings-name" class="login-input" placeholder="輸入名稱">
-            <div class="friend-code-row">
-                <span>我的好友碼</span>
-                <strong id="settings-friend-code"></strong>
-                <button class="cyber-button" onclick="copyFriendCode()">複製</button>
-            </div>
-            <p style="text-align: left; margin-top: 15px; margin-bottom: 5px;">本命（最多兩位）:</p>
-            <div style="display: flex; gap: 10px;">
-                <select id="settings-bias" class="login-input" style="background: rgba(0,0,0,0.4); flex: 1;"></select>
-                <select id="settings-bias2" class="login-input" style="background: rgba(0,0,0,0.4); flex: 1;"></select>
-            </div>
-            <button class="cyber-button" style="width: 100%; margin-top: 20px;" onclick="saveSettings()">儲存設定</button>
-            <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;"></div>
-            <p style="text-align: left; margin-bottom: 5px;">🎵 背景音樂（勾選要播的歌，改了馬上生效）:</p>
-            <div id="settings-bgm"></div>
-            <p style="text-align: left; margin: 14px 0 5px;">🔔 音效（按鈕、抽卡、獎勵、動畫）:</p>
-            <div id="settings-sfx"></div>
-            <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0;"></div>
-            <div id="cloud-section" style="display: none;">
-                <p style="text-align: left; margin-bottom: 5px;">雲端備份（遊戲中自動備份）:</p>
+        <div class="glass-panel settings-panel">
+            <h2 class="mx-title" data-en="SETTINGS">個人設定</h2>
+
+            <section class="settings-section">
+                <h3 class="settings-label">玩家名稱</h3>
+                <input type="text" id="settings-name" class="login-input" placeholder="輸入名稱">
+                <div class="friend-code-row">
+                    <span>我的好友碼</span>
+                    <strong id="settings-friend-code"></strong>
+                    <button class="cyber-button secondary" onclick="copyFriendCode()">複製</button>
+                </div>
+                <h3 class="settings-label">本命（最多兩位）</h3>
+                <div class="settings-row">
+                    <select id="settings-bias" class="login-input"></select>
+                    <select id="settings-bias2" class="login-input"></select>
+                </div>
+                <button class="cyber-button settings-wide" onclick="saveSettings()">儲存設定</button>
+            </section>
+
+            <section class="settings-section">
+                <h3 class="settings-label">背景音樂（勾選要播的歌，改了馬上生效）</h3>
+                <div id="settings-bgm"></div>
+                <h3 class="settings-label">音效（按鈕、抽卡、獎勵、動畫）</h3>
+                <div id="settings-sfx"></div>
+            </section>
+
+            <section id="cloud-section" class="settings-section" style="display: none;">
+                <h3 class="settings-label">雲端備份（遊戲中自動備份）</h3>
                 <div class="friend-code-row">
                     <span>雲端還原碼</span>
                     <strong id="cloud-code"></strong>
-                    <button class="cyber-button" onclick="copyCloudCode()">複製</button>
+                    <button class="cyber-button secondary" onclick="copyCloudCode()">複製</button>
                 </div>
-                <div id="cloud-status" style="text-align: left; font-size: 0.75rem; opacity: 0.7; margin: 4px 0 8px;"></div>
-                <div style="display: flex; gap: 10px; margin-bottom: 16px;">
-                    <button class="cyber-button" style="flex: 1;" onclick="backupToCloud({ force: true, silent: false })">立即備份</button>
-                    <button class="cyber-button" style="flex: 1;" onclick="restoreFromCloud()">從雲端還原</button>
+                <div id="cloud-status" class="settings-note"></div>
+                <div class="settings-row">
+                    <button class="cyber-button secondary" onclick="backupToCloud({ force: true, silent: false })">立即備份</button>
+                    <button class="cyber-button secondary" onclick="restoreFromCloud()">從雲端還原</button>
                 </div>
+            </section>
+
+            <section class="settings-section">
+                <h3 class="settings-label">存檔碼備份（手動）</h3>
+                <textarea id="save-code" class="login-input settings-code" rows="3"
+                    placeholder="按「匯出」後存檔碼會出現在這裡；要還原時把存檔碼貼上再按「匯入」"></textarea>
+                <div class="settings-row">
+                    <button class="cyber-button secondary" onclick="exportSave()">匯出存檔</button>
+                    <button class="cyber-button secondary" onclick="importSave()">匯入存檔</button>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <!-- Shown only in `npm run dev` (see src/main.js) -->
+                <button id="dev-cash-btn" class="cyber-button secondary settings-wide" style="display: none;"
+                    onclick="state.balance += 10000; saveState(); updateUI(); showNotification('開發者：已獲得 10000 $MIXX-FLOW！', 'success');">開發者：+10000
+                    $MIXX-FLOW</button>
+                <button class="cyber-button secondary settings-wide" onclick="restartGuide()">重看新手引導</button>
+                <button class="cyber-button secondary settings-wide" onclick="openBugReport()">回報問題／許願</button>
+                <button class="cyber-button danger settings-wide" onclick="performLogout()">清除存檔，重新開始</button>
+            </section>
+
+            <div class="app-version settings-note"></div>
+            <div class="settings-update">
+                <span id="update-status"></span>
+                <button class="cyber-button secondary" onclick="checkForUpdate()">檢查更新</button>
             </div>
-            <p style="text-align: left; margin-bottom: 5px;">存檔碼備份（手動）:</p>
-            <textarea id="save-code" class="login-input" rows="3" style="resize: none; font-family: monospace; font-size: 0.7rem;"
-                placeholder="按「匯出」後存檔碼會出現在這裡；要還原時把存檔碼貼上再按「匯入」"></textarea>
-            <div style="display: flex; gap: 10px; margin: 10px 0 20px;">
-                <button class="cyber-button" style="flex: 1;" onclick="exportSave()">匯出存檔</button>
-                <button class="cyber-button" style="flex: 1;" onclick="importSave()">匯入存檔</button>
-            </div>
-            <!-- Shown only in `npm run dev` (see src/main.js) -->
-            <button id="dev-cash-btn" class="cyber-button"
-                style="display: none; width: 100%; margin-bottom: 10px; background: var(--accent-cyan); color: #000;"
-                onclick="state.balance += 10000; saveState(); updateUI(); showNotification('開發者：已獲得 10000 $MIXX-FLOW！', 'success');">開發者：+10000
-                $MIXX-FLOW</button>
-            <button class="cyber-button" style="width: 100%; margin-bottom: 10px;" onclick="restartGuide()">📖 重看新手引導</button>
-            <button class="cyber-button" style="width: 100%; margin-bottom: 10px;" onclick="openBugReport()">回報問題／許願</button>
-            <button class="cyber-button" style="width: 100%; background: #666;" onclick="performLogout()">清除存檔，重新開始</button>
-            <div class="app-version" style="margin-top: 10px; font-size: 0.75rem; opacity: 0.5;"></div>
-            <div style="display: flex; align-items: center; gap: 8px; margin-top: 6px; font-size: 0.75rem;">
-                <span id="update-status" style="flex: 1; opacity: 0.7; text-align: left;"></span>
-                <button class="cyber-button" style="padding: 4px 10px; font-size: 0.75rem;" onclick="checkForUpdate()">檢查更新</button>
-            </div>
-            <button id="apply-update-btn" class="cyber-button" style="display: none; width: 100%; margin-top: 8px;" onclick="applyUpdateNow()"></button>
-            <button class="cyber-button"
-                style="width: 100%; margin-top: 10px; background: none; border: 1px solid white;"
-                onclick="toggleSettings()">關閉</button>
+            <button id="apply-update-btn" class="cyber-button settings-wide" style="display: none;" onclick="applyUpdateNow()"></button>
+            <button class="cyber-button secondary settings-wide" onclick="toggleSettings()">關閉</button>
         </div>
     </div>
 
@@ -559,12 +568,12 @@
     <!-- Laid out to fit one landscape screen without scrolling -->
     <div id="lineup-overlay" class="grid-overlay">
         <div class="lineup-head">
-            <h2>團體編隊</h2>
+            <h2 class="mx-title" data-en="LINEUP">團體編隊</h2>
             <div class="lineup-summary">
                 <div id="lineup-charm-display">總魅力: 0.0</div>
                 <div id="lineup-synergy-msg"></div>
             </div>
-            <button class="cyber-button" onclick="closeLineup()">關閉</button>
+            <button class="cyber-button secondary" onclick="closeLineup()">關閉</button>
         </div>
 
         <div class="lineup-row">
@@ -576,7 +585,7 @@
             <div class="lineup-slot" id="slot-5" onclick="openLineupSelection(5)"></div>
         </div>
         <div class="lineup-actions">
-            <button class="cyber-button" style="width: 200px; background: linear-gradient(45deg, #FF69B4, var(--crimson));"
+            <button class="cyber-button" style="width: 200px;"
                 onclick="saveLineup()">保存並顯示於主頁</button>
             <button class="cyber-button" style="width: 200px;" onclick="saveLineup(); shareLineup()">📤 分享陣容碼</button>
         </div>
@@ -585,15 +594,15 @@
     <!-- Performance Overlay -->
     <div id="performance-overlay" class="grid-overlay">
         <div class="glass-panel" style="width: 90%; max-width: 500px; text-align: center;">
-            <h2 style="letter-spacing: 5px;">舞台演出</h2>
+            <h2 class="mx-title" data-en="STAGE">舞台演出</h2>
             <p>讓編好的團體站上舞台，<br>消耗 <strong style="color:var(--gold);">$500</strong> MIXX-FLOW 來舉辦演出！</p>
             <p style="color: var(--gold); margin: 15px 0;">今日剩餘演出次數: <span id="perf-count">1/1</span></p>
             <button class="cyber-button"
-                style="width: 100%; margin-top: 10px; background: var(--lavender); color: black;"
+                style="width: 100%; margin-top: 10px;"
                 onclick="startPerformance()">🎤 開始演出</button>
             <div id="perf-result" style="margin-top: 20px; font-size: 1.1rem; display: none; line-height: 1.5;"></div>
-            <button class="cyber-button"
-                style="width: 100%; margin-top: 15px; background: none; border: 1px solid white;"
+            <button class="cyber-button secondary"
+                style="width: 100%; margin-top: 15px;"
                 onclick="closeOverlay('performance-overlay')">關閉</button>
         </div>
     </div>
@@ -601,7 +610,7 @@
     <!-- Arena Overlay -->
     <div id="arena-overlay" class="grid-overlay">
         <div class="glass-panel" style="width: 90%; max-width: 500px; text-align: center;">
-            <h2 style="letter-spacing: 5px;">同台競技</h2>
+            <h2 class="mx-title" data-en="ARENA">同台競技</h2>
             <div class="arena-tabs">
                 <button class="arena-tab active" data-mode="general" onclick="switchArenaMode('general')">⚔️ 綜合競技</button>
                 <button class="arena-tab" data-mode="dance" onclick="switchArenaMode('dance')">💃 舞蹈比賽</button>
@@ -617,12 +626,12 @@
             </div>
 
             <div style="font-size: 0.8rem; color: var(--gold); margin-bottom: 10px;">勝利獎勵：$200 + 關卡×$50，每 5 關加送稀有卡包</div>
-            <button class="cyber-button" style="width: 100%; background: linear-gradient(45deg, #8A2BE2, #4169E1);"
+            <button class="cyber-button" style="width: 100%;"
                 onclick="startArena()">⚔️ 發起挑戰</button>
             <div style="margin-top: 15px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.15);">
                 <div style="font-weight: bold; margin-bottom: 6px;">👫 好友對戰</div>
                 <textarea id="friend-code" class="login-input" rows="2" style="resize: none; font-size: 0.75rem;" placeholder="貼上好友傳來的陣容碼訊息"></textarea>
-                <button class="cyber-button" style="width: 100%; background: linear-gradient(45deg, #ff69b4, #8A2BE2);" onclick="startFriendBattle()">挑戰好友陣容</button>
+                <button class="cyber-button" style="width: 100%;" onclick="startFriendBattle()">挑戰好友陣容</button>
                 <div style="font-size: 0.7rem; opacity: 0.6; margin-top: 4px;">每天前 3 場勝利各得 $300；到「編隊」可以分享你的陣容碼</div>
             </div>
             </div>
@@ -635,14 +644,14 @@
                 <div id="contest-unit" class="contest-unit"></div>
                 <div id="contest-unit-score" style="margin: 8px 0; font-weight: bold;"></div>
                 <div style="font-size: 0.8rem; color: var(--gold); margin-bottom: 10px;">勝利獎勵：$200 + 關卡×$50，每 5 關加送稀有卡包</div>
-                <button class="cyber-button" style="width: 100%; background: linear-gradient(45deg, #ff69b4, #4169E1);"
+                <button class="cyber-button" style="width: 100%;"
                     onclick="startContest()">🏆 發起挑戰</button>
             </div>
             <div id="arena-result"
                 style="margin-top: 20px; font-size: 0.9rem; display: none; text-align: left; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 5px; border-left: 3px solid var(--gold);">
             </div>
-            <button class="cyber-button"
-                style="width: 100%; margin-top: 15px; background: none; border: 1px solid white;"
+            <button class="cyber-button secondary"
+                style="width: 100%; margin-top: 15px;"
                 onclick="closeOverlay('arena-overlay')">關閉</button>
         </div>
     </div>
@@ -654,10 +663,9 @@
 
     <!-- Songs Overlay -->
     <div id="songs-overlay" class="grid-overlay">
-        <div
-            style="display: flex; justify-content: space-between; width: 100%; max-width: 600px; align-items: center; margin-bottom: 20px;">
-            <h2 style="letter-spacing: 5px;">播放清單</h2>
-            <button class="cyber-button" onclick="closeOverlay('songs-overlay')">關閉</button>
+        <div class="overlay-head narrow" style="margin-bottom: 20px;">
+            <h2 class="mx-title" data-en="PLAYLIST">播放清單</h2>
+            <button class="cyber-button secondary" onclick="closeOverlay('songs-overlay')">關閉</button>
         </div>
         <div style="width: 100%; max-width: 600px; text-align:left; margin-bottom: 6px;"><strong>🎧 節奏遊戲</strong>
             <span id="rhythm-bonus" style="font-size: 0.8rem; color: var(--gold); margin-left: 8px;"></span></div>
@@ -683,7 +691,7 @@
             <div class="glass-panel" style="text-align: center; display: flex; flex-direction: column; gap: 10px; min-width: 220px;">
                 <h3 style="margin: 0;">暫停</h3>
                 <button class="cyber-button" onclick="resumeRhythm()">繼續</button>
-                <button class="cyber-button" style="background: #666;" onclick="quitRhythm()">離開（不計分）</button>
+                <button class="cyber-button danger" onclick="quitRhythm()">離開（不計分）</button>
             </div>
         </div>
         <div id="rhythm-result" class="rhythm-center" style="display: none;"></div>
