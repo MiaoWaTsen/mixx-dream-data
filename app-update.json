@@ -1,8 +1,8 @@
 {
-  "version": "1.14.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.14.0/bundle-1.14.0.zip",
-  "checksum": "5b0e1265416bbd039a02ecb420560cc6fe3bf75da0814b21ed4e074cddbb33c5",
+  "version": "1.15.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.15.0/bundle-1.15.0.zip",
+  "checksum": "a751a6b323d4c111fdc4ea8288f3232a374a044900972082835ed67ccdfd239e",
   "minNative": 10408,
-  "notes": "新增雲端存檔：遊戲中自動備份，換手機時在設定輸入「雲端還原碼」就能拿回進度（記得把還原碼存起來）",
-  "released": "2026-10-27"
+  "notes": "全新介面風格：深夜紫＋香檳金＋粉紫膠囊按鈕；每個畫面的標題換成燙金英文＋中文；設定頁重新分組；商店特價、練習室、卡片管理的按鈕也一起換新",
+  "released": "2026-10-28"
 }
