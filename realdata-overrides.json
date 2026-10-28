@@ -1,0 +1,7 @@
+{
+ "_help": "Fixes for realdata.json when Wikipedia is wrong or late. addTours: [{date: 'YYYY-MM-DD', city, country, venue}], removeTours: ['YYYY-MM-DD'], addWins: [{date, song, show}], removeWins: ['YYYY-MM-DD:show']. The next scheduled run (or Actions → realdata → Run workflow) applies it.",
+ "addTours": [],
+ "removeTours": [],
+ "addWins": [],
+ "removeWins": []
+}

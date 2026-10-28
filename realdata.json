@@ -1,0 +1,437 @@
+{
+ "updated": "2026-10-28T12:28:28.234Z",
+ "tours": [
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2024-10-04",
+   "city": "Seoul",
+   "country": "South Korea",
+   "venue": "Jangchung Arena"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2024-10-05",
+   "city": "Seoul",
+   "country": "South Korea",
+   "venue": "Jangchung Arena"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2024-10-06",
+   "city": "Seoul",
+   "country": "South Korea",
+   "venue": "Jangchung Arena"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-01-11",
+   "city": "Tokyo",
+   "country": "Japan",
+   "venue": "Lala Arena Tokyo Bay"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-01-12",
+   "city": "Tokyo",
+   "country": "Japan",
+   "venue": "Lala Arena Tokyo Bay"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-02-19",
+   "city": "Mexico City",
+   "country": "Mexico",
+   "venue": "Auditorio BB"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-02-20",
+   "city": "Mexico City",
+   "country": "Mexico",
+   "venue": "Auditorio BB"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-02-22",
+   "city": "Santiago",
+   "country": "Chile",
+   "venue": "Teatro Caupolican"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-02-23",
+   "city": "Santiago",
+   "country": "Chile",
+   "venue": "Teatro Caupolican"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-02-28",
+   "city": "São Paulo",
+   "country": "Brazil",
+   "venue": "Vibra São Paulo"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-04-19",
+   "city": "Taipei",
+   "country": "Taiwan",
+   "venue": "NTSU Arena"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-04-20",
+   "city": "Taipei",
+   "country": "Taiwan",
+   "venue": "NTSU Arena"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-04-26",
+   "city": "Hong Kong",
+   "country": "China",
+   "venue": "AsiaWorld-Summit"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-05-02",
+   "city": "Manila",
+   "country": "Philippines",
+   "venue": "SMX Convention Center"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-05-04",
+   "city": "Bangkok",
+   "country": "Thailand",
+   "venue": "Thunder Dome"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-05-31",
+   "city": "Tokyo",
+   "country": "Japan",
+   "venue": "Tokyo Metropolitan Gymnasium"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-06-01",
+   "city": "Tokyo",
+   "country": "Japan",
+   "venue": "Tokyo Metropolitan Gymnasium"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-06-06",
+   "city": "Melbourne",
+   "country": "Australia",
+   "venue": "Festival Hall"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-06-08",
+   "city": "Sydney",
+   "country": "Australia",
+   "venue": "Hordern Pavilion"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-06-28",
+   "city": "Macau",
+   "country": "China",
+   "venue": "The Londoner Arena"
+  },
+  {
+   "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
+   "date": "2025-06-29",
+   "city": "Macau",
+   "country": "China",
+   "venue": "The Londoner Arena"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2025-11-29",
+   "city": "Incheon",
+   "country": "South Korea",
+   "venue": "Inspire Arena"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2025-11-30",
+   "city": "Incheon",
+   "country": "South Korea",
+   "venue": "Inspire Arena"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-03-17",
+   "city": "Madrid",
+   "country": "Spain",
+   "venue": "Palacio Vistalegre"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-03-20",
+   "city": "Amsterdam",
+   "country": "Netherlands",
+   "venue": "AFAS Live"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-03-22",
+   "city": "Paris",
+   "country": "France",
+   "venue": "Salle Pleyel"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-03-24",
+   "city": "Frankfurt",
+   "country": "Germany",
+   "venue": "Myticket Jahrhunderthalle"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-03-26",
+   "city": "London",
+   "country": "United Kingdom",
+   "venue": "Eventim Apollo"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-03-29",
+   "city": "Toronto",
+   "country": "Canada",
+   "venue": "Great Canadian Toronto"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-03-31",
+   "city": "New York City",
+   "country": "United States",
+   "venue": "Brooklyn Paramount"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-04-02",
+   "city": "National Harbor",
+   "country": "United States",
+   "venue": "The Theatre at MGM National Harbor"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-04-04",
+   "city": "Irving",
+   "country": "United States",
+   "venue": "The Pavilion at Toyota Music Factory"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-04-07",
+   "city": "Oakland",
+   "country": "United States",
+   "venue": "Paramount Theatre"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-04-09",
+   "city": "Los Angeles",
+   "country": "United States",
+   "venue": "YouTube Theater"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-06-13",
+   "city": "Bangkok",
+   "country": "Thailand",
+   "venue": "UOB Live, EmSphere"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-06-20",
+   "city": "Singapore",
+   "country": "Singapore",
+   "venue": "The Star Theatre"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-07-12",
+   "city": "Kaohsiung",
+   "country": "Taiwan",
+   "venue": "Kaohsiung Arena"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-07-13",
+   "city": "Kaohsiung",
+   "country": "Taiwan",
+   "venue": "Kaohsiung Arena"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-07-25",
+   "city": "Hong Kong",
+   "country": "China",
+   "venue": "AsiaWorld-Expo, Hall 10"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-07-26",
+   "city": "Hong Kong",
+   "country": "China",
+   "venue": "AsiaWorld-Expo, Hall 10"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-08-08",
+   "city": "Tokyo",
+   "country": "Japan",
+   "venue": "Keio Arena Tokyo"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-08-09",
+   "city": "Tokyo",
+   "country": "Japan",
+   "venue": "Keio Arena Tokyo"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-11-27",
+   "city": "Incheon",
+   "country": "South Korea",
+   "venue": "Inspire Arena"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-11-28",
+   "city": "Incheon",
+   "country": "South Korea",
+   "venue": "Inspire Arena"
+  },
+  {
+   "tour": "Episode 1: Zero Frontier World Tour",
+   "date": "2026-11-29",
+   "city": "Incheon",
+   "country": "South Korea",
+   "venue": "Inspire Arena"
+  }
+ ],
+ "wins": [
+  {
+   "date": "2023-03-29",
+   "song": "Love Me Like This",
+   "show": "Show Champion"
+  },
+  {
+   "date": "2024-01-24",
+   "song": "Dash",
+   "show": "Show Champion"
+  },
+  {
+   "date": "2024-01-25",
+   "song": "Dash",
+   "show": "M Countdown"
+  },
+  {
+   "date": "2024-01-26",
+   "song": "Dash",
+   "show": "Music Bank"
+  },
+  {
+   "date": "2024-01-28",
+   "song": "Dash",
+   "show": "人氣歌謠"
+  },
+  {
+   "date": "2024-08-29",
+   "song": "별별별 (See that?)",
+   "show": "M Countdown"
+  },
+  {
+   "date": "2024-08-30",
+   "song": "별별별 (See that?)",
+   "show": "Music Bank"
+  },
+  {
+   "date": "2024-09-01",
+   "song": "별별별 (See that?)",
+   "show": "人氣歌謠"
+  },
+  {
+   "date": "2025-03-26",
+   "song": "Know About Me",
+   "show": "Show Champion"
+  },
+  {
+   "date": "2025-03-28",
+   "song": "Know About Me",
+   "show": "Music Bank"
+  },
+  {
+   "date": "2025-03-30",
+   "song": "Know About Me",
+   "show": "人氣歌謠"
+  },
+  {
+   "date": "2025-10-22",
+   "song": "Blue Valentine",
+   "show": "Show Champion"
+  },
+  {
+   "date": "2025-10-23",
+   "song": "Blue Valentine",
+   "show": "M Countdown"
+  },
+  {
+   "date": "2025-10-24",
+   "song": "Blue Valentine",
+   "show": "Music Bank"
+  },
+  {
+   "date": "2025-10-25",
+   "song": "Blue Valentine",
+   "show": "音樂中心"
+  },
+  {
+   "date": "2025-10-26",
+   "song": "Blue Valentine",
+   "show": "人氣歌謠"
+  },
+  {
+   "date": "2025-11-09",
+   "song": "Blue Valentine",
+   "show": "人氣歌謠"
+  },
+  {
+   "date": "2025-11-15",
+   "song": "Blue Valentine",
+   "show": "音樂中心"
+  },
+  {
+   "date": "2025-11-16",
+   "song": "Blue Valentine",
+   "show": "人氣歌謠"
+  },
+  {
+   "date": "2025-11-22",
+   "song": "Blue Valentine",
+   "show": "音樂中心"
+  },
+  {
+   "date": "2026-01-02",
+   "song": "Blue Valentine",
+   "show": "Music Bank"
+  },
+  {
+   "date": "2026-05-21",
+   "song": "Heavy Serenade",
+   "show": "M Countdown"
+  },
+  {
+   "date": "2026-05-22",
+   "song": "Heavy Serenade",
+   "show": "Music Bank"
+  }
+ ]
+}
