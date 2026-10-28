@@ -1,8 +1,8 @@
 {
-  "version": "1.15.3",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.15.3/bundle-1.15.3.zip",
-  "checksum": "cc2995e32f5c7b8d4ab86ca26e1598b7f56e14c003acf1316a1f5c02a5b257c9",
+  "version": "1.16.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.16.0/bundle-1.16.0.zip",
+  "checksum": "246e462d03c03160c858826b28a5f9af2f64ee0cae3224853a6fd3c9b0a6ad03",
   "minNative": 10408,
-  "notes": "開場和海嫄聊天的畫面換成明亮的粉紫色調，海嫄的圖片也去掉了黑框",
+  "notes": "新增 Lily 第二組卡片；圖鑑說明 NORMAL・RARE・DIAMOND 是真實原圖，LEGEND・SIGNATURE 是 AI 編輯（卡片左上角有標示）；新手導覽加入圖鑑介紹",
   "released": "2026-10-28"
 }
