@@ -1,8 +1,8 @@
 {
-  "version": "1.22.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.22.1/bundle-1.22.1.zip",
-  "checksum": "26ab9bd789cdce4b5ce18205edda7f8af83a80ee13bacfce95c04d6c60612ef1",
+  "version": "1.22.2",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.22.2/bundle-1.22.2.zip",
+  "checksum": "f68e9a27a78088459ea7872375d304c7daa1cefec311221fa96c46a78ed955e7",
   "minNative": 10408,
-  "notes": "導覽列、選單、通知改用線條圖示；右上角按鈕對齊",
+  "notes": "升級後由本命在大廳講解新功能，一次一個",
   "released": "2026-10-28"
 }
