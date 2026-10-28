@@ -1,8 +1,8 @@
 {
-  "version": "1.21.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.21.0/bundle-1.21.0.zip",
-  "checksum": "6730bb7755063c87d425e33ea5e5aa28564c09e680a04600255a19600d6a8e3a",
+  "version": "1.21.1",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.21.1/bundle-1.21.1.zip",
+  "checksum": "e822c48cd6453d3d624786bb636a6c4fd0b3c3fba6c00110882d3d6dd568de61",
   "minNative": 10408,
-  "notes": "📣 打榜應援：回歸期間累積應援票，NMIXX 真的拿一位就換稀有卡包；🏆 一位慶功改送一位紀念包（稀有卡包）；🎂 2/22 出道紀念日禮物；經濟調整：MIXX-FLOW 小遊戲收入降低（金色 +20、分數 ×25%），記憶閃爍每題 $10",
+  "notes": "介面文字精簡，說明更好讀",
   "released": "2026-10-28"
 }
