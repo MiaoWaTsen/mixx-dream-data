@@ -1,8 +1,8 @@
 {
-  "version": "1.17.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.17.0/bundle-1.17.0.zip",
-  "checksum": "3965e60f52110789ed9d5ba5d1e9f3e39c485d246a07c6f6655e09e1aeaa2ba7",
+  "version": "1.18.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.18.0/bundle-1.18.0.zip",
+  "checksum": "3c85abfe26193a886f7fa57d496a6e4ff8ee0c2806f36d59a3a094d442f58203",
   "minNative": 10408,
-  "notes": "開包有機率遇到 MIXXFFY（一般／成員包 2%、稀有包 5%），每隻都有隨機個性；重複遇到會升星、可以換新個性；MIXXFFY 每天有不同心情，會影響個性效果；可以選一隻當跟班：競技場應援、練習室撿東西、MIXX-FLOW 分數 ×3；到成員圖鑑按「MIXXFFY」查看與更換跟班；MIXX 島今日成員改成腳下金色光圈",
+  "notes": "新增「榮譽殿堂」（舞台 → 🏆 榮譽殿堂）；36 個成就，達成後可以領 MIXX-FLOW 或稀有卡包；部分成就會解鎖稱號，選一個顯示在名字旁邊；排行榜：成就、競技場、MIXX-FLOW、圖鑑、MIXXFFY、粉絲、等級，跟朋友比比看！",
   "released": "2026-10-28"
 }
