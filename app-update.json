@@ -1,8 +1,8 @@
 {
-  "version": "1.24.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.24.1/bundle-1.24.1.zip",
-  "checksum": "fddd1dbcb827f0596a11f678352424ae71a69630a104b13f31a15167d3a1813c",
+  "version": "1.24.2",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.24.2/bundle-1.24.2.zip",
+  "checksum": "3d15c42104d68e00cf423ae4edb72774908092508d0f79310af0b9bdddb5426e",
   "minNative": 10408,
-  "notes": "MIXXFFY RAIN 經驗改成每局最多 +50，掉落稍快；選本命按鈕修正；小島上本命會指著建築介紹；新手教學中暫時不能進 MIXX 島",
+  "notes": "經驗調整：每日任務每個 +70、日記 +50、演出 +100；存檔更省電",
   "released": "2026-10-29"
 }
