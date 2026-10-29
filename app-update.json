@@ -1,8 +1,8 @@
 {
-  "version": "1.23.3",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.23.3/bundle-1.23.3.zip",
-  "checksum": "342ffdabe40b23f70ac86df352cf78c67d68a586543ffa54f769f78482c592d3",
+  "version": "1.23.4",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.23.4/bundle-1.23.4.zip",
+  "checksum": "bfcbb6d17e307410312898d8bbfd60c605fe65496cacac7dd62d5fa81357b834",
   "minNative": 10408,
-  "notes": "修正：清除存檔後等級和卡片會跑回來",
+  "notes": "修正：輸入雲端還原碼時，輸入框被鍵盤擋住",
   "released": "2026-10-29"
 }
