@@ -1,8 +1,8 @@
 {
-  "version": "1.24.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.24.0/bundle-1.24.0.zip",
-  "checksum": "49987d4586f6d5faf855d270d499f8e04cbf97aa2a27df7bc98e93bb88194af0",
+  "version": "1.24.1",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.24.1/bundle-1.24.1.zip",
+  "checksum": "fddd1dbcb827f0596a11f678352424ae71a69630a104b13f31a15167d3a1813c",
   "minNative": 10408,
-  "notes": "新卡組：海嫄 #2；新歌：DASH",
+  "notes": "MIXXFFY RAIN 經驗改成每局最多 +50，掉落稍快；選本命按鈕修正；小島上本命會指著建築介紹；新手教學中暫時不能進 MIXX 島",
   "released": "2026-10-29"
 }
