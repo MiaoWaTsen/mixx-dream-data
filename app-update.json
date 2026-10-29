@@ -1,8 +1,8 @@
 {
-  "version": "1.24.2",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.24.2/bundle-1.24.2.zip",
-  "checksum": "3d15c42104d68e00cf423ae4edb72774908092508d0f79310af0b9bdddb5426e",
+  "version": "1.24.3",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.24.3/bundle-1.24.3.zip",
+  "checksum": "ed22a548e472cc5276684a2f7c0f0b316e15712c5f8dc0e196d9a4ff619ac264",
   "minNative": 10408,
-  "notes": "經驗調整：每日任務每個 +70、日記 +50、演出 +100；存檔更省電",
+  "notes": "設定頁新增版權聲明",
   "released": "2026-10-29"
 }
