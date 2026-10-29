@@ -1,8 +1,8 @@
 {
-  "version": "1.23.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.23.0/bundle-1.23.0.zip",
-  "checksum": "8c777b927bfc5c3f5275504b681aecd54080acfca070d5ef57a37fc7126ac02b",
+  "version": "1.23.2",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.23.2/bundle-1.23.2.zip",
+  "checksum": "57cdaa7756a4df615a8e445827c0bb1aeb204dc56791998ade459f52d97479b6",
   "minNative": 10408,
-  "notes": "MIXXFFY 會坐長椅，點牠加羈絆；噴水池每天投 🪙1 許願，位置移到舞台前；MIXXFFY 會討草莓，小島商店有賣；NMIXX 拿一位時煙火更多",
-  "released": "2026-10-28"
+  "notes": "第一次上小島會介紹小島商店；左下角顯示草莓數量",
+  "released": "2026-10-29"
 }
