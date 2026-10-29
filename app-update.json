@@ -1,8 +1,8 @@
 {
-  "version": "1.23.4",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.23.4/bundle-1.23.4.zip",
-  "checksum": "bfcbb6d17e307410312898d8bbfd60c605fe65496cacac7dd62d5fa81357b834",
+  "version": "1.23.5",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.23.5/bundle-1.23.5.zip",
+  "checksum": "d390cc5fa4f30d4ae77b1821740a16e5554548391a42dab5767b891d84904ce2",
   "minNative": 10408,
-  "notes": "修正：輸入雲端還原碼時，輸入框被鍵盤擋住",
+  "notes": "修正：點還原碼輸入框時對話框會消失；直接點本命指的按鈕，介紹框會收起來；圖鑑 Lv.1 就能用；選單把已解鎖的排在上面",
   "released": "2026-10-29"
 }
