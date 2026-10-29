@@ -1,8 +1,8 @@
 {
-  "version": "1.23.2",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.23.2/bundle-1.23.2.zip",
-  "checksum": "57cdaa7756a4df615a8e445827c0bb1aeb204dc56791998ade459f52d97479b6",
+  "version": "1.23.3",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.23.3/bundle-1.23.3.zip",
+  "checksum": "342ffdabe40b23f70ac86df352cf78c67d68a586543ffa54f769f78482c592d3",
   "minNative": 10408,
-  "notes": "第一次上小島會介紹小島商店；左下角顯示草莓數量",
+  "notes": "修正：清除存檔後等級和卡片會跑回來",
   "released": "2026-10-29"
 }
