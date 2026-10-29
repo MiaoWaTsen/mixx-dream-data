@@ -1,8 +1,8 @@
 {
-  "version": "1.24.3",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.24.3/bundle-1.24.3.zip",
-  "checksum": "ed22a548e472cc5276684a2f7c0f0b316e15712c5f8dc0e196d9a4ff619ac264",
+  "version": "1.25.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.25.0/bundle-1.25.0.zip",
+  "checksum": "8476b697661ab323b9685a5d59895ff502a4e6bd0be50342ded3c56cec84bf92",
   "minNative": 10408,
-  "notes": "設定頁新增版權聲明",
+  "notes": "新功能「投餵」：每天請今日成員吃一樣東西，猜中她的最愛羈絆 +20；羈絆頁可以看找到的最愛；新增 7 個美食成就",
   "released": "2026-10-29"
 }
