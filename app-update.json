@@ -1,8 +1,8 @@
 {
-  "version": "1.26.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.26.1/bundle-1.26.1.zip",
-  "checksum": "86618f458ac0031feac924cfc31a9fd0c7aebc6acee701b1a49c7d14f3de9ee3",
+  "version": "1.26.2",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.26.2/bundle-1.26.2.zip",
+  "checksum": "cdd0aed1a7c58c56f65db1b75995ac49225f31474384ef3f05fcacb5ab0ea405",
   "minNative": 10408,
-  "notes": "新卡：Sullyoon 第二組；圖鑑每組都標上編號（#1、#2）",
+  "notes": "新卡：Jiwoo 第二組（全部都是真實原圖）",
   "released": "2026-10-30"
 }
