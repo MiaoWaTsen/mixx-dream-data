@@ -1,8 +1,8 @@
 {
-  "version": "1.25.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.25.0/bundle-1.25.0.zip",
-  "checksum": "8476b697661ab323b9685a5d59895ff502a4e6bd0be50342ded3c56cec84bf92",
+  "version": "1.26.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.26.0/bundle-1.26.0.zip",
+  "checksum": "88fb55aaf9708e85efaf088dff77bc9e31ae1a53c493dcd91cdf23255d6a4730",
   "minNative": 10408,
-  "notes": "新功能「投餵」：每天請今日成員吃一樣東西，猜中她的最愛羈絆 +20；羈絆頁可以看找到的最愛；新增 7 個美食成就",
-  "released": "2026-10-29"
+  "notes": "新功能：手機通知（Android 新版 APK）— 本命晚上提醒你投餵、隊伍體力回滿、成員生日；設定頁可以關閉",
+  "released": "2026-10-30"
 }
