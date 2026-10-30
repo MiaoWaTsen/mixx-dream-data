@@ -1,8 +1,8 @@
 {
-  "version": "1.29.2",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.29.2/bundle-1.29.2.zip",
-  "checksum": "48098477b7f26f3eb94c85421eab04899b9fb7257719fda2d44165921a9e69ad",
+  "version": "1.29.3",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.29.3/bundle-1.29.3.zip",
+  "checksum": "9e77d77b05ab48eac4cfe8ebc5ca7fd0c611aac40946638943b2e3e36190223a",
   "minNative": 10408,
-  "notes": "背景音樂調小，音效聽得更清楚",
+  "notes": "Lily 和海嫄的打招呼多了她們的經典口頭禪",
   "released": "2026-10-30"
 }
