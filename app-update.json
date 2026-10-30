@@ -1,8 +1,8 @@
 {
-  "version": "1.28.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.28.0/bundle-1.28.0.zip",
-  "checksum": "f19e1a19c04d9def8d1926fbf0525ec64a632ccffac8499212f93187f24d05e8",
+  "version": "1.29.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.29.0/bundle-1.29.0.zip",
+  "checksum": "69d790fefdc9c5f7b7bdb8bd2989796d412cfcb661fb19645cdc4347d65ab913",
   "minNative": 10408,
-  "notes": "新功能「梗圖反應」：抽卡、輸贏、投餵、節奏遊戲時，成員梗圖會從左下角跳出來；新成就「夫妻兩人相親相愛」",
+  "notes": "節奏遊戲譜面重做：前奏不再有音符，困難變得手指跟得上；歌曲改成照順序解鎖；MIXXFFY RAIN 雙本命各 ×1.5；更多音效；前期升級更快",
   "released": "2026-10-30"
 }
