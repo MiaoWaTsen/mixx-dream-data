@@ -1,8 +1,8 @@
 {
-  "version": "1.27.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.27.0/bundle-1.27.0.zip",
-  "checksum": "f990cc36716c8894d932f2cfd3628f51270f033a5038e5ce6548b8c4a757e16e",
+  "version": "1.28.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.28.0/bundle-1.28.0.zip",
+  "checksum": "f19e1a19c04d9def8d1926fbf0525ec64a632ccffac8499212f93187f24d05e8",
   "minNative": 10408,
-  "notes": "榮譽殿堂（成就、排行榜）提早到 Lv.3 開放；更新檔變小，每次少下載約 6MB",
+  "notes": "新功能「梗圖反應」：抽卡、輸贏、投餵、節奏遊戲時，成員梗圖會從左下角跳出來；新成就「夫妻兩人相親相愛」",
   "released": "2026-10-30"
 }
