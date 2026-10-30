@@ -1,8 +1,8 @@
 {
-  "version": "1.26.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.26.0/bundle-1.26.0.zip",
-  "checksum": "88fb55aaf9708e85efaf088dff77bc9e31ae1a53c493dcd91cdf23255d6a4730",
+  "version": "1.26.1",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.26.1/bundle-1.26.1.zip",
+  "checksum": "86618f458ac0031feac924cfc31a9fd0c7aebc6acee701b1a49c7d14f3de9ee3",
   "minNative": 10408,
-  "notes": "新功能：手機通知（Android 新版 APK）— 本命晚上提醒你投餵、隊伍體力回滿、成員生日；設定頁可以關閉",
+  "notes": "新卡：Sullyoon 第二組；圖鑑每組都標上編號（#1、#2）",
   "released": "2026-10-30"
 }
