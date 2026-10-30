@@ -1,8 +1,8 @@
 {
-  "version": "1.26.2",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.26.2/bundle-1.26.2.zip",
-  "checksum": "cdd0aed1a7c58c56f65db1b75995ac49225f31474384ef3f05fcacb5ab0ea405",
+  "version": "1.27.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.27.0/bundle-1.27.0.zip",
+  "checksum": "f990cc36716c8894d932f2cfd3628f51270f033a5038e5ce6548b8c4a757e16e",
   "minNative": 10408,
-  "notes": "新卡：Jiwoo 第二組（全部都是真實原圖）",
+  "notes": "榮譽殿堂（成就、排行榜）提早到 Lv.3 開放；更新檔變小，每次少下載約 6MB",
   "released": "2026-10-30"
 }
