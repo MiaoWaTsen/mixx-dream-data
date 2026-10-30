@@ -1,8 +1,8 @@
 {
-  "version": "1.29.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.29.1/bundle-1.29.1.zip",
-  "checksum": "cf64410ba0b96edddc5737f8e74e777b1aac7ce8cb1851bd9d1e0dfd04a18944",
+  "version": "1.29.2",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.29.2/bundle-1.29.2.zip",
+  "checksum": "48098477b7f26f3eb94c85421eab04899b9fb7257719fda2d44165921a9e69ad",
   "minNative": 10408,
-  "notes": "音效變大聲；商店上方顯示你有多少 MIXX-FLOW",
+  "notes": "背景音樂調小，音效聽得更清楚",
   "released": "2026-10-30"
 }
