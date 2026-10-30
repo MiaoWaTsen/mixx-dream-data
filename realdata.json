@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28T12:28:28.234Z",
+ "updated": "2026-10-30T19:49:00.753Z",
  "tours": [
   {
    "tour": "Nmixx Change Up: Mixx Lab Fan Concert",
@@ -431,6 +431,11 @@
   {
    "date": "2026-05-22",
    "song": "Heavy Serenade",
+   "show": "Music Bank"
+  },
+  {
+   "date": "2026-10-30",
+   "song": "긴 소원 (Birthday Wish)",
    "show": "Music Bank"
   }
  ]
