@@ -1,8 +1,8 @@
 {
-  "version": "1.29.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.29.0/bundle-1.29.0.zip",
-  "checksum": "69d790fefdc9c5f7b7bdb8bd2989796d412cfcb661fb19645cdc4347d65ab913",
+  "version": "1.29.1",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.29.1/bundle-1.29.1.zip",
+  "checksum": "cf64410ba0b96edddc5737f8e74e777b1aac7ce8cb1851bd9d1e0dfd04a18944",
   "minNative": 10408,
-  "notes": "節奏遊戲譜面重做：前奏不再有音符，困難變得手指跟得上；歌曲改成照順序解鎖；MIXXFFY RAIN 雙本命各 ×1.5；更多音效；前期升級更快",
+  "notes": "音效變大聲；商店上方顯示你有多少 MIXX-FLOW",
   "released": "2026-10-30"
 }
