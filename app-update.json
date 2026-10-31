@@ -1,8 +1,8 @@
 {
-  "version": "1.32.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.32.0/bundle-1.32.0.zip",
-  "checksum": "5882db4f072bee624e0545ab0917ca2aef97130fe98451e44c6f26a37a9ecc1c",
+  "version": "1.33.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.33.0/bundle-1.33.0.zip",
+  "checksum": "e9f7818fd154a811bbea440ff13219f0094bfd2dae8db035cf47aaf76a6283f5",
   "minNative": 10408,
-  "notes": "卡片管理室長按可以一次賣多張；卡片容量 50 → 80 張；修正第二組卡重開遊戲後變回第一組",
+  "notes": "新功能「獎勵信箱」：收到獎勵時打開遊戲就會跳出來領取",
   "released": "2026-10-31"
 }
