@@ -1,9 +1,9 @@
 # Scrapes NMIXX's real tour dates and music show wins from Wikipedia into realdata.json for MIXX-DREAM.
-# Twice a day (11:00 and 23:00 Taiwan time); Actions → realdata → Run workflow runs it right away.
+# Every hour at :17 (a new 一位 reaches players' phones within about two hours); Actions → realdata → Run workflow runs it right away.
 name: realdata
 on:
   schedule:
-    - cron: '0 3,15 * * *'
+    - cron: '17 * * * *'
   workflow_dispatch:
 permissions:
   contents: write
