@@ -1,8 +1,8 @@
 {
-  "version": "1.31.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.31.0/bundle-1.31.0.zip",
-  "checksum": "ef3806c87cbd5533daabe021fad742e24ab9384984c427a8c44b81ba85991379",
+  "version": "1.32.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.32.0/bundle-1.32.0.zip",
+  "checksum": "5882db4f072bee624e0545ab0917ca2aef97130fe98451e44c6f26a37a9ecc1c",
   "minNative": 10408,
-  "notes": "更多經驗來源：開卡包、餵點心、吃便當、餵草莓，小島 MIXXFFY 頭上的 ✨ 也能點；獲得經驗時左上角會跳綠色 +數字；展示選單的 MIXXFFY 按鈕換字體",
+  "notes": "卡片管理室長按可以一次賣多張；卡片容量 50 → 80 張；修正第二組卡重開遊戲後變回第一組",
   "released": "2026-10-31"
 }
