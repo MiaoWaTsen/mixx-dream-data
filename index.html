@@ -30,7 +30,7 @@
         })();
     </script>
 
-  <script type="module" crossorigin src="./assets/index-Bs9vE8pq.js"></script>
+  <script type="module" crossorigin src="./assets/index-CXTUJ11l.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-Bw2o1nTp.css">
 <link rel="manifest" href="./manifest.webmanifest"></head>
 
@@ -302,7 +302,11 @@
                     <span id="gift-owned" style="font-size: 0.75rem; opacity: 0.7; white-space: nowrap;"></span>
                 </div>
                 <textarea id="gift-msg" class="login-input" rows="2" maxlength="100" style="resize: none;" placeholder="寫一段話給對方…（最多 100 字）"></textarea>
-                <button class="cyber-button" style="width: 100%;" onclick="sendGift()">產生禮物碼並傳送</button>
+                <div id="gift-direct" style="display: flex; gap: 8px;">
+                    <input id="gift-to" class="login-input" style="flex: 1; text-transform: uppercase;" maxlength="9" placeholder="對方好友碼 XXXX-XXXX" autocomplete="off">
+                    <button class="cyber-button" style="white-space: nowrap;" onclick="sendGiftTo()">直接送</button>
+                </div>
+                <button class="cyber-button secondary" style="width: 100%;" onclick="sendGift()">或產生禮物碼傳給對方</button>
                 <textarea id="gift-out" class="login-input" rows="2" readonly style="resize: none; font-family: monospace; font-size: 0.65rem;" placeholder="送出後禮物碼會顯示在這裡"></textarea>
             </div>
             <div class="glass-panel" style="padding: 16px;">
