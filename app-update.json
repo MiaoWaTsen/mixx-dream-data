@@ -1,8 +1,8 @@
 {
-  "version": "1.30.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.30.0/bundle-1.30.0.zip",
-  "checksum": "750c6d54ca75dc5f8a26e1167f312d21691d8c0827901bec1dadf6313e64e65e",
+  "version": "1.31.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.31.0/bundle-1.31.0.zip",
+  "checksum": "ef3806c87cbd5533daabe021fad742e24ab9384984c427a8c44b81ba85991379",
   "minNative": 10408,
-  "notes": "「展示」選單新增 MIXXFFY 入口；MIXXFFY 改成 Lv.5 開放（之後開卡包才會遇到）；成就可以領獎時榮譽殿堂有紅點",
+  "notes": "更多經驗來源：開卡包、餵點心、吃便當、餵草莓，小島 MIXXFFY 頭上的 ✨ 也能點；獲得經驗時左上角會跳綠色 +數字；展示選單的 MIXXFFY 按鈕換字體",
   "released": "2026-10-31"
 }
