@@ -1,8 +1,8 @@
 {
-  "version": "1.33.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.33.0/bundle-1.33.0.zip",
-  "checksum": "e9f7818fd154a811bbea440ff13219f0094bfd2dae8db035cf47aaf76a6283f5",
+  "version": "1.34.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.34.0/bundle-1.34.0.zip",
+  "checksum": "207d375046dbface63f447391c76e3be400d7ebf0db3053462f58475ed81b347",
   "minNative": 10408,
-  "notes": "新功能「獎勵信箱」：收到獎勵時打開遊戲就會跳出來領取",
+  "notes": "商店新增部隊鍋（$1,000）：編隊體力全部補滿；今日特價不再移到最前面",
   "released": "2026-10-31"
 }
