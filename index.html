@@ -30,8 +30,8 @@
         })();
     </script>
 
-  <script type="module" crossorigin src="./assets/index-C36fnsRc.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BkjVMbNC.css">
+  <script type="module" crossorigin src="./assets/index-YiDV9aq4.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D4j0UX7G.css">
 <link rel="manifest" href="./manifest.webmanifest"></head>
 
 <body>
@@ -500,8 +500,13 @@
     <!-- Settings Overlay -->
     <div id="settings-overlay" class="grid-overlay" style="z-index: 3300;">
         <div class="glass-panel settings-panel">
-            <h2 class="mx-title" data-en="SETTINGS">個人設定</h2>
+            <h2 class="mx-title" data-en="SETTINGS">設定</h2>
+            <div class="settings-tabs">
+                <button class="settings-tab" data-tab="game" onclick="setSettingsTab('game')">遊戲設定</button>
+                <button class="settings-tab" data-tab="system" onclick="setSettingsTab('system')">系統設定</button>
+            </div>
 
+            <div class="settings-page" data-tab="game">
             <section class="settings-section">
                 <h3 class="settings-label">玩家名稱</h3>
                 <input type="text" id="settings-name" class="login-input" maxlength="12" placeholder="輸入名稱（最多 12 字）">
@@ -529,6 +534,13 @@
                 <h3 class="settings-label">手機通知（晚上提醒、體力回滿、成員生日）</h3>
                 <div id="settings-notify"></div>
             </section>
+
+            <section class="settings-section">
+                <button class="cyber-button secondary settings-wide" onclick="restartGuide()">重看新手引導</button>
+            </section>
+            </div>
+
+            <div class="settings-page" data-tab="system">
 
             <section id="cloud-section" class="settings-section" style="display: none;">
                 <h3 class="settings-label">雲端備份（遊戲中自動備份）</h3>
@@ -559,9 +571,8 @@
                 <button id="dev-cash-btn" class="cyber-button secondary settings-wide" style="display: none;"
                     onclick="state.balance += 10000; saveState(); updateUI(); showNotification('開發者：已獲得 10000 $MIXX-FLOW！', 'success');">開發者：+10000
                     $MIXX-FLOW</button>
-                <button class="cyber-button secondary settings-wide" onclick="restartGuide()">重看新手引導</button>
                 <button class="cyber-button secondary settings-wide" onclick="openBugReport()">回報問題／許願</button>
-                <button class="cyber-button secondary settings-wide" onclick="openCopyright()">版權聲明</button>
+                <button class="cyber-button secondary settings-wide" onclick="openCopyright()">版權聲明／使用條款</button>
                 <button class="cyber-button danger settings-wide" onclick="performLogout()">清除存檔，重新開始</button>
             </section>
 
@@ -571,6 +582,7 @@
                 <button class="cyber-button secondary" onclick="checkForUpdate()">檢查更新</button>
             </div>
             <button id="apply-update-btn" class="cyber-button settings-wide" style="display: none;" onclick="applyUpdateNow()"></button>
+            </div>
             <button class="cyber-button secondary settings-wide" onclick="toggleSettings()">關閉</button>
         </div>
     </div>
