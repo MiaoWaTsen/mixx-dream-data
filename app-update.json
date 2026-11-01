@@ -1,8 +1,8 @@
 {
-  "version": "1.37.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.37.0/bundle-1.37.0.zip",
-  "checksum": "ce9fdd99a053ee64ca77589624ffaf169650332db4e318899411701130bd9031",
+  "version": "2.1.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v2.1.0/bundle-2.1.0.zip",
+  "checksum": "1cc3b1e8ca585fc114959a27626ce68f50c8215e01214ab6691eba4038469927",
   "minNative": 10408,
-  "notes": "設定分成「遊戲設定」和「系統設定」兩個分頁；開始遊戲前需要同意版權聲明與使用條款",
+  "notes": "所有成員都有 3 組卡了：新增 Jiwoo #3、Kyujin #2 #3；Bae #3 鑽石卡換新圖；修正直播／練習結算的剩餘次數顯示；選單按鈕圖片縮小，更新更快",
   "released": "2026-11-01"
 }
