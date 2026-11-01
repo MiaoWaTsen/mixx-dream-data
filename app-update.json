@@ -1,8 +1,8 @@
 {
-  "version": "1.36.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.36.0/bundle-1.36.0.zip",
-  "checksum": "59ef8b35a06af646e68bfa183364968668b944eda11026bf507657521e59a0be",
+  "version": "1.37.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.37.0/bundle-1.37.0.zip",
+  "checksum": "ce9fdd99a053ee64ca77589624ffaf169650332db4e318899411701130bd9031",
   "minNative": 10408,
-  "notes": "新卡組：Lily、Sullyoon、Haewon、Bae #3；Sullyoon #2、Lily #1 鑽石卡和 Haewon 簽卡換新圖；卡片管理室可按時間／等級／人物排序；魅力移到卡片右下角，不擋臉",
+  "notes": "設定分成「遊戲設定」和「系統設定」兩個分頁；開始遊戲前需要同意版權聲明與使用條款",
   "released": "2026-11-01"
 }
