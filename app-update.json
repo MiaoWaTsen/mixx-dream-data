@@ -1,8 +1,8 @@
 {
-  "version": "1.35.0",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.35.0/bundle-1.35.0.zip",
-  "checksum": "94bbf0d36491f6946f0513b931ee11cc09ea667095a81f25c7ecf887585206e3",
+  "version": "1.36.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v1.36.0/bundle-1.36.0.zip",
+  "checksum": "59ef8b35a06af646e68bfa183364968668b944eda11026bf507657521e59a0be",
   "minNative": 10408,
-  "notes": "禮物可以輸入好友碼直接送了，對方開遊戲就會收到",
-  "released": "2026-10-31"
+  "notes": "新卡組：Lily、Sullyoon、Haewon、Bae #3；Sullyoon #2、Lily #1 鑽石卡和 Haewon 簽卡換新圖；卡片管理室可按時間／等級／人物排序；魅力移到卡片右下角，不擋臉",
+  "released": "2026-11-01"
 }
