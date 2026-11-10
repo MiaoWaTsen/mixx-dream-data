@@ -1,8 +1,8 @@
 {
-  "version": "2.1.1",
-  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v2.1.1/bundle-2.1.1.zip",
-  "checksum": "704f5dc20866b168444bb64a84a35bd1f8a10ce0601df0ed3f10a286b0537d32",
+  "version": "2.2.0",
+  "url": "https://github.com/MiaoWaTsen/mixx-dream-data/releases/download/v2.2.0/bundle-2.2.0.zip",
+  "checksum": "938366c98661496e63e0bad8c291cbad3a8a1789dfb1da978b2641f534df5ac3",
   "minNative": 10408,
-  "notes": "🏆 NMIXX 拿下 AAA 2026 人氣獎！登入領 $3,000 + 稀有卡包 x2；到 11/11 演出 MIXX-FLOW、粉絲 ×1.5，練習經驗 ×2；MIXX 島左下角 🪙 框可以直接進小島商店",
-  "released": "2026-11-05"
+  "notes": "📅 新增「N 年前的今天」：NMIXX 以前的發行、一位、演唱會，當天登入送 $500；🔔 通知開關會顯示手機權限，新增「測試通知」",
+  "released": "2026-11-10"
 }
